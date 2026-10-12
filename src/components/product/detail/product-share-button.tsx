@@ -12,7 +12,6 @@ export function ProductShareButton({ productTitle }: { productTitle: string }) {
 
   const handleShareMobile = async () => {
     if (!navigator.share) {
-      console.log("2. مرورگر از navigator.share پشتیبانی نمی‌کند");
       toast.error(
         "مرورگر شما از قابلیت اشتراک‌ گذاری مستقیم پشتیبانی نمی‌کند.",
       );
@@ -20,15 +19,12 @@ export function ProductShareButton({ productTitle }: { productTitle: string }) {
     }
 
     try {
-      console.log("3. در حال باز کردن منوی اشتراک‌گذاری سیستم...");
       await navigator.share({
         title: productTitle,
         text: `این محصول جذاب را ببینید: ${productTitle}`,
         url: window.location.href,
       });
-      console.log("4. اشتراک‌گذاری با موفقیت کامل انجام شد");
     } catch (error: any) {
-      console.log("5. خطای catch گرفته شد:", error.name, error.message);
       if (error.name !== "AbortError") {
         toast.error("مشکلی در اشتراک‌ گذاری پیش آمد.");
       } else {
