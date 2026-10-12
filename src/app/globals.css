@@ -1,0 +1,428 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("/fonts/IRANSansWeb_Black.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url("/fonts/IRANSansWeb_Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/IRANSansWeb_Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/IRANSansWeb_Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url("/fonts/IRANSansWeb_UltraLight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("/fonts/IRANSansWeb.woff2") format("woff2");
+}
+
+:root {
+  /* ---------- Brand palette (semantic, hex only) ---------- */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-active: #1e40af;
+  --color-primary-soft: #eff6ff;
+  --color-primary-subtle: #dbeafe;
+
+  --color-success: #16a34a;
+  --color-success-soft: #f0fdf4;
+
+  --color-warning: #d97706;
+  --color-warning-soft: #fffbeb;
+
+  --color-error: #dc2626;
+  --color-error-soft: #fef2f2;
+
+  --color-sale: #dc2626;
+  --color-sale-soft: #fef2f2;
+
+  --color-background: #ffffff;
+  --color-background-secondary: #f8fafc;
+  --color-background-subtle: #f1f5f9;
+
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-text-disabled: #94a3b8;
+
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-border-subtle: #f1f5f9;
+
+  /* Deep surfaces (used sparingly for high-contrast merchandising bands) */
+  --color-ink: #0f172a;
+  --color-ink-soft: #1e293b;
+
+  /* ---------- Radius scale ---------- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  /* ---------- Elevation ---------- */
+  --shadow-soft: 0 1px 2px #0f172a0d;
+  --shadow-card: 0 1px 2px #0f172a0a, 0 8px 20px -14px #0f172a26;
+  --shadow-raised: 0 2px 6px #0f172a0f, 0 16px 34px -18px #0f172a2e;
+  --shadow-modal: 0 24px 60px -24px #0f172a4d, 0 4px 12px #0f172a14;
+
+  /* ---------- shadcn/ui semantic aliases ---------- */
+  --background: var(--color-background);
+  --foreground: var(--color-text-primary);
+  --card: #ffffff;
+  --card-foreground: var(--color-text-primary);
+  --popover: #ffffff;
+  --popover-foreground: var(--color-text-primary);
+  --primary: var(--color-primary);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-background-subtle);
+  --secondary-foreground: var(--color-text-primary);
+  --muted: var(--color-background-secondary);
+  --muted-foreground: var(--color-text-muted);
+  --accent: var(--color-primary-soft);
+  --accent-foreground: var(--color-primary-active);
+  --destructive: var(--color-error);
+  --destructive-foreground: #ffffff;
+  --success: var(--color-success);
+  --border: var(--color-border);
+  --input: var(--color-border-strong);
+  --ring: var(--color-primary);
+  --radius: var(--radius-md);
+}
+
+@theme inline {
+  --font-sans: "IRANSans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+
+  /* shadcn/ui primitives */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand utilities used directly by page-level markup */
+  --color-brand: var(--color-primary);
+  --color-brand-hover: var(--color-primary-hover);
+  --color-brand-active: var(--color-primary-active);
+  --color-brand-soft: var(--color-primary-soft);
+  --color-brand-subtle: var(--color-primary-subtle);
+  --color-brand-foreground: #ffffff;
+
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-ink-muted: #94a3b8;
+
+  --color-sale: var(--color-sale);
+  --color-sale-soft: var(--color-sale-soft);
+  --color-success-soft: var(--color-success-soft);
+  --color-warning: var(--color-warning);
+  --color-warning-soft: var(--color-warning-soft);
+  --color-error-soft: var(--color-error-soft);
+
+  --color-surface: var(--color-background);
+  --color-surface-soft: var(--color-background-secondary);
+  --color-surface-muted: var(--color-background-subtle);
+
+  --color-line: var(--color-border);
+  --color-line-strong: var(--color-border-strong);
+  --color-line-subtle: var(--color-border-subtle);
+
+  --color-body: var(--color-text-secondary);
+  --color-body-text: var(--color-text-secondary);
+  --color-subtle-ink: var(--color-text-muted);
+  --color-disabled-ink: var(--color-text-disabled);
+
+  /* Radius */
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  /* Elevation */
+  --shadow-soft: var(--shadow-soft);
+  --shadow-card: var(--shadow-card);
+  --shadow-raised: var(--shadow-raised);
+  --shadow-modal: var(--shadow-modal);
+
+  /* Typography scale (Persian-tuned, generous line-height) */
+  --text-caption: 0.6875rem; /* 11px */
+  --text-caption--line-height: 1.7;
+  --text-label: 0.75rem; /* 12px */
+  --text-label--line-height: 1.7;
+  --text-body-sm: 0.8125rem; /* 13px */
+  --text-body-sm--line-height: 1.75;
+  --text-body: 0.875rem; /* 14px */
+  --text-body--line-height: 1.9;
+  --text-body-lg: 0.9375rem; /* 15px */
+  --text-body-lg--line-height: 1.9;
+  --text-title-sm: 1rem; /* 16px */
+  --text-title-sm--line-height: 1.75;
+  --text-title: 1.125rem; /* 18px */
+  --text-title--line-height: 1.7;
+  --text-heading: 1.375rem; /* 22px */
+  --text-heading--line-height: 1.6;
+  --text-heading-lg: 1.75rem; /* 28px */
+  --text-heading-lg--line-height: 1.5;
+  --text-display: 2.125rem; /* 34px */
+  --text-display--line-height: 1.35;
+  --text-display-lg: 2.75rem; /* 44px */
+  --text-display-lg--line-height: 1.25;
+
+  /* Motion */
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.25s ease-out both;
+  --animate-fade-out: fade-out 0.2s ease-in both;
+  --animate-slide-in-right: slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-out-right: slide-out-right 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-in-left: slide-in-left 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-out-left: slide-out-left 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-in-bottom: slide-in-bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-out-bottom: slide-out-bottom 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-marquee-y: marquee-y 22s linear infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-in-bottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out-bottom {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes marquee-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.9;
+    font-weight: 400;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Persian text should never be letter-spaced */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: 0;
+    font-weight: 700;
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible, on-brand focus ring for keyboard users */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font-family: inherit;
+  }
+
+  /* Latin numerals stay tabular inside price columns */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::selection {
+    background-color: var(--color-primary-subtle);
+    color: var(--color-primary-active);
+  }
+}
+
+/* Slim, brand-coloured scrollbar for the few areas that keep native scrolling */
+@utility brand-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+/* Hidden scrollbar: used by every product rail / carousel */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+/* Section rhythm helper — keeps vertical spacing consistent across the page */
+@utility section-y {
+  padding-block: 1.75rem;
+
+  @media (min-width: 640px) {
+    padding-block: 2.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-block: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
