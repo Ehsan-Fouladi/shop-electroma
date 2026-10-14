@@ -36,7 +36,7 @@ export function BrandWall() {
                   mark={brand.mark}
                   label={brand.title}
                   latin={brand.latin}
-                  className="size-7 text-disabled-ink transition-colors group-hover:text-ink"
+                  className="size-7 transition-colors group-hover:text-ink"
                 />
                 <span className="text-label font-medium text-body transition-colors group-hover:text-brand-active">
                   {brand.title}
@@ -51,7 +51,7 @@ export function BrandWall() {
           <li>
             <Link
               href="/brands"
-              className="group flex h-full flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed border-line-strong bg-surface-soft px-3 py-4 text-center transition-colors hover:border-primary/40 hover:bg-brand-soft"
+              className="group flex h-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-line-strong bg-surface-soft px-3 py-4 text-center transition-colors hover:border-primary/40 hover:bg-brand-soft"
             >
               <span className="text-label font-medium text-brand-active">
                 مشاهده همه
