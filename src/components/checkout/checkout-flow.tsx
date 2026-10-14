@@ -393,7 +393,7 @@ export function CheckoutFlow() {
 
               {/* Add Address Dialog */}
               <Dialog open={isNewAddressOpen} onOpenChange={setIsNewAddressOpen}>
-                <DialogContent className="max-w-lg">
+                <DialogContent className="w-full max-w-lg h-full overflow-y-auto">
                   <DialogHeader>
                     <DialogTitle>افزودن نشانی جدید</DialogTitle>
                   </DialogHeader>
@@ -510,7 +510,7 @@ export function CheckoutFlow() {
                   )}
                 >
                   <label className="flex cursor-pointer items-start justify-between gap-3">
-                    <div className="flex items-start gap-3">
+                    <div className="flex items-center sm:items-start gap-3">
                       <input
                         type="radio"
                         name="payment-method"
@@ -522,17 +522,24 @@ export function CheckoutFlow() {
                       <div className="grid size-10 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand-active">
                         <CreditCard className="size-5" aria-hidden />
                       </div>
-                      <div>
+                      <div className="hidden sm:block">
                         <p className="font-bold text-ink">پرداخت اینترنتی با کلیه کارت‌های عضو شتاب</p>
                         <p className="text-caption text-subtle-ink">
                           اتصال مستقیم به درگاه پرداخت امن شاپرک (محیط شبیه‌سازی‌شده فرانت‌اند)
                         </p>
                       </div>
                     </div>
-                    <Badge variant="brand" className="shrink-0 text-caption">
+                    <Badge variant="brand" className="shrink-0 text-caption mt-1 sm:mt-0">
                       سریع و بدون کارمزد
                     </Badge>
                   </label>
+
+                  <div className="block sm:hidden">
+                    <p className="font-bold text-ink">پرداخت اینترنتی با کلیه کارت‌های عضو شتاب</p>
+                    <p className="text-caption text-subtle-ink">
+                      اتصال مستقیم به درگاه پرداخت امن شاپرک (محیط شبیه‌سازی‌شده فرانت‌اند)
+                    </p>
+                  </div>
 
                   {paymentMethod === "gateway" && (
                     <div className="mt-2 border-t border-line-subtle pt-3">
@@ -588,8 +595,9 @@ export function CheckoutFlow() {
                   )}
                 >
                   <label className="flex cursor-pointer items-start justify-between gap-3">
-                    <div className="flex items-start gap-3">
-                      <input
+                    <div className="flex items-center sm:items-start justify-between gap-3 w-full">
+                      <div className="flex max-sm:items-center gap-3">
+                        <input
                         type="radio"
                         name="payment-method"
                         value="wallet"
@@ -600,7 +608,7 @@ export function CheckoutFlow() {
                       <div className="grid size-10 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand-active">
                         <Wallet className="size-5" aria-hidden />
                       </div>
-                      <div>
+                      <div className="hidden sm:block">
                         <p className="font-bold text-ink">پرداخت با کیف پول الکتروما</p>
                         <p className="text-caption text-subtle-ink">
                           موجودی اعتباری فعلی:{" "}
@@ -609,20 +617,30 @@ export function CheckoutFlow() {
                           </span>
                         </p>
                       </div>
-                    </div>
-
-                    <div className="shrink-0">
-                      {walletBalance < grandTotal ? (
-                        <Badge variant="sale-soft" className="text-caption">
-                          کسری موجودی
-                        </Badge>
-                      ) : (
-                        <Badge variant="success" className="text-caption">
-                          موجودی کافی
-                        </Badge>
-                      )}
+                      </div>
+                      <div className="shrink-0">
+                        {walletBalance < grandTotal ? (
+                          <Badge variant="sale-soft" className="text-caption">
+                            کسری موجودی
+                          </Badge>
+                        ) : (
+                          <Badge variant="success" className="text-caption">
+                            موجودی کافی
+                          </Badge>
+                        )}
+                      </div>
                     </div>
                   </label>
+
+                  <div className="block sm:hidden">
+                      <p className="font-bold text-ink">پرداخت با کیف پول الکتروما</p>
+                      <p className="text-caption text-subtle-ink">
+                        موجودی اعتباری فعلی:{" "}
+                        <span className="font-bold text-ink">
+                          {formatPrice(walletBalance)} تومان
+                        </span>
+                      </p>
+                    </div>
 
                   {paymentMethod === "wallet" && (
                     <div className="border-t border-line-subtle pt-3 text-caption">
@@ -783,14 +801,14 @@ export function CheckoutFlow() {
           )}
 
           {/* Stepper Navigation Buttons */}
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-3">
             {step > 1 ? (
-              <Button type="button" variant="outline" onClick={handlePrevStep} className="gap-1.5">
+              <Button type="button" variant="outline" onClick={handlePrevStep} className="gap-1.5 max-sm:w-full">
                 <ArrowRight className="size-4" aria-hidden />
                 مرحله قبل
               </Button>
             ) : (
-              <Button asChild variant="outline" className="gap-1.5">
+              <Button asChild variant="outline" className="gap-1.5 max-sm:w-full">
                 <Link href="/cart">
                   <ArrowRight className="size-4" aria-hidden />
                   بازگشت به سبد خرید
@@ -799,7 +817,7 @@ export function CheckoutFlow() {
             )}
 
             {step < 4 ? (
-              <Button type="button" size="lg" onClick={handleNextStep} className="gap-1.5">
+              <Button type="button" size="lg" onClick={handleNextStep} className="gap-1.5 max-sm:w-full">
                 ادامه به مرحله بعد
                 <ArrowLeft className="size-4" aria-hidden />
               </Button>
@@ -809,7 +827,7 @@ export function CheckoutFlow() {
                 size="lg"
                 disabled={submitting}
                 onClick={handleCreateOrder}
-                className="gap-2 bg-success text-white hover:bg-success/90 shadow-soft"
+                className="gap-2 bg-success text-white hover:bg-success/90 shadow-soft max-sm:w-full"
               >
                 <Lock className="size-4" aria-hidden />
                 {submitting ? "در حال ثبت سفارش…" : "پرداخت و ثبت نهایی سفارش (نمایشی)"}

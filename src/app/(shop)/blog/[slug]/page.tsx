@@ -157,7 +157,7 @@ export default async function BlogPostPage({
             {post.title}
           </h1>
 
-          <div className="mt-4 flex items-center gap-2 text-body-sm text-subtle-ink">
+          <div className="mt-4 flex max-sm:flex-col items-center gap-2 text-body-sm text-subtle-ink">
             <span className="flex items-center gap-1.5 font-medium text-ink">
               <User className="size-4 text-brand" />
               نویسنده: {post.author}
@@ -295,8 +295,8 @@ export default async function BlogPostPage({
               <div className="border-b border-line bg-surface-soft px-5 py-3.5">
                 <h3 className="font-bold text-ink text-body-sm sm:text-title-sm">{post.table.title}</h3>
               </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-start text-caption sm:text-body-sm">
+              <div className="overflow-x-auto w-full">
+                <table className="w-full text-start max-sm:text-nowrap text-caption sm:text-body-sm">
                   <thead>
                     <tr className="border-b border-line bg-surface-soft/60">
                       {post.table.headers.map((h, i) => (
@@ -345,7 +345,7 @@ export default async function BlogPostPage({
           {/* Article FAQs */}
           {post.faqs && post.faqs.length > 0 && (
             <div className="my-10 rounded-xl border border-line bg-surface p-5 sm:p-7 shadow-soft">
-              <h3 className="text-title-sm font-bold text-ink mb-5 flex items-center gap-2">
+              <h3 className="text-sm sm:text-title-sm font-bold text-ink mb-5 flex items-center gap-2">
                 <HelpCircle className="size-5 text-brand" aria-hidden />
                 پرسش‌های متداول و پاسخ‌های تخصصی
               </h3>

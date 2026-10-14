@@ -133,7 +133,7 @@ export default function AccountAddressesPage() {
 
       {/* Add Dialog */}
       <Dialog open={isAddOpen} onOpenChange={setIsAddOpen}>
-        <DialogContent className="max-w-lg">
+        <DialogContent className="w-full max-w-lg h-full overflow-y-auto">
           <DialogHeader>
             <DialogTitle>افزودن نشانی جدید</DialogTitle>
           </DialogHeader>
@@ -156,7 +156,7 @@ export default function AccountAddressesPage() {
           if (!open) setEditingAddress(null);
         }}
       >
-        <DialogContent className="max-w-lg">
+        <DialogContent className="w-full max-w-lg h-full overflow-y-auto">
           <DialogHeader>
             <DialogTitle>ویرایش نشانی</DialogTitle>
           </DialogHeader>

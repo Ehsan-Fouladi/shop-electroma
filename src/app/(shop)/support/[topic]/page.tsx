@@ -285,8 +285,8 @@ function ShippingTopicContent() {
           مشخصات زمان‌بندی تقریبی و هزینه‌های استاندارد ارسال سفارش‌های فروشگاه
         </p>
 
-        <div className="mt-4 overflow-x-auto">
-          <table className="w-full text-start text-caption sm:text-body-sm">
+        <div className="mt-4 overflow-x-auto w-full">
+          <table className="w-full text-start max-sm:text-nowrap text-caption sm:text-body-sm">
             <thead>
               <tr className="border-b border-line bg-surface-soft text-caption font-bold text-ink">
                 <th className="p-3 text-start">روش ارسال</th>
@@ -461,9 +461,9 @@ function ShippingTopicContent() {
 
       {/* Distinction Guide: Shipping vs Cancellation vs Returns vs Warranty */}
       <div className="rounded-xl border border-line bg-surface p-5 shadow-soft sm:p-6">
-        <h2 className="text-title font-bold text-ink sm:text-heading">تفاوت رویه ارسال با سایر رویه‌های فروشگاه</h2>
-        <div className="mt-4 overflow-x-auto">
-          <table className="w-full text-start text-caption sm:text-body-sm">
+        <h2 className="text-base font-bold text-ink sm:text-heading">تفاوت رویه ارسال با سایر رویه‌های فروشگاه</h2>
+        <div className="mt-4 overflow-x-auto w-full">
+          <table className="w-full text-start max-sm:text-nowrap text-caption sm:text-body-sm">
             <thead>
               <tr className="border-b border-line bg-surface-soft font-bold text-ink">
                 <th className="p-3 text-start">موضوع رویه</th>

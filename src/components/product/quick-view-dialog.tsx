@@ -42,7 +42,7 @@ export function QuickViewDialog({
           <Eye aria-hidden />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="w-full max-w-lg sm:max-w-2xl max-sm:h-full overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="pe-8 text-body-lg leading-8 sm:text-title">
             {product.title}
@@ -80,7 +80,7 @@ export function QuickViewDialog({
         </div>
 
         <div className="flex flex-col gap-2 border-t border-line pt-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-between gap-2">
             <AddToCartButton
               productId={product.id}
               productTitle={product.title}

@@ -559,12 +559,14 @@ export function OrderTrackingLookup() {
 
             {matchedOrder.trackingCode && (
               <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-primary/20 bg-brand-soft/40 p-4">
-                <div className="flex items-center gap-2">
-                  <Truck className="size-5 text-primary" aria-hidden />
-                  <span className="text-body-sm font-medium text-ink">
-                    شماره بارنامه پستی:
-                  </span>
-                  <span dir="ltr" className="font-bold text-ink">
+                <div className="flex flex-col sm:flex-row items-center gap-2">
+                  <div className="flex items-center gap-2">
+                    <Truck className="size-5 text-primary" aria-hidden />
+                    <span className="text-body-sm font-medium text-ink">
+                      شماره بارنامه پستی:
+                    </span>
+                  </div>
+                  <span className="font-bold text-ink">
                     {matchedOrder.trackingCode}
                   </span>
                 </div>

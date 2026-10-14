@@ -113,7 +113,7 @@ function CheckoutSuccessContent() {
 
         <div className="mt-2 flex w-full flex-col gap-2.5 sm:flex-row">
           {order ? (
-            <Button asChild className="flex-1">
+            <Button asChild className="sm:flex-1">
               <Link href={`/account/orders/${order.id}/tracking`}>
                 <Truck aria-hidden />
                 پیگیری وضعیت سفارش
@@ -122,7 +122,7 @@ function CheckoutSuccessContent() {
           ) : null}
 
           {order ? (
-            <Button asChild variant="outline" className="flex-1">
+            <Button asChild variant="outline" className="sm:flex-1">
               <Link href={`/account/orders/${order.id}`}>
                 <FileText aria-hidden />
                 مشاهده جزئیات سفارش
@@ -130,7 +130,7 @@ function CheckoutSuccessContent() {
             </Button>
           ) : null}
 
-          <Button asChild variant="secondary" className="flex-1">
+          <Button asChild variant="secondary" className="sm:flex-1">
             <Link href="/products">
               <ShoppingBag aria-hidden />
               ادامه خرید

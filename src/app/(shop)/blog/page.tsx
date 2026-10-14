@@ -109,7 +109,7 @@ export default async function BlogPage({
           </div>
 
           {/* Category Filter Pills */}
-          <div className="mt-8 flex flex-wrap items-center gap-2 border-t border-line-subtle pt-6">
+          <div className="mt-8 flex flex-wrap items-center gap-1 sm:gap-2 border-t border-line-subtle pt-6">
             <span className="text-caption font-medium text-subtle-ink me-2">دسته‌بندی موضوعی:</span>
             {CATEGORIES.map((cat) => {
               const isActive = currentCategory === cat.id;
@@ -157,7 +157,7 @@ export default async function BlogPage({
 
               <div className="flex flex-1 flex-col justify-between p-6 sm:p-8">
                 <div>
-                  <div className="flex items-center gap-2 text-caption text-subtle-ink">
+                  <div className="flex flex-wrap items-center gap-2 text-caption text-subtle-ink">
                     <span className="rounded bg-brand-soft px-2.5 py-0.5 font-bold text-brand-active">
                       {featured.category}
                     </span>

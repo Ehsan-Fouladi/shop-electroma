@@ -20,7 +20,7 @@ export default function AccountReturnsPage() {
         description="پیگیری درخواست‌های بازگشت کالا و ضمانت ۷ روزه تعویض."
       />
 
-      <div className="flex justify-end">
+      <div>
         <Button asChild>
           <Link href="/account/returns/new">
             <Plus aria-hidden />

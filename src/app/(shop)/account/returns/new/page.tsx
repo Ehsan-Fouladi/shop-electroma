@@ -146,7 +146,7 @@ function NewReturnRequestContent() {
             className="flex flex-col gap-5"
           >
             <AccountPanel title="۱. انتخاب سفارش و کالا">
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <FormField
                   control={form.control}
                   name="orderId"
@@ -191,7 +191,7 @@ function NewReturnRequestContent() {
                         >
                           <SelectTrigger
                             aria-label="انتخاب شماره سفارش"
-                            className="w-full [&>span]:truncate"
+                            className="w-full truncate"
                           >
                             <SelectValue placeholder="انتخاب سفارش..." />
                           </SelectTrigger>
@@ -314,7 +314,7 @@ function NewReturnRequestContent() {
               </div>
             </AccountPanel>
 
-            <div className="flex justify-end gap-2">
+            <div className="flex justify-between gap-2">
               <Button asChild variant="outline">
                 <Link href="/account/returns">انصراف</Link>
               </Button>
