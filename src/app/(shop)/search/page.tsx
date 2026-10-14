@@ -14,7 +14,11 @@ import { Button } from "@/components/ui/button";
 import { categories } from "@/data/categories";
 import { popularSearches, recentSearches } from "@/data/navigation";
 import { products } from "@/data/products";
-import { catalogHref, parseCatalogQuery, type CatalogSearchParams } from "@/lib/catalog/query";
+import {
+  catalogHref,
+  parseCatalogQuery,
+  type CatalogSearchParams,
+} from "@/lib/catalog/query";
 import {
   buildCatalogFacets,
   filterProducts,
@@ -22,7 +26,11 @@ import {
   priceBounds,
   sortProducts,
 } from "@/lib/catalog/results";
-import { brandCountByCategory, categoryCounts, statsFor } from "@/lib/catalog/stats";
+import {
+  brandCountByCategory,
+  categoryCounts,
+  statsFor,
+} from "@/lib/catalog/stats";
 import { toPersianDigits } from "@/lib/formatters/number";
 
 export async function generateMetadata({
@@ -69,7 +77,11 @@ export default async function SearchPage({
     return (
       <Container className="flex flex-col gap-6 py-4 sm:gap-8 sm:py-6 lg:py-8">
         <CatalogHeader
-          breadcrumb={<Breadcrumb items={[{ label: "خانه", href: "/" }, { label: "جستجو" }]} />}
+          breadcrumb={
+            <Breadcrumb
+              items={[{ label: "خانه", href: "/" }, { label: "جستجو" }]}
+            />
+          }
           title="جستجو در الکتروما"
           description="نام محصول، برند یا دسته‌بندی مورد نظر را وارد کنید. همچنین می‌توانید از جستجوهای پرطرفدار زیر شروع کنید."
         />
@@ -83,7 +95,10 @@ export default async function SearchPage({
             aria-labelledby="popular-searches"
             className="flex flex-col gap-3 rounded-lg border border-line bg-surface p-4 shadow-soft sm:p-5"
           >
-            <h2 id="popular-searches" className="flex items-center gap-2 text-body-sm font-bold text-ink">
+            <h2
+              id="popular-searches"
+              className="flex items-center gap-2 text-body-sm font-bold text-ink"
+            >
               <TrendingUp className="size-4 text-brand" aria-hidden />
               جستجوهای پرطرفدار
             </h2>
@@ -105,7 +120,10 @@ export default async function SearchPage({
             aria-labelledby="recent-searches"
             className="flex flex-col gap-3 rounded-lg border border-line bg-surface p-4 shadow-soft sm:p-5"
           >
-            <h2 id="recent-searches" className="flex items-center gap-2 text-body-sm font-bold text-ink">
+            <h2
+              id="recent-searches"
+              className="flex items-center gap-2 text-body-sm font-bold text-ink"
+            >
               <Search className="size-4 text-subtle-ink" aria-hidden />
               جستجوهای اخیر
             </h2>
@@ -124,9 +142,15 @@ export default async function SearchPage({
           </section>
         </div>
 
-        <section aria-labelledby="search-categories" className="flex flex-col gap-4">
+        <section
+          aria-labelledby="search-categories"
+          className="flex flex-col gap-4"
+        >
           <div className="flex items-end justify-between gap-4">
-            <h2 id="search-categories" className="text-title font-bold text-ink">
+            <h2
+              id="search-categories"
+              className="text-title font-bold text-ink"
+            >
               دسته‌بندی‌های محبوب
             </h2>
             <Link
@@ -162,7 +186,9 @@ export default async function SearchPage({
 
   const normalizedQuery = normalizeText(query.q);
   const matchingCategories = categories
-    .filter((category) => normalizeText(category.title).includes(normalizedQuery))
+    .filter((category) =>
+      normalizeText(category.title).includes(normalizedQuery),
+    )
     .sort((a, b) => (counts.get(b.slug) ?? 0) - (counts.get(a.slug) ?? 0))
     .slice(0, 6);
 
@@ -221,7 +247,12 @@ export default async function SearchPage({
       />
 
       <div className="mx-auto w-full max-w-3xl">
-        <SearchField key={query.q} size="lg" tone="elevated" defaultValue={query.q} />
+        <SearchField
+          key={query.q}
+          size="lg"
+          tone="elevated"
+          defaultValue={query.q}
+        />
       </div>
 
       <CatalogResults
@@ -230,7 +261,12 @@ export default async function SearchPage({
         results={results}
         facets={facets}
         bounds={bounds}
-        show={{ categories: true, subcategories: false, brands: true, colors: true }}
+        show={{
+          categories: true,
+          subcategories: false,
+          brands: true,
+          colors: true,
+        }}
         empty={
           <div className="flex flex-col gap-5">
             <EmptyResults
@@ -248,8 +284,14 @@ export default async function SearchPage({
             />
 
             {matchingCategories.length ? (
-              <section aria-labelledby="search-suggested-categories" className="flex flex-col gap-3">
-                <h2 id="search-suggested-categories" className="text-title font-bold text-ink">
+              <section
+                aria-labelledby="search-suggested-categories"
+                className="flex flex-col gap-3"
+              >
+                <h2
+                  id="search-suggested-categories"
+                  className="text-title font-bold text-ink"
+                >
                   دسته‌بندی‌های مرتبط
                 </h2>
                 <ul className="flex flex-wrap gap-2">
@@ -270,9 +312,15 @@ export default async function SearchPage({
               </section>
             ) : null}
 
-            <section aria-labelledby="search-fallback" className="flex flex-col gap-4">
+            <section
+              aria-labelledby="search-fallback"
+              className="flex flex-col gap-4"
+            >
               <div className="flex items-end justify-between gap-4">
-                <h2 id="search-fallback" className="text-title font-bold text-ink">
+                <h2
+                  id="search-fallback"
+                  className="text-title font-bold text-ink"
+                >
                   پیشنهادهای محبوب
                 </h2>
                 <Button asChild variant="outline" size="sm">

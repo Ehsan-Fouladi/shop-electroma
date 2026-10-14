@@ -6,7 +6,8 @@ import { CheckoutFlow } from "@/components/checkout/checkout-flow";
 
 export const metadata: Metadata = {
   title: "تسویه حساب",
-  description: "مراحل انتخاب نشانی، روش تحویل و ثبت نهایی سفارش در فروشگاه الکتروما.",
+  description:
+    "مراحل انتخاب نشانی، روش تحویل و ثبت نهایی سفارش در فروشگاه الکتروما.",
   robots: {
     index: false,
     follow: false,
@@ -25,7 +26,9 @@ export default function CheckoutPage() {
       />
 
       <div className="flex flex-col gap-1">
-        <h1 className="text-heading font-bold text-ink sm:text-heading-lg">مراحل تسویه حساب</h1>
+        <h1 className="text-heading font-bold text-ink sm:text-heading-lg">
+          مراحل تسویه حساب
+        </h1>
         <p className="text-body-sm text-subtle-ink">
           سفارش خود را در ۴ مرحله سریع و بدون پیچیدگی تکمیل کنید.
         </p>

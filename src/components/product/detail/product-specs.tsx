@@ -10,8 +10,16 @@ import type { Product } from "@/types";
  * actually carries are rendered — never an empty row — and the two-column
  * definition list collapses to one column on small screens.
  */
-export function ProductSpecs({ product, className }: { product: Product; className?: string }) {
-  const specs = product.specs.filter((spec) => spec.label.trim() && spec.value.trim());
+export function ProductSpecs({
+  product,
+  className,
+}: {
+  product: Product;
+  className?: string;
+}) {
+  const specs = product.specs.filter(
+    (spec) => spec.label.trim() && spec.value.trim(),
+  );
 
   return (
     <section
@@ -39,8 +47,12 @@ export function ProductSpecs({ product, className }: { product: Product; classNa
               key={`${spec.label}-${spec.value}`}
               className="flex items-baseline justify-between gap-4 border-b border-line-subtle py-2.5 last:border-b-0"
             >
-              <dt className="shrink-0 text-body-sm text-subtle-ink">{spec.label}</dt>
-              <dd className="text-end text-body-sm font-medium text-ink">{spec.value}</dd>
+              <dt className="shrink-0 text-body-sm text-subtle-ink">
+                {spec.label}
+              </dt>
+              <dd className="text-end text-body-sm font-medium text-ink">
+                {spec.value}
+              </dd>
             </div>
           ))}
         </dl>

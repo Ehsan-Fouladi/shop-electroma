@@ -12,10 +12,17 @@ import { cn } from "@/lib/utils/cn";
 import { useState } from "react";
 
 /** Cart affordance: its icon opens the drawer; the text link opens the full cart. */
-export function CartLink({ className, compact = false }: { className?: string; compact?: boolean }) {
+export function CartLink({
+  className,
+  compact = false,
+}: {
+  className?: string;
+  compact?: boolean;
+}) {
   const count = useCartStore(selectCartCount);
   const [open, setOpen] = useState(false);
-  const label = count > 0 ? `سبد خرید، ${toPersianDigits(count)} کالا` : "سبد خرید خالی";
+  const label =
+    count > 0 ? `سبد خرید، ${toPersianDigits(count)} کالا` : "سبد خرید خالی";
 
   return (
     <div className={cn("inline-flex items-center gap-1 rounded-md", className)}>
@@ -39,7 +46,10 @@ export function CartLink({ className, compact = false }: { className?: string; c
         <CartDrawerContent onClose={() => setOpen(false)} />
       </Sheet>
       {!compact ? (
-        <Link href="/cart" className="rounded-sm px-1.5 py-2 text-body-sm font-medium text-ink hover:text-brand-active">
+        <Link
+          href="/cart"
+          className="rounded-sm px-1.5 py-2 text-body-sm font-medium text-ink hover:text-brand-active"
+        >
           سبد خرید
         </Link>
       ) : null}

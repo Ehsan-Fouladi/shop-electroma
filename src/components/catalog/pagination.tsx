@@ -39,7 +39,12 @@ interface PaginationProps {
  * shareable; the current page is marked for assistive tech.
  * Fully responsive and accessible in RTL layout.
  */
-export function Pagination({ query, basePath, total, className }: PaginationProps) {
+export function Pagination({
+  query,
+  basePath,
+  total,
+  className,
+}: PaginationProps) {
   if (total <= 1) return null;
 
   const current = Math.min(Math.max(1, query.page), total);
@@ -50,7 +55,10 @@ export function Pagination({ query, basePath, total, className }: PaginationProp
   return (
     <nav
       aria-label="صفحه‌بندی نتایج کاتالوگ"
-      className={cn("flex flex-wrap items-center justify-center gap-1.5 sm:gap-2", className)}
+      className={cn(
+        "flex flex-wrap items-center justify-center gap-1.5 sm:gap-2",
+        className,
+      )}
     >
       {/* Previous button (RTL forward/back: قبلی with ChevronRight) */}
       <Link

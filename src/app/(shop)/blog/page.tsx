@@ -28,7 +28,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "مجله تخصصی و راهنمای خرید کالای دیجیتال | الکتروما",
-    description: "مرجع تخصصی بررسی سخت‌افزار، راهنمای خرید و آموزش فناوری‌های دیجیتال.",
+    description:
+      "مرجع تخصصی بررسی سخت‌افزار، راهنمای خرید و آموزش فناوری‌های دیجیتال.",
     url: "/blog",
     images: [siteConfig.defaultOgImage],
   },
@@ -61,7 +62,10 @@ export default async function BlogPage({
   const total = filteredPosts.length;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const rawPage = Number.parseInt(params.page ?? "1", 10);
-  const currentPage = Math.min(Math.max(1, Number.isFinite(rawPage) ? rawPage : 1), totalPages);
+  const currentPage = Math.min(
+    Math.max(1, Number.isFinite(rawPage) ? rawPage : 1),
+    totalPages,
+  );
 
   const startIndex = (currentPage - 1) * PAGE_SIZE;
   const pagePosts = filteredPosts.slice(startIndex, startIndex + PAGE_SIZE);
@@ -78,7 +82,8 @@ export default async function BlogPage({
     return qs ? `/blog?${qs}` : "/blog";
   };
 
-  const featured = currentCategory === "all" && currentPage === 1 ? getFeaturedPost() : null;
+  const featured =
+    currentCategory === "all" && currentPage === 1 ? getFeaturedPost() : null;
 
   return (
     <div className="flex flex-col">
@@ -86,7 +91,10 @@ export default async function BlogPage({
       <div className="border-b border-line bg-gradient-to-b from-brand-soft/40 to-surface py-8 sm:py-12">
         <Container>
           <Breadcrumb
-            items={[{ label: "خانه", href: "/" }, { label: "مجله تخصصی و راهنمای خرید" }]}
+            items={[
+              { label: "خانه", href: "/" },
+              { label: "مجله تخصصی و راهنمای خرید" },
+            ]}
             className="mb-4"
           />
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -103,14 +111,17 @@ export default async function BlogPage({
                 راهنمای خرید، بررسی‌های سخت‌افزاری و آموزش فناوری
               </h1>
               <p className="mt-2 max-w-2xl text-body-sm text-subtle-ink leading-relaxed sm:text-body">
-                تحلیل‌های فنی بی‌طرفانه کارشناسان الکتروما جهت تسهیل انتخاب مطمئن، متناسب با نیاز و بودجه واقعی شما.
+                تحلیل‌های فنی بی‌طرفانه کارشناسان الکتروما جهت تسهیل انتخاب
+                مطمئن، متناسب با نیاز و بودجه واقعی شما.
               </p>
             </div>
           </div>
 
           {/* Category Filter Pills */}
           <div className="mt-8 flex flex-wrap items-center gap-1 sm:gap-2 border-t border-line-subtle pt-6">
-            <span className="text-caption font-medium text-subtle-ink me-2">دسته‌بندی موضوعی:</span>
+            <span className="text-caption font-medium text-subtle-ink me-2">
+              دسته‌بندی موضوعی:
+            </span>
             {CATEGORIES.map((cat) => {
               const isActive = currentCategory === cat.id;
               const sp = new URLSearchParams();
@@ -171,7 +182,9 @@ export default async function BlogPage({
                   </div>
 
                   <h2 className="mt-4 text-title font-bold text-ink transition-colors group-hover:text-brand-active sm:text-heading">
-                    <Link href={`/blog/${featured.slug}`}>{featured.title}</Link>
+                    <Link href={`/blog/${featured.slug}`}>
+                      {featured.title}
+                    </Link>
                   </h2>
                   <p className="mt-3 text-body-sm text-subtle-ink leading-relaxed sm:text-body">
                     {featured.excerpt}
@@ -201,7 +214,9 @@ export default async function BlogPage({
         <Container>
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-title font-bold text-ink sm:text-heading">
-              {currentCategory === "all" ? "تازه‌ترین مقالات و راهنماها" : `مقالات در دسته‌بندی ${currentCategory}`}
+              {currentCategory === "all"
+                ? "تازه‌ترین مقالات و راهنماها"
+                : `مقالات در دسته‌بندی ${currentCategory}`}
             </h2>
             <span className="text-body-sm text-subtle-ink">
               {toPersianDigits(total)} مقاله یافت شد
@@ -211,8 +226,12 @@ export default async function BlogPage({
           {pagePosts.length === 0 ? (
             <div className="flex flex-col items-center gap-3 rounded-2xl border border-line bg-surface p-12 text-center shadow-soft">
               <BookOpen className="size-10 text-disabled-ink" aria-hidden />
-              <h3 className="text-body font-bold text-ink">مقاله‌ای در این دسته‌بندی یافت نشد</h3>
-              <p className="text-caption text-subtle-ink">می‌توانید سایر دسته‌بندی‌ها را انتخاب کنید.</p>
+              <h3 className="text-body font-bold text-ink">
+                مقاله‌ای در این دسته‌بندی یافت نشد
+              </h3>
+              <p className="text-caption text-subtle-ink">
+                می‌توانید سایر دسته‌بندی‌ها را انتخاب کنید.
+              </p>
               <Button asChild variant="outline" size="sm" className="mt-2">
                 <Link href="/blog">نمایش همه مقالات</Link>
               </Button>
@@ -298,26 +317,28 @@ export default async function BlogPage({
               </Link>
 
               <ul className="flex items-center gap-1.5">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => {
-                  const isCurrent = pageNum === currentPage;
-                  return (
-                    <li key={pageNum}>
-                      <Link
-                        href={getPageUrl(pageNum)}
-                        aria-label={`صفحه ${toPersianDigits(pageNum)}`}
-                        aria-current={isCurrent ? "page" : undefined}
-                        className={cn(
-                          "grid size-10 place-items-center rounded-md border text-body-sm tabular transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 outline-none",
-                          isCurrent
-                            ? "border-primary bg-primary font-bold text-primary-foreground"
-                            : "border-line bg-surface text-body hover:border-line-strong hover:bg-surface-soft",
-                        )}
-                      >
-                        {toPersianDigits(pageNum)}
-                      </Link>
-                    </li>
-                  );
-                })}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (pageNum) => {
+                    const isCurrent = pageNum === currentPage;
+                    return (
+                      <li key={pageNum}>
+                        <Link
+                          href={getPageUrl(pageNum)}
+                          aria-label={`صفحه ${toPersianDigits(pageNum)}`}
+                          aria-current={isCurrent ? "page" : undefined}
+                          className={cn(
+                            "grid size-10 place-items-center rounded-md border text-body-sm tabular transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 outline-none",
+                            isCurrent
+                              ? "border-primary bg-primary font-bold text-primary-foreground"
+                              : "border-line bg-surface text-body hover:border-line-strong hover:bg-surface-soft",
+                          )}
+                        >
+                          {toPersianDigits(pageNum)}
+                        </Link>
+                      </li>
+                    );
+                  },
+                )}
               </ul>
 
               <Link

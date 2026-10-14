@@ -15,7 +15,10 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-import { AccountPageHeading, AccountPanel } from "@/components/account/account-page-heading";
+import {
+  AccountPageHeading,
+  AccountPanel,
+} from "@/components/account/account-page-heading";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -101,9 +104,17 @@ export default function AccountSecurityPage() {
                         type="button"
                         onClick={() => setShowOld(!showOld)}
                         className="absolute inset-y-0 left-0 flex items-center px-3 text-subtle-ink hover:text-ink focus-visible:outline-primary"
-                        aria-label={showOld ? "پنهان کردن رمز عبور فعلی" : "نمایش رمز عبور فعلی"}
+                        aria-label={
+                          showOld
+                            ? "پنهان کردن رمز عبور فعلی"
+                            : "نمایش رمز عبور فعلی"
+                        }
                       >
-                        {showOld ? <EyeOff className="size-4.5" /> : <Eye className="size-4.5" />}
+                        {showOld ? (
+                          <EyeOff className="size-4.5" />
+                        ) : (
+                          <Eye className="size-4.5" />
+                        )}
                       </button>
                     </div>
                     <FormMessage />
@@ -132,9 +143,17 @@ export default function AccountSecurityPage() {
                         type="button"
                         onClick={() => setShowNew(!showNew)}
                         className="absolute inset-y-0 left-0 flex items-center px-3 text-subtle-ink hover:text-ink focus-visible:outline-primary"
-                        aria-label={showNew ? "پنهان کردن رمز عبور جدید" : "نمایش رمز عبور جدید"}
+                        aria-label={
+                          showNew
+                            ? "پنهان کردن رمز عبور جدید"
+                            : "نمایش رمز عبور جدید"
+                        }
                       >
-                        {showNew ? <EyeOff className="size-4.5" /> : <Eye className="size-4.5" />}
+                        {showNew ? (
+                          <EyeOff className="size-4.5" />
+                        ) : (
+                          <Eye className="size-4.5" />
+                        )}
                       </button>
                     </div>
                     <FormMessage />
@@ -163,9 +182,17 @@ export default function AccountSecurityPage() {
                         type="button"
                         onClick={() => setShowConfirm(!showConfirm)}
                         className="absolute inset-y-0 left-0 flex items-center px-3 text-subtle-ink hover:text-ink focus-visible:outline-primary"
-                        aria-label={showConfirm ? "پنهان کردن تکرار رمز عبور" : "نمایش تکرار رمز عبور"}
+                        aria-label={
+                          showConfirm
+                            ? "پنهان کردن تکرار رمز عبور"
+                            : "نمایش تکرار رمز عبور"
+                        }
                       >
-                        {showConfirm ? <EyeOff className="size-4.5" /> : <Eye className="size-4.5" />}
+                        {showConfirm ? (
+                          <EyeOff className="size-4.5" />
+                        ) : (
+                          <Eye className="size-4.5" />
+                        )}
                       </button>
                     </div>
                     <FormMessage />
@@ -199,9 +226,12 @@ export default function AccountSecurityPage() {
           <AccountPanel title="تأیید دو مرحله‌ای (2FA)">
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="text-body-sm font-medium text-ink">ورود با رمز یک‌بارمصرف پیامکی</p>
+                <p className="text-body-sm font-medium text-ink">
+                  ورود با رمز یک‌بارمصرف پیامکی
+                </p>
                 <p className="mt-1 text-caption text-subtle-ink">
-                  هنگام ورود از مرورگر جدید، علاوه بر رمز عبور، یک پیامک تأیید دریافت خواهید کرد.
+                  هنگام ورود از مرورگر جدید، علاوه بر رمز عبور، یک پیامک تأیید
+                  دریافت خواهید کرد.
                 </p>
               </div>
               <button
@@ -226,8 +256,9 @@ export default function AccountSecurityPage() {
                 <span>حساب شما در وضعیت ایمن قرار دارد.</span>
               </div>
               <p className="text-subtle-ink">
-                هیچ‌گاه رمز عبور یا کد تأیید ارسال‌شده به شماره همراه خود را در اختیار دیگران قرار ندهید.
-                پشتیبانی الکتروما هرگز رمز عبور شما را درخواست نمی‌کند.
+                هیچ‌گاه رمز عبور یا کد تأیید ارسال‌شده به شماره همراه خود را در
+                اختیار دیگران قرار ندهید. پشتیبانی الکتروما هرگز رمز عبور شما را
+                درخواست نمی‌کند.
               </p>
             </div>
           </AccountPanel>
@@ -243,7 +274,9 @@ export default function AccountSecurityPage() {
             type="button"
             variant="outline"
             size="sm"
-            onClick={() => toast.success("همه نشست‌های دیگر با موفقیت بسته شدند (نمایشی).")}
+            onClick={() =>
+              toast.success("همه نشست‌های دیگر با موفقیت بسته شدند (نمایشی).")
+            }
           >
             خروج از سایر دستگاه‌ها
           </Button>
@@ -256,8 +289,12 @@ export default function AccountSecurityPage() {
                 <Laptop className="size-5" aria-hidden />
               </span>
               <div>
-                <p className="text-body-sm font-bold text-ink">مرورگر فعلی (Chrome در ویندوز)</p>
-                <p className="text-caption text-subtle-ink">تهران، ایران • هم‌اکنون فعال</p>
+                <p className="text-body-sm font-bold text-ink">
+                  مرورگر فعلی (Chrome در ویندوز)
+                </p>
+                <p className="text-caption text-subtle-ink">
+                  تهران، ایران • هم‌اکنون فعال
+                </p>
               </div>
             </div>
             <span className="rounded-full bg-success-soft px-2.5 py-0.5 text-caption font-medium text-success">
@@ -271,8 +308,12 @@ export default function AccountSecurityPage() {
                 <Smartphone className="size-5" aria-hidden />
               </span>
               <div>
-                <p className="text-body-sm font-medium text-ink">اپلیکیشن موبایل (iOS)</p>
-                <p className="text-caption text-subtle-ink">تهران، ایران • ۲ روز پیش</p>
+                <p className="text-body-sm font-medium text-ink">
+                  اپلیکیشن موبایل (iOS)
+                </p>
+                <p className="text-caption text-subtle-ink">
+                  تهران، ایران • ۲ روز پیش
+                </p>
               </div>
             </div>
             <Button

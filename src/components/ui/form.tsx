@@ -78,7 +78,11 @@ function FormItem({ className, ...props }: ComponentProps<"div">) {
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      <div data-slot="form-item" className={cn("grid gap-1.5", className)} {...props} />
+      <div
+        data-slot="form-item"
+        className={cn("grid gap-1.5", className)}
+        {...props}
+      />
     </FormItemContext.Provider>
   );
 }
@@ -93,7 +97,11 @@ function FormLabel({
     <Label
       data-slot="form-label"
       data-error={!!error}
-      className={cn("text-label font-medium text-foreground", error && "text-sale", className)}
+      className={cn(
+        "text-label font-medium text-foreground",
+        error && "text-sale",
+        className,
+      )}
       htmlFor={formItemId}
       {...props}
     />
@@ -141,7 +149,10 @@ function FormMessage({ className, children, ...props }: ComponentProps<"p">) {
       id={formMessageId}
       role="alert"
       aria-live="polite"
-      className={cn("text-caption font-medium text-sale flex items-center gap-1", className)}
+      className={cn(
+        "text-caption font-medium text-sale flex items-center gap-1",
+        className,
+      )}
       {...props}
     >
       {body}

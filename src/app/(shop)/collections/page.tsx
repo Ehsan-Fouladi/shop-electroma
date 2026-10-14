@@ -39,7 +39,9 @@ export default function CollectionsPage() {
             مجموعه‌های برگزیده دیجیتال برای نیازهای مختلف
           </h1>
           <p className="mt-2 max-w-2xl text-body-sm text-subtle-ink leading-relaxed sm:text-body">
-            اگر برای یک سناریوی خاص (مانند گیمینگ، تولید محتوا، دانشگاه یا محل کار) به دنبال ست کامل کالاها هستید، مجموعه‌های کارشناسی‌شده زیر بهترین پیشنهادها را گرد هم آورده‌اند.
+            اگر برای یک سناریوی خاص (مانند گیمینگ، تولید محتوا، دانشگاه یا محل
+            کار) به دنبال ست کامل کالاها هستید، مجموعه‌های کارشناسی‌شده زیر
+            بهترین پیشنهادها را گرد هم آورده‌اند.
           </p>
         </Container>
       </div>
@@ -48,7 +50,9 @@ export default function CollectionsPage() {
         <Container>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {curatedCollections.map((col) => {
-              const matchedProducts = products.filter((p) => col.productIds.includes(p.id));
+              const matchedProducts = products.filter((p) =>
+                col.productIds.includes(p.id),
+              );
               return (
                 <article
                   key={col.slug}
@@ -59,7 +63,10 @@ export default function CollectionsPage() {
                       <span className="rounded-full bg-brand-soft px-2.5 py-0.5 text-caption font-bold text-brand-active">
                         {col.badge}
                       </span>
-                      <span className="font-mono text-caption text-subtle-ink" dir="ltr">
+                      <span
+                        className="font-mono text-caption text-subtle-ink"
+                        dir="ltr"
+                      >
                         {col.latinTitle}
                       </span>
                     </div>
@@ -67,7 +74,9 @@ export default function CollectionsPage() {
                     <h2 className="mt-4 text-title font-bold text-ink transition-colors group-hover:text-brand-active">
                       {col.title}
                     </h2>
-                    <p className="mt-1 text-caption font-medium text-brand">{col.subtitle}</p>
+                    <p className="mt-1 text-caption font-medium text-brand">
+                      {col.subtitle}
+                    </p>
                     <p className="mt-2.5 text-body-sm text-subtle-ink leading-relaxed">
                       {col.description}
                     </p>
@@ -86,7 +95,12 @@ export default function CollectionsPage() {
                     <span className="text-caption text-subtle-ink">
                       {toPersianDigits(matchedProducts.length)} کالای منتخب
                     </span>
-                    <Button asChild variant="ghost" size="sm" className="gap-1 font-bold text-brand">
+                    <Button
+                      asChild
+                      variant="ghost"
+                      size="sm"
+                      className="gap-1 font-bold text-brand"
+                    >
                       <Link href={`/collections/${col.slug}`}>
                         مشاهده مجموعه
                         <ArrowLeft className="size-3.5" />

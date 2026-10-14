@@ -12,7 +12,11 @@ import { products } from "@/data/products";
 import { formatPrice } from "@/lib/formatters/number";
 import { useWishlistStore } from "@/store/shop-store";
 
-export function WishlistGrid({ showHeading = true }: { showHeading?: boolean }) {
+export function WishlistGrid({
+  showHeading = true,
+}: {
+  showHeading?: boolean;
+}) {
   const ids = useWishlistStore((state) => state.ids);
   const toggle = useWishlistStore((state) => state.toggle);
 
@@ -30,7 +34,9 @@ export function WishlistGrid({ showHeading = true }: { showHeading?: boolean }) 
       {showHeading && (
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-heading font-bold text-ink sm:text-heading-lg">لیست علاقه‌مندی‌ها</h1>
+            <h1 className="text-heading font-bold text-ink sm:text-heading-lg">
+              لیست علاقه‌مندی‌ها
+            </h1>
             <p className="mt-1 text-body-sm text-subtle-ink">
               کالاهایی که برای خرید بعدی نشان کرده‌اید.
             </p>
@@ -49,9 +55,12 @@ export function WishlistGrid({ showHeading = true }: { showHeading?: boolean }) 
             <Heart className="size-8" aria-hidden />
           </span>
           <div>
-            <h2 className="text-title font-bold text-ink">لیست علاقه‌مندی‌های شما خالی است</h2>
+            <h2 className="text-title font-bold text-ink">
+              لیست علاقه‌مندی‌های شما خالی است
+            </h2>
             <p className="mt-1 text-body-sm text-subtle-ink">
-              می‌توانید با کلیک روی نماد قلب روی هر کالا، آن را به این لیست اضافه کنید.
+              می‌توانید با کلیک روی نماد قلب روی هر کالا، آن را به این لیست
+              اضافه کنید.
             </p>
           </div>
           <Button asChild size="lg">
@@ -72,7 +81,10 @@ export function WishlistGrid({ showHeading = true }: { showHeading?: boolean }) 
               >
                 <div>
                   <div className="relative aspect-square overflow-hidden rounded-lg bg-surface-soft">
-                    <ProductMedia product={product} sizes="(max-width: 640px) 100vw, 240px" />
+                    <ProductMedia
+                      product={product}
+                      sizes="(max-width: 640px) 100vw, 240px"
+                    />
                     <ProductBadges product={product} />
                     <button
                       type="button"
@@ -94,7 +106,8 @@ export function WishlistGrid({ showHeading = true }: { showHeading?: boolean }) 
 
                     <div className="mt-1 flex items-baseline justify-between gap-2">
                       <div className="flex flex-col">
-                        {product.oldPrice && product.oldPrice > product.price ? (
+                        {product.oldPrice &&
+                        product.oldPrice > product.price ? (
                           <span className="text-caption text-disabled-ink line-through">
                             {formatPrice(product.oldPrice)} تومان
                           </span>

@@ -33,7 +33,10 @@ function ActiveFilters({
           className="group inline-flex items-center gap-1.5 rounded-full border border-line bg-surface py-1 ps-2.5 pe-1.5 text-label text-body transition-colors hover:border-sale/30 hover:bg-sale-soft hover:text-sale"
         >
           {chip.label}
-          <X className="size-3.5 text-disabled-ink transition-colors group-hover:text-sale" aria-hidden />
+          <X
+            className="size-3.5 text-disabled-ink transition-colors group-hover:text-sale"
+            aria-hidden
+          />
         </Link>
       ))}
 

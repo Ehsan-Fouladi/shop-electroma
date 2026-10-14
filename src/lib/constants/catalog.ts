@@ -16,7 +16,9 @@ export const sortOptions: { value: SortKey; label: string }[] = [
 
 /** `relevance` only makes sense when a query exists. */
 export function availableSortOptions(hasQuery: boolean) {
-  return sortOptions.filter((option) => hasQuery || option.value !== "relevance");
+  return sortOptions.filter(
+    (option) => hasQuery || option.value !== "relevance",
+  );
 }
 
 export const ratingOptions = [

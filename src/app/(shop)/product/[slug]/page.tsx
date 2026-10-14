@@ -64,7 +64,9 @@ export async function generateMetadata({
       title: product.title,
       description,
       url: path,
-      ...(product.image ? { images: [{ url: product.image, alt: product.title }] } : {}),
+      ...(product.image
+        ? { images: [{ url: product.image, alt: product.title }] }
+        : {}),
     },
   };
 }
@@ -92,12 +94,17 @@ export default async function ProductPage({
 
   // Only records that really carry offer numbers get a progress indicator.
   const offer =
-    typeof product.soldCount === "number" && typeof product.offerTotal === "number" && product.offerTotal > 0
+    typeof product.soldCount === "number" &&
+    typeof product.offerTotal === "number" &&
+    product.offerTotal > 0
       ? { sold: product.soldCount, total: product.offerTotal }
       : undefined;
 
   const url = `${siteConfig.url}/product/${product.slug}`;
-  const jsonLd = JSON.stringify(productJsonLd(product, url)).replace(/</g, "\\u003c");
+  const jsonLd = JSON.stringify(productJsonLd(product, url)).replace(
+    /</g,
+    "\\u003c",
+  );
 
   return (
     <Container className="flex flex-col gap-5 py-4 sm:gap-6 sm:py-6 lg:py-8">
@@ -132,7 +139,10 @@ export default async function ProductPage({
             productTitle={product.title}
             price={product.price}
             stock={product.stock}
-            colors={product.colors.map((name) => ({ name, swatch: colorSwatch(name) }))}
+            colors={product.colors.map((name) => ({
+              name,
+              swatch: colorSwatch(name),
+            }))}
             outOfStock={availability.state === "out"}
             offer={offer}
           />
@@ -193,7 +203,10 @@ export default async function ProductPage({
 
       <p className="text-caption text-disabled-ink">
         همه قیمت‌ها به تومان است. برای مشاهده شرایط ارسال و بازگشت کالا، صفحه{" "}
-        <Link href="/support/faq" className="font-medium text-brand hover:text-brand-hover">
+        <Link
+          href="/support/faq"
+          className="font-medium text-brand hover:text-brand-hover"
+        >
           پرسش‌های متداول
         </Link>{" "}
         را ببینید.

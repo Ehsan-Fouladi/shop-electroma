@@ -9,11 +9,15 @@ function Select(props: React.ComponentProps<typeof SelectPrimitive.Root>) {
   return <SelectPrimitive.Root data-slot="select" {...props} />;
 }
 
-function SelectGroup(props: React.ComponentProps<typeof SelectPrimitive.Group>) {
+function SelectGroup(
+  props: React.ComponentProps<typeof SelectPrimitive.Group>,
+) {
   return <SelectPrimitive.Group data-slot="select-group" {...props} />;
 }
 
-function SelectValue(props: React.ComponentProps<typeof SelectPrimitive.Value>) {
+function SelectValue(
+  props: React.ComponentProps<typeof SelectPrimitive.Value>,
+) {
   return <SelectPrimitive.Value data-slot="select-value" {...props} />;
 }
 
@@ -45,7 +49,10 @@ function SelectScrollUpButton({
 }: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {
   return (
     <SelectPrimitive.ScrollUpButton
-      className={cn("flex items-center justify-center py-1 text-subtle-ink", className)}
+      className={cn(
+        "flex items-center justify-center py-1 text-subtle-ink",
+        className,
+      )}
       {...props}
     >
       <ChevronUp className="size-4" aria-hidden />
@@ -59,7 +66,10 @@ function SelectScrollDownButton({
 }: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {
   return (
     <SelectPrimitive.ScrollDownButton
-      className={cn("flex items-center justify-center py-1 text-subtle-ink", className)}
+      className={cn(
+        "flex items-center justify-center py-1 text-subtle-ink",
+        className,
+      )}
       {...props}
     >
       <ChevronDown className="size-4" aria-hidden />
@@ -90,7 +100,8 @@ function SelectContent({
         <SelectPrimitive.Viewport
           className={cn(
             "p-1",
-            position === "popper" && "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]",
+            position === "popper" &&
+              "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]",
           )}
         >
           {children}
@@ -107,7 +118,10 @@ function SelectLabel({
 }: React.ComponentProps<typeof SelectPrimitive.Label>) {
   return (
     <SelectPrimitive.Label
-      className={cn("px-2.5 py-1.5 text-caption font-medium text-subtle-ink", className)}
+      className={cn(
+        "px-2.5 py-1.5 text-caption font-medium text-subtle-ink",
+        className,
+      )}
       {...props}
     />
   );

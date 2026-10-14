@@ -1,6 +1,14 @@
 "use client";
 
-import { AlertCircle, CheckCircle2, Loader2, Sparkles, Tag, Ticket, X } from "lucide-react";
+import {
+  AlertCircle,
+  CheckCircle2,
+  Loader2,
+  Sparkles,
+  Tag,
+  Ticket,
+  X,
+} from "lucide-react";
 import { toast } from "sonner";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -68,7 +76,8 @@ export function CouponSection({
         toast.success(`کد تخفیف «${result.coupon.code}» با موفقیت اعمال شد`);
       } else {
         setErrorMessage(
-          result.errorMessage || "کد تخفیف وارد شده معتبر نیست یا منقضی شده است.",
+          result.errorMessage ||
+            "کد تخفیف وارد شده معتبر نیست یا منقضی شده است.",
         );
         toast.error("کد تخفیف معتبر نیست");
       }
@@ -92,17 +101,25 @@ export function CouponSection({
   return (
     <section
       aria-labelledby="coupon-section-title"
-      className={cn("flex flex-col gap-3 rounded-lg border border-line bg-surface p-4 shadow-soft", className)}
+      className={cn(
+        "flex flex-col gap-3 rounded-lg border border-line bg-surface p-4 shadow-soft",
+        className,
+      )}
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Ticket className="size-4.5 text-brand" aria-hidden />
-          <h3 id="coupon-section-title" className="text-body-sm font-bold text-ink">
+          <h3
+            id="coupon-section-title"
+            className="text-body-sm font-bold text-ink"
+          >
             کد تخفیف
           </h3>
         </div>
         {!appliedCoupon && (
-          <span className="text-caption text-subtle-ink">دارای کد تخفیف هستید؟</span>
+          <span className="text-caption text-subtle-ink">
+            دارای کد تخفیف هستید؟
+          </span>
         )}
       </div>
 
@@ -111,9 +128,12 @@ export function CouponSection({
         <div className="flex flex-col gap-2.5">
           <Alert variant="success" className="py-2.5">
             <CheckCircle2 className="size-4 text-success" aria-hidden />
-            <AlertTitle className="text-label font-bold">کد تخفیف اعمال شد</AlertTitle>
+            <AlertTitle className="text-label font-bold">
+              کد تخفیف اعمال شد
+            </AlertTitle>
             <AlertDescription className="text-caption">
-              مبلغ {formatPrice(appliedCoupon.discountAmount)} تومان از فاکتور شما کسر گردید.
+              مبلغ {formatPrice(appliedCoupon.discountAmount)} تومان از فاکتور
+              شما کسر گردید.
             </AlertDescription>
           </Alert>
 
@@ -123,7 +143,9 @@ export function CouponSection({
                 {appliedCoupon.code}
               </Badge>
               <div className="flex flex-col">
-                <span className="text-caption font-bold text-ink">{appliedCoupon.coupon.title}</span>
+                <span className="text-caption font-bold text-ink">
+                  {appliedCoupon.coupon.title}
+                </span>
                 <span className="text-caption text-subtle-ink">
                   {appliedCoupon.coupon.description}
                 </span>
@@ -202,7 +224,12 @@ export function CouponSection({
 
           {/* Error Feedback */}
           {errorMessage && (
-            <Alert id="coupon-error" role="alert" variant="destructive" className="py-2 text-caption">
+            <Alert
+              id="coupon-error"
+              role="alert"
+              variant="destructive"
+              className="py-2 text-caption"
+            >
               <AlertCircle className="size-4 text-sale" aria-hidden />
               <AlertDescription>{errorMessage}</AlertDescription>
             </Alert>
@@ -232,7 +259,8 @@ export function CouponSection({
       )}
 
       <p className="border-t border-line-subtle pt-2 text-caption text-subtle-ink">
-        تخفیف‌ها در این نسخه نمایشی و برای ارزیابی رابط کاربری هستند و به سرور متصل نمی‌شوند.
+        تخفیف‌ها در این نسخه نمایشی و برای ارزیابی رابط کاربری هستند و به سرور
+        متصل نمی‌شوند.
       </p>
     </section>
   );

@@ -59,12 +59,15 @@ export function NewsletterSection() {
               <span className="grid size-11 place-items-center rounded-md bg-white/10 text-white">
                 <Mail className="size-5" aria-hidden />
               </span>
-              <h2 id="newsletter-title" className="text-title font-bold sm:text-heading">
+              <h2
+                id="newsletter-title"
+                className="text-title font-bold sm:text-heading"
+              >
                 از تخفیف‌ها و محصولات جدید باخبر شوید
               </h2>
               <p className="max-w-lg text-body-sm text-white/70">
-                ایمیل خود را وارد کنید تا پیشنهادهای ویژه هفتگی، تخفیف‌های محدود و
-                راهنماهای خرید را دریافت کنید.
+                ایمیل خود را وارد کنید تا پیشنهادهای ویژه هفتگی، تخفیف‌های محدود
+                و راهنماهای خرید را دریافت کنید.
               </p>
             </div>
 
@@ -120,12 +123,14 @@ export function NewsletterSection() {
                   className="flex items-center gap-1.5 text-label text-success-soft"
                 >
                   <CheckCircle2 className="size-4" aria-hidden />
-                  ثبت شد! از این پس پیشنهادهای ویژه را در ایمیل خود دریافت می‌کنید.
+                  ثبت شد! از این پس پیشنهادهای ویژه را در ایمیل خود دریافت
+                  می‌کنید.
                 </p>
               ) : null}
 
               <p className="text-caption text-white/50">
-                نشانی ایمیل شما محفوظ می‌ماند و برای تبلیغات شخص ثالث استفاده نمی‌شود.
+                نشانی ایمیل شما محفوظ می‌ماند و برای تبلیغات شخص ثالث استفاده
+                نمی‌شود.
               </p>
             </div>
           </div>

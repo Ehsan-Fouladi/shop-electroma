@@ -1,7 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { Bell, CheckCheck, ChevronLeft, ChevronRight, Tag, Truck } from "lucide-react";
+import {
+  Bell,
+  CheckCheck,
+  ChevronLeft,
+  ChevronRight,
+  Tag,
+  Truck,
+} from "lucide-react";
 import { toast } from "sonner";
 
 import { AccountPageHeading } from "@/components/account/account-page-heading";
@@ -16,10 +23,16 @@ const ITEMS_PER_PAGE = 4;
 
 export default function AccountNotificationsPage() {
   const notifications = useCustomerStore((state) => state.notifications);
-  const markNotificationRead = useCustomerStore((state) => state.markNotificationRead);
-  const markAllNotificationsRead = useCustomerStore((state) => state.markAllNotificationsRead);
+  const markNotificationRead = useCustomerStore(
+    (state) => state.markNotificationRead,
+  );
+  const markAllNotificationsRead = useCustomerStore(
+    (state) => state.markAllNotificationsRead,
+  );
 
-  const [activeTab, setActiveTab] = useState<"all" | "order" | "promotion" | "system">("all");
+  const [activeTab, setActiveTab] = useState<
+    "all" | "order" | "promotion" | "system"
+  >("all");
   const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -97,9 +110,12 @@ export default function AccountNotificationsPage() {
             <Bell className="size-8" aria-hidden />
           </span>
           <div>
-            <h2 className="text-title font-bold text-ink">اعلانی در این بخش وجود ندارد</h2>
+            <h2 className="text-title font-bold text-ink">
+              اعلانی در این بخش وجود ندارد
+            </h2>
             <p className="mt-1 text-body-sm text-subtle-ink">
-              پیام‌های جدید مربوط به سفارش‌ها یا پیشنهادهای تخفیف در اینجا نمایش داده خواهند شد.
+              پیام‌های جدید مربوط به سفارش‌ها یا پیشنهادهای تخفیف در اینجا نمایش
+              داده خواهند شد.
             </p>
           </div>
         </div>
@@ -122,12 +138,16 @@ export default function AccountNotificationsPage() {
 
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-2">
-                  <h3 className="text-body-sm font-bold text-ink">{item.title}</h3>
+                  <h3 className="text-body-sm font-bold text-ink">
+                    {item.title}
+                  </h3>
                   <span className="text-caption text-subtle-ink">
                     {formatPersianDate(item.date)}
                   </span>
                 </div>
-                <p className="mt-1 text-caption text-body">{item.description}</p>
+                <p className="mt-1 text-caption text-body">
+                  {item.description}
+                </p>
                 {item.href && (
                   <div className="mt-2">
                     <Link
@@ -141,7 +161,10 @@ export default function AccountNotificationsPage() {
               </div>
 
               {!item.read && (
-                <span className="size-2 shrink-0 rounded-full bg-primary" title="خوانده‌نشده" />
+                <span
+                  className="size-2 shrink-0 rounded-full bg-primary"
+                  title="خوانده‌نشده"
+                />
               )}
             </article>
           ))}
@@ -170,27 +193,29 @@ export default function AccountNotificationsPage() {
               </button>
 
               <ul className="flex items-center gap-1.5">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pNum) => {
-                  const isCurrent = pNum === currentPage;
-                  return (
-                    <li key={pNum}>
-                      <button
-                        type="button"
-                        onClick={() => setPage(pNum)}
-                        aria-label={`صفحه ${toPersianDigits(pNum)}`}
-                        aria-current={isCurrent ? "page" : undefined}
-                        className={cn(
-                          "grid size-10 place-items-center rounded-md border text-body-sm tabular transition-colors outline-none focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
-                          isCurrent
-                            ? "border-primary bg-primary font-bold text-primary-foreground shadow-soft"
-                            : "border-line bg-surface text-body hover:bg-surface-soft",
-                        )}
-                      >
-                        {toPersianDigits(pNum)}
-                      </button>
-                    </li>
-                  );
-                })}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (pNum) => {
+                    const isCurrent = pNum === currentPage;
+                    return (
+                      <li key={pNum}>
+                        <button
+                          type="button"
+                          onClick={() => setPage(pNum)}
+                          aria-label={`صفحه ${toPersianDigits(pNum)}`}
+                          aria-current={isCurrent ? "page" : undefined}
+                          className={cn(
+                            "grid size-10 place-items-center rounded-md border text-body-sm tabular transition-colors outline-none focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
+                            isCurrent
+                              ? "border-primary bg-primary font-bold text-primary-foreground shadow-soft"
+                              : "border-line bg-surface text-body hover:bg-surface-soft",
+                          )}
+                        >
+                          {toPersianDigits(pNum)}
+                        </button>
+                      </li>
+                    );
+                  },
+                )}
               </ul>
 
               <button

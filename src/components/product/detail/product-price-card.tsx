@@ -6,7 +6,10 @@ import { cn } from "@/lib/utils/cn";
 import type { Availability } from "@/lib/product/detail";
 import type { Product } from "@/types";
 
-const toneStyles: Record<Availability["tone"], { chip: string; icon: typeof CheckCircle2 }> = {
+const toneStyles: Record<
+  Availability["tone"],
+  { chip: string; icon: typeof CheckCircle2 }
+> = {
   success: { chip: "bg-success-soft text-success", icon: CheckCircle2 },
   warning: { chip: "bg-warning-soft text-warning", icon: TriangleAlert },
   error: { chip: "bg-sale-soft text-sale", icon: XCircle },
@@ -16,8 +19,16 @@ const toneStyles: Record<Availability["tone"], { chip: string; icon: typeof Chec
  * Price area: the availability state, the discount hierarchy and the amount the
  * buyer saves. All figures come from the record — nothing is rounded or faked.
  */
-export function ProductPriceCard({ product, availability }: { product: Product; availability: Availability }) {
-  const savings = product.oldPrice ? Math.max(0, product.oldPrice - product.price) : 0;
+export function ProductPriceCard({
+  product,
+  availability,
+}: {
+  product: Product;
+  availability: Availability;
+}) {
+  const savings = product.oldPrice
+    ? Math.max(0, product.oldPrice - product.price)
+    : 0;
   const tone = toneStyles[availability.tone];
   const StatusIcon = tone.icon;
 
@@ -43,11 +54,16 @@ export function ProductPriceCard({ product, availability }: { product: Product; 
 
       {savings > 0 ? (
         <p className="text-label text-success">
-          <span className="tabular font-bold">{formatNumber(savings)} تومان</span> سود شما از این خرید
+          <span className="tabular font-bold">
+            {formatNumber(savings)} تومان
+          </span>{" "}
+          سود شما از این خرید
         </p>
       ) : null}
 
-      <p className="border-t border-line-subtle pt-3 text-body-sm text-body">{availability.hint}</p>
+      <p className="border-t border-line-subtle pt-3 text-body-sm text-body">
+        {availability.hint}
+      </p>
     </section>
   );
 }

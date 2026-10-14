@@ -78,7 +78,9 @@ export function ReviewFormDialog({ productTitle }: { productTitle: string }) {
 
       <DialogContent className="max-w-lg">
         <DialogHeader>
-          <DialogTitle className="pe-8 text-body-lg leading-7">ثبت نظر برای این کالا</DialogTitle>
+          <DialogTitle className="pe-8 text-body-lg leading-7">
+            ثبت نظر برای این کالا
+          </DialogTitle>
           <DialogDescription className="line-clamp-2">
             {productTitle} — این فرم به نظرهای نمونه اضافه نمی‌شود.
           </DialogDescription>
@@ -120,7 +122,9 @@ export function ReviewFormDialog({ productTitle }: { productTitle: string }) {
                                 : "text-line-strong",
                             )}
                           />
-                          <span className="sr-only">{toPersianDigits(value)} از ۵</span>
+                          <span className="sr-only">
+                            {toPersianDigits(value)} از ۵
+                          </span>
                         </label>
                       ))}
                     </div>
@@ -136,7 +140,10 @@ export function ReviewFormDialog({ productTitle }: { productTitle: string }) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    نام نمایشی <span className="text-sale" aria-hidden="true">*</span>
+                    نام نمایشی{" "}
+                    <span className="text-sale" aria-hidden="true">
+                      *
+                    </span>
                     <span className="sr-only">(الزامی)</span>
                   </FormLabel>
                   <FormControl>
@@ -153,7 +160,10 @@ export function ReviewFormDialog({ productTitle }: { productTitle: string }) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    متن نظر <span className="text-sale" aria-hidden="true">*</span>
+                    متن نظر{" "}
+                    <span className="text-sale" aria-hidden="true">
+                      *
+                    </span>
                     <span className="sr-only">(الزامی، حداقل ۵ حرف)</span>
                   </FormLabel>
                   <FormControl>
@@ -169,7 +179,8 @@ export function ReviewFormDialog({ productTitle }: { productTitle: string }) {
             />
 
             <p className="rounded-md bg-warning-soft px-3 py-2.5 text-caption text-warning">
-              این فرم فقط پیش‌نمایش است؛ نظر شما ذخیره یا منتشر نمی‌شود و روی امتیاز کاتالوگ اثری ندارد.
+              این فرم فقط پیش‌نمایش است؛ نظر شما ذخیره یا منتشر نمی‌شود و روی
+              امتیاز کاتالوگ اثری ندارد.
             </p>
 
             {submitted ? (
@@ -193,7 +204,11 @@ export function ReviewFormDialog({ productTitle }: { productTitle: string }) {
                   "ارسال نظر"
                 )}
               </Button>
-              <Button type="button" variant="ghost" onClick={() => setOpen(false)}>
+              <Button
+                type="button"
+                variant="ghost"
+                onClick={() => setOpen(false)}
+              >
                 بستن
               </Button>
             </DialogFooter>

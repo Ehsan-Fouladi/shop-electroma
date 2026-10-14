@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, LayoutGrid, Search, ShoppingCart, UserRound } from "lucide-react";
+import {
+  Home,
+  LayoutGrid,
+  Search,
+  ShoppingCart,
+  UserRound,
+} from "lucide-react";
 
 import { toPersianDigits } from "@/lib/formatters/number";
 import { cn } from "@/lib/utils/cn";
@@ -28,7 +34,10 @@ export function MobileBottomNav() {
     >
       <ul className="grid grid-cols-5">
         {items.map((item) => {
-          const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+          const active =
+            item.href === "/"
+              ? pathname === "/"
+              : pathname.startsWith(item.href);
           return (
             <li key={item.href}>
               <Link
@@ -36,7 +45,9 @@ export function MobileBottomNav() {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "relative flex flex-col items-center gap-1 py-2.5 text-caption transition-colors",
-                  active ? "text-brand-active" : "text-subtle-ink hover:text-body",
+                  active
+                    ? "text-brand-active"
+                    : "text-subtle-ink hover:text-body",
                 )}
               >
                 <span className="relative">
@@ -49,7 +60,10 @@ export function MobileBottomNav() {
                 </span>
                 <span className="font-medium">{item.title}</span>
                 {active ? (
-                  <span className="absolute inset-x-4 top-0 h-0.5 rounded-full bg-primary" aria-hidden />
+                  <span
+                    className="absolute inset-x-4 top-0 h-0.5 rounded-full bg-primary"
+                    aria-hidden
+                  />
                 ) : null}
               </Link>
             </li>

@@ -12,9 +12,17 @@ import type { Product } from "@/types";
  * Identity block of the product column: brand, badges, title, rating, share
  * action and store article number. The share control remains an isolated client island.
  */
-export function ProductIdentity({ product, code }: { product: Product; code: string }) {
+export function ProductIdentity({
+  product,
+  code,
+}: {
+  product: Product;
+  code: string;
+}) {
   const brand = getBrand(product.brandSlug);
-  const recordBadge = product.badge ? productBadgeLabels[product.badge] : undefined;
+  const recordBadge = product.badge
+    ? productBadgeLabels[product.badge]
+    : undefined;
 
   // Sale treatment belongs in the price card; keep only non-sale identity badges here.
   const badges: { label: string; variant: "sale" | "success" | "ink" }[] = [];
@@ -24,7 +32,10 @@ export function ProductIdentity({ product, code }: { product: Product; code: str
   if (product.isNew && !badges.some((badge) => badge.label === "جدید")) {
     badges.push({ label: "جدید", variant: "success" });
   }
-  if (product.isBestSeller && !badges.some((badge) => badge.label === "پرفروش")) {
+  if (
+    product.isBestSeller &&
+    !badges.some((badge) => badge.label === "پرفروش")
+  ) {
     badges.push({ label: "پرفروش", variant: "ink" });
   }
 
@@ -58,7 +69,11 @@ export function ProductIdentity({ product, code }: { product: Product; code: str
       </h1>
 
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <Rating value={product.rating} reviewCount={product.reviewCount} size="default" />
+        <Rating
+          value={product.rating}
+          reviewCount={product.reviewCount}
+          size="default"
+        />
         <Link
           href="#reviews"
           className="text-label font-medium text-brand transition-colors hover:text-brand-hover"

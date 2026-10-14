@@ -81,7 +81,9 @@ function relevanceScore(product: Product, query: string): number {
   const brand = normalizeText(
     `${getBrand(product.brandSlug)?.title ?? ""} ${getBrand(product.brandSlug)?.latin ?? ""}`,
   );
-  const category = normalizeText(getCategory(product.categorySlug)?.title ?? "");
+  const category = normalizeText(
+    getCategory(product.categorySlug)?.title ?? "",
+  );
   let score = 0;
 
   for (const token of tokens) {
@@ -98,26 +100,37 @@ function relevanceScore(product: Product, query: string): number {
 /*                                  Filtering                                 */
 /* -------------------------------------------------------------------------- */
 
-export function filterProducts(source: Product[], query: CatalogQuery): Product[] {
+export function filterProducts(
+  source: Product[],
+  query: CatalogQuery,
+): Product[] {
   return source.filter((product) => {
-    if (query.categories.length && !query.categories.includes(product.categorySlug)) {
+    if (
+      query.categories.length &&
+      !query.categories.includes(product.categorySlug)
+    ) {
       return false;
     }
-    if (query.brands.length && !query.brands.includes(product.brandSlug)) return false;
+    if (query.brands.length && !query.brands.includes(product.brandSlug))
+      return false;
     if (
       query.subcategories.length &&
       !product.subcategories?.some((slug) => query.subcategories.includes(slug))
     ) {
       return false;
     }
-    if (query.colors.length && !product.colors.some((color) => query.colors.includes(color))) {
+    if (
+      query.colors.length &&
+      !product.colors.some((color) => query.colors.includes(color))
+    ) {
       return false;
     }
     if (query.minPrice !== null && product.price < query.minPrice) return false;
     if (query.maxPrice !== null && product.price > query.maxPrice) return false;
     if (query.availableOnly && product.stock <= 0) return false;
     if (query.discountedOnly && !product.oldPrice) return false;
-    if (query.minRating !== null && product.rating < query.minRating) return false;
+    if (query.minRating !== null && product.rating < query.minRating)
+      return false;
     if (query.q && !matchesQuery(product, query.q)) return false;
     return true;
   });
@@ -136,7 +149,9 @@ export function sortProducts(list: Product[], query: CatalogQuery): Product[] {
     case "expensive":
       return sorted.sort((a, b) => b.price - a.price);
     case "rating":
-      return sorted.sort((a, b) => b.rating - a.rating || b.reviewCount - a.reviewCount);
+      return sorted.sort(
+        (a, b) => b.rating - a.rating || b.reviewCount - a.reviewCount,
+      );
     case "best-selling":
       return sorted.sort((a, b) => b.reviewCount - a.reviewCount);
     case "discount":
@@ -147,11 +162,15 @@ export function sortProducts(list: Product[], query: CatalogQuery): Product[] {
       );
     case "relevance":
       return sorted.sort(
-        (a, b) => relevanceScore(b, query.q) - relevanceScore(a, query.q) || b.rating - a.rating,
+        (a, b) =>
+          relevanceScore(b, query.q) - relevanceScore(a, query.q) ||
+          b.rating - a.rating,
       );
     case "newest":
     default:
-      return sorted.sort((a, b) => Number(Boolean(b.isNew)) - Number(Boolean(a.isNew)));
+      return sorted.sort(
+        (a, b) => Number(Boolean(b.isNew)) - Number(Boolean(a.isNew)),
+      );
   }
 }
 
@@ -174,13 +193,20 @@ interface FacetContext {
   basePath: string;
 }
 
-function buildCategoryFacets({ scope, query, basePath }: FacetContext): FacetOption[] {
+function buildCategoryFacets({
+  scope,
+  query,
+  basePath,
+}: FacetContext): FacetOption[] {
   const counts = new Map<string, number>();
   // Count against every other filter so the numbers reflect what is reachable.
   const context = filterProducts(scope, { ...query, categories: [], page: 1 });
 
   for (const product of context) {
-    counts.set(product.categorySlug, (counts.get(product.categorySlug) ?? 0) + 1);
+    counts.set(
+      product.categorySlug,
+      (counts.get(product.categorySlug) ?? 0) + 1,
+    );
   }
 
   return [...counts.entries()]
@@ -197,7 +223,11 @@ function buildCategoryFacets({ scope, query, basePath }: FacetContext): FacetOpt
     .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, "fa"));
 }
 
-function buildBrandFacets({ scope, query, basePath }: FacetContext): FacetOption[] {
+function buildBrandFacets({
+  scope,
+  query,
+  basePath,
+}: FacetContext): FacetOption[] {
   const counts = new Map<string, number>();
   const context = filterProducts(scope, { ...query, brands: [], page: 1 });
 
@@ -219,7 +249,11 @@ function buildBrandFacets({ scope, query, basePath }: FacetContext): FacetOption
     .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, "fa"));
 }
 
-function buildColorFacets({ scope, query, basePath }: FacetContext): FacetOption[] {
+function buildColorFacets({
+  scope,
+  query,
+  basePath,
+}: FacetContext): FacetOption[] {
   const counts = new Map<string, number>();
   const context = filterProducts(scope, { ...query, colors: [], page: 1 });
 
@@ -240,9 +274,17 @@ function buildColorFacets({ scope, query, basePath }: FacetContext): FacetOption
     .sort((a, b) => b.count - a.count);
 }
 
-function buildSubcategoryFacets({ scope, query, basePath }: FacetContext): FacetOption[] {
+function buildSubcategoryFacets({
+  scope,
+  query,
+  basePath,
+}: FacetContext): FacetOption[] {
   const counts = new Map<string, number>();
-  const context = filterProducts(scope, { ...query, subcategories: [], page: 1 });
+  const context = filterProducts(scope, {
+    ...query,
+    subcategories: [],
+    page: 1,
+  });
 
   for (const product of context) {
     for (const slug of product.subcategories ?? []) {
@@ -302,7 +344,10 @@ export interface ActiveChip {
   href: string;
 }
 
-export function activeFilterChips(query: CatalogQuery, basePath: string): ActiveChip[] {
+export function activeFilterChips(
+  query: CatalogQuery,
+  basePath: string,
+): ActiveChip[] {
   const chips: ActiveChip[] = [];
 
   for (const slug of query.categories) {
@@ -339,7 +384,8 @@ export function activeFilterChips(query: CatalogQuery, basePath: string): Active
 
   if (query.minPrice !== null || query.maxPrice !== null) {
     const from = query.minPrice !== null ? formatNumber(query.minPrice) : "۰";
-    const to = query.maxPrice !== null ? formatNumber(query.maxPrice) : "بی‌نهایت";
+    const to =
+      query.maxPrice !== null ? formatNumber(query.maxPrice) : "بی‌نهایت";
     chips.push({
       key: "price",
       label: `قیمت: ${from} تا ${to} تومان`,

@@ -20,7 +20,10 @@ export default function GlobalError({
 
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center py-12">
-      <Container size="narrow" className="flex flex-col items-center text-center">
+      <Container
+        size="narrow"
+        className="flex flex-col items-center text-center"
+      >
         <span className="grid size-16 place-items-center rounded-2xl bg-sale-soft text-sale shadow-soft">
           <AlertTriangle className="size-8" aria-hidden />
         </span>
@@ -29,7 +32,8 @@ export default function GlobalError({
           متأسفانه خطایی در پردازش رخ داد!
         </h1>
         <p className="mt-2 max-w-md text-body-sm text-subtle-ink leading-relaxed sm:text-body">
-          مشکلی موقت در ارتباط با سامانه به وجود آمده است. می‌توانید صفحه را مجدداً تلاش کنید یا به صفحه اصلی بازگردید.
+          مشکلی موقت در ارتباط با سامانه به وجود آمده است. می‌توانید صفحه را
+          مجدداً تلاش کنید یا به صفحه اصلی بازگردید.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">

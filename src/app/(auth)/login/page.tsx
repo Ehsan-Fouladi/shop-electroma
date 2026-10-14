@@ -4,7 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Eye, EyeOff, KeyRound, Loader2, LogIn, ShieldAlert } from "lucide-react";
+import {
+  Eye,
+  EyeOff,
+  KeyRound,
+  Loader2,
+  LogIn,
+  ShieldAlert,
+} from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -53,12 +60,17 @@ export default function LoginPage() {
       <div className="mb-6 flex flex-col gap-2">
         <h1 className="text-heading font-bold text-ink">ورود به حساب کاربری</h1>
         <p className="text-body-sm text-subtle-ink">
-          برای دسترسی به سفارش‌ها و اطلاعات حساب، شماره موبایل یا ایمیل خود را وارد کنید.
+          برای دسترسی به سفارش‌ها و اطلاعات حساب، شماره موبایل یا ایمیل خود را
+          وارد کنید.
         </p>
       </div>
 
       <Form {...form}>
-        <form noValidate onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        <form
+          noValidate
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex flex-col gap-4"
+        >
           <FormField
             control={form.control}
             name="contact"
@@ -108,9 +120,15 @@ export default function LoginPage() {
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
                     className="absolute inset-y-0 left-0 flex items-center px-3 text-subtle-ink hover:text-ink focus-visible:outline-primary"
-                    aria-label={showPassword ? "پنهان کردن رمز عبور" : "نمایش رمز عبور"}
+                    aria-label={
+                      showPassword ? "پنهان کردن رمز عبور" : "نمایش رمز عبور"
+                    }
                   >
-                    {showPassword ? <EyeOff className="size-4.5" /> : <Eye className="size-4.5" />}
+                    {showPassword ? (
+                      <EyeOff className="size-4.5" />
+                    ) : (
+                      <Eye className="size-4.5" />
+                    )}
                   </button>
                 </div>
                 <FormMessage />
@@ -161,7 +179,10 @@ export default function LoginPage() {
       <div className="mt-6 flex flex-col gap-3 border-t border-line-subtle pt-6 text-center">
         <p className="text-body-sm text-subtle-ink">
           کاربر جدید هستید؟{" "}
-          <Link href="/register" className="font-bold text-brand hover:underline">
+          <Link
+            href="/register"
+            className="font-bold text-brand hover:underline"
+          >
             ثبت‌نام در الکتروما
           </Link>
         </p>
@@ -169,7 +190,8 @@ export default function LoginPage() {
         <div className="flex items-center gap-2 rounded-md bg-brand-soft/60 p-3 text-start text-caption text-brand-active">
           <ShieldAlert className="size-4 shrink-0" aria-hidden />
           <span>
-            احراز هویت در این نسخه آزمایشی است. با هر شماره یا ایمیل دلخواه می‌توانید وارد حساب نمایشی شوید.
+            احراز هویت در این نسخه آزمایشی است. با هر شماره یا ایمیل دلخواه
+            می‌توانید وارد حساب نمایشی شوید.
           </span>
         </div>
       </div>

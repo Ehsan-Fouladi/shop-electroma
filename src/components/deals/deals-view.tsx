@@ -14,10 +14,26 @@ interface DealsViewProps {
 }
 
 const coupons = [
-  { code: "ELECTROMA", desc: "۵۰۰٬۰۰۰ تومان تخفیف روی سبدهای بالای ۱۰ میلیون تومان", discount: "۵۰۰ هزار" },
-  { code: "WELCOME", desc: "۳۰۰٬۰۰۰ تومان تخفیف خرید اول برای اعضای جدید", discount: "۳۰۰ هزار" },
-  { code: "YALDA", desc: "۱۵٪ تخفیف ویژه جشنواره فصلی (تا سقف ۱ میلیون)", discount: "۱۵٪" },
-  { code: "SPECIAL20", desc: "۲۰٪ تخفیف روی تمامی لوازم جانبی و هدفون‌ها", discount: "۲۰٪" },
+  {
+    code: "ELECTROMA",
+    desc: "۵۰۰٬۰۰۰ تومان تخفیف روی سبدهای بالای ۱۰ میلیون تومان",
+    discount: "۵۰۰ هزار",
+  },
+  {
+    code: "WELCOME",
+    desc: "۳۰۰٬۰۰۰ تومان تخفیف خرید اول برای اعضای جدید",
+    discount: "۳۰۰ هزار",
+  },
+  {
+    code: "YALDA",
+    desc: "۱۵٪ تخفیف ویژه جشنواره فصلی (تا سقف ۱ میلیون)",
+    discount: "۱۵٪",
+  },
+  {
+    code: "SPECIAL20",
+    desc: "۲۰٪ تخفیف روی تمامی لوازم جانبی و هدفون‌ها",
+    discount: "۲۰٪",
+  },
 ];
 
 export function DealsView({ products }: DealsViewProps) {
@@ -29,7 +45,9 @@ export function DealsView({ products }: DealsViewProps) {
   const dealProducts = products
     .filter((p) => p.oldPrice && p.oldPrice > p.price)
     .map((p) => {
-      const discountPercent = Math.round(((p.oldPrice! - p.price) / p.oldPrice!) * 100);
+      const discountPercent = Math.round(
+        ((p.oldPrice! - p.price) / p.oldPrice!) * 100,
+      );
       return { ...p, discountPercent };
     });
 
@@ -44,7 +62,8 @@ export function DealsView({ products }: DealsViewProps) {
   ];
 
   const filtered = dealProducts.filter((p) => {
-    const matchesCategory = selectedCategory === "all" || p.categorySlug === selectedCategory;
+    const matchesCategory =
+      selectedCategory === "all" || p.categorySlug === selectedCategory;
     const matchesDiscount = p.discountPercent >= minDiscount;
     return matchesCategory && matchesDiscount;
   });
@@ -64,10 +83,13 @@ export function DealsView({ products }: DealsViewProps) {
       <div className="rounded-2xl border border-primary/20 bg-gradient-to-br from-brand-soft/60 to-surface p-5 shadow-soft sm:p-6">
         <div className="flex items-center gap-2">
           <Tag className="size-5 text-primary" />
-          <h2 className="text-body font-bold text-ink sm:text-title">کدهای تخفیف فعال امروز</h2>
+          <h2 className="text-body font-bold text-ink sm:text-title">
+            کدهای تخفیف فعال امروز
+          </h2>
         </div>
         <p className="mt-1 text-caption text-subtle-ink">
-          کد مورد نظر را کپی کرده و هنگام نهایی‌سازی سفارش در سبد خرید وارد نمایید.
+          کد مورد نظر را کپی کرده و هنگام نهایی‌سازی سفارش در سبد خرید وارد
+          نمایید.
         </p>
 
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -80,14 +102,19 @@ export function DealsView({ products }: DealsViewProps) {
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-title-sm font-bold text-brand-active" dir="ltr">
+                    <span
+                      className="font-mono text-title-sm font-bold text-brand-active"
+                      dir="ltr"
+                    >
                       {c.code}
                     </span>
                     <span className="rounded-full bg-sale-soft px-2 py-0.5 text-caption font-bold text-sale">
                       {c.discount}
                     </span>
                   </div>
-                  <p className="mt-2 line-clamp-2 text-caption text-subtle-ink">{c.desc}</p>
+                  <p className="mt-2 line-clamp-2 text-caption text-subtle-ink">
+                    {c.desc}
+                  </p>
                 </div>
 
                 <Button
@@ -161,16 +188,23 @@ export function DealsView({ products }: DealsViewProps) {
       <div>
         <div className="mb-4 flex items-center justify-between text-body-sm text-subtle-ink">
           <p>
-            نمایش <span className="font-bold text-ink">{toPersianDigits(filtered.length)}</span> کالای تخفیف‌دار
+            نمایش{" "}
+            <span className="font-bold text-ink">
+              {toPersianDigits(filtered.length)}
+            </span>{" "}
+            کالای تخفیف‌دار
           </p>
         </div>
 
         {filtered.length === 0 ? (
           <div className="rounded-xl border border-line bg-surface p-12 text-center shadow-soft">
             <Flame className="mx-auto size-12 text-subtle-ink" />
-            <h3 className="mt-3 text-title font-bold text-ink">کالایی با این فیلتر یافت نشد</h3>
+            <h3 className="mt-3 text-title font-bold text-ink">
+              کالایی با این فیلتر یافت نشد
+            </h3>
             <p className="mt-1 text-body-sm text-subtle-ink">
-              فیلتر حداقل تخفیف یا دسته انتخابی را تغییر دهید تا کالاهای شگفت‌انگیز را ببینید.
+              فیلتر حداقل تخفیف یا دسته انتخابی را تغییر دهید تا کالاهای
+              شگفت‌انگیز را ببینید.
             </p>
             <Button
               type="button"

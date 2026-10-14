@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/deals" },
   openGraph: {
     title: "پیشنهادهای شگفت‌انگیز و تخفیف‌های ویژه | الکتروما",
-    description: "تخفیف‌های ویژه روزانه، کدهای تخفیف فعال و جشنواره‌های فروش کالای دیجیتال اصل.",
+    description:
+      "تخفیف‌های ویژه روزانه، کدهای تخفیف فعال و جشنواره‌های فروش کالای دیجیتال اصل.",
     url: "/deals",
     images: [siteConfig.defaultOgImage],
   },
@@ -44,7 +45,8 @@ export default function DealsPage() {
                 تخفیف‌های داغ و پیشنهادهای منتخب الکتروما
               </h1>
               <p className="mt-1.5 max-w-2xl text-body-sm text-subtle-ink leading-relaxed sm:text-body">
-                بهترین کالاهای دیجیتال با بالاترین درصد تخفیف، گارانتی معتبر و ارسال سریع به سراسر کشور.
+                بهترین کالاهای دیجیتال با بالاترین درصد تخفیف، گارانتی معتبر و
+                ارسال سریع به سراسر کشور.
               </p>
             </div>
           </div>

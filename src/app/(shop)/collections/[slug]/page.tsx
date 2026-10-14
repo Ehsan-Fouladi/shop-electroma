@@ -47,7 +47,9 @@ export default async function CollectionDetailPage({
   const collection = getCollection(slug);
   if (!collection) notFound();
 
-  const collectionProducts = products.filter((p) => collection.productIds.includes(p.id));
+  const collectionProducts = products.filter((p) =>
+    collection.productIds.includes(p.id),
+  );
 
   return (
     <div className="flex flex-col">
@@ -67,7 +69,10 @@ export default async function CollectionDetailPage({
               <span className="rounded-full bg-brand-soft px-3 py-1 text-caption font-bold text-brand-active">
                 {collection.badge}
               </span>
-              <span className="font-mono text-caption text-subtle-ink" dir="ltr">
+              <span
+                className="font-mono text-caption text-subtle-ink"
+                dir="ltr"
+              >
                 {collection.latinTitle}
               </span>
             </div>
@@ -75,7 +80,9 @@ export default async function CollectionDetailPage({
             <h1 className="mt-2 text-heading font-bold text-ink sm:text-display">
               {collection.title}
             </h1>
-            <p className="text-body font-medium text-brand">{collection.subtitle}</p>
+            <p className="text-body font-medium text-brand">
+              {collection.subtitle}
+            </p>
             <p className="mt-1 max-w-2xl text-body-sm text-subtle-ink leading-relaxed sm:text-body">
               {collection.description}
             </p>
@@ -87,7 +94,11 @@ export default async function CollectionDetailPage({
         <Container>
           <div className="mb-6 flex items-center justify-between text-body-sm text-subtle-ink">
             <p>
-              شامل <span className="font-bold text-ink">{toPersianDigits(collectionProducts.length)}</span> محصول منتخب و سازگار با یکدیگر
+              شامل{" "}
+              <span className="font-bold text-ink">
+                {toPersianDigits(collectionProducts.length)}
+              </span>{" "}
+              محصول منتخب و سازگار با یکدیگر
             </p>
             <Button asChild variant="outline" size="sm">
               <Link href="/collections" className="gap-1">

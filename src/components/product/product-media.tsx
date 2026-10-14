@@ -21,7 +21,12 @@ interface ProductMediaProps {
  * or an image fails to load, the card renders an accessible brand-tinted device plate
  * with the category icon and Electroma styling, preventing broken-image icons and CLS.
  */
-export function ProductMedia({ product, sizes, priority, imageClassName }: ProductMediaProps) {
+export function ProductMedia({
+  product,
+  sizes,
+  priority,
+  imageClassName,
+}: ProductMediaProps) {
   const [hasError, setHasError] = useState(false);
   const category = getCategory(product.categorySlug);
 
@@ -52,7 +57,9 @@ export function ProductMedia({ product, sizes, priority, imageClassName }: Produ
         />
       </span>
       {category ? (
-        <span className="text-caption font-medium text-subtle-ink">{category.title}</span>
+        <span className="text-caption font-medium text-subtle-ink">
+          {category.title}
+        </span>
       ) : null}
     </span>
   );

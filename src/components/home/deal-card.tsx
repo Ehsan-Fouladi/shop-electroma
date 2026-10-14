@@ -26,7 +26,10 @@ export function DealCard({ product }: { product: Product }) {
       </Link>
 
       <h3 className="text-body-sm font-medium leading-7 text-foreground">
-        <Link href={`/product/${product.slug}`} className="line-clamp-2 hover:text-brand">
+        <Link
+          href={`/product/${product.slug}`}
+          className="line-clamp-2 hover:text-brand"
+        >
           {product.title}
         </Link>
       </h3>
@@ -50,7 +53,9 @@ export function DealCard({ product }: { product: Product }) {
           />
         </div>
         <div className="flex items-center justify-between gap-2 text-caption">
-          <span className="text-sale">{toPersianDigits(percent)}٪ فروش رفته</span>
+          <span className="text-sale">
+            {toPersianDigits(percent)}٪ فروش رفته
+          </span>
           <span className="text-subtle-ink">
             {toPersianDigits(product.stock)} عدد باقی مانده
           </span>

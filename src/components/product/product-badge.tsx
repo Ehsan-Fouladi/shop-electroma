@@ -2,7 +2,10 @@ import { Badge } from "@/components/ui/badge";
 import { discountPercent, formatPercent } from "@/lib/formatters/number";
 import type { Product } from "@/types";
 
-export const productBadgeLabels: Record<string, { label: string; variant: "sale" | "ink" | "success" }> = {
+export const productBadgeLabels: Record<
+  string,
+  { label: string; variant: "sale" | "ink" | "success" }
+> = {
   sale: { label: "تخفیف", variant: "sale" },
   amazing: { label: "پیشنهاد ویژه", variant: "sale" },
   bestseller: { label: "پرفروش", variant: "ink" },

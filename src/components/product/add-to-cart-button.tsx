@@ -45,7 +45,9 @@ export function AddToCartButton({
     try {
       addItem(productId, quantity, variant);
     } catch {
-      toast.error("افزودن کالا به سبد خرید انجام نشد.", { id: `cart-${productId}` });
+      toast.error("افزودن کالا به سبد خرید انجام نشد.", {
+        id: `cart-${productId}`,
+      });
       return;
     }
 
@@ -64,7 +66,11 @@ export function AddToCartButton({
       variant={added ? "subtle" : "default"}
       className={className}
       disabled={disabled}
-      aria-label={added ? `${productTitle} به سبد خرید اضافه شد` : `افزودن ${productTitle} به سبد خرید`}
+      aria-label={
+        added
+          ? `${productTitle} به سبد خرید اضافه شد`
+          : `افزودن ${productTitle} به سبد خرید`
+      }
       onClick={handleAdd}
     >
       {added ? <Check aria-hidden /> : <ShoppingCart aria-hidden />}

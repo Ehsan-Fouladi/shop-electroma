@@ -20,7 +20,10 @@ import { formatNumber } from "@/lib/formatters/number";
  */
 export function CategoryDiscovery() {
   return (
-    <Section aria-labelledby="home-categories" className="!pt-6 pb-0 sm:!pt-8 lg:!pt-10">
+    <Section
+      aria-labelledby="home-categories"
+      className="!pt-6 pb-0 sm:!pt-8 lg:!pt-10"
+    >
       <Container className="flex flex-col gap-4 sm:gap-5">
         <SectionHeading
           title="دسته‌بندی‌ها"
@@ -33,7 +36,11 @@ export function CategoryDiscovery() {
           دسته‌بندی‌های فروشگاه
         </h2>
 
-        <div data-rail aria-label="دسته‌بندی‌های تصویری" className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 sm:-mx-6 sm:gap-4 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0">
+        <div
+          data-rail
+          aria-label="دسته‌بندی‌های تصویری"
+          className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 sm:-mx-6 sm:gap-4 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0"
+        >
           {categoryImageTiles.map((category) => (
             <Link
               key={category.slug}
@@ -56,7 +63,9 @@ export function CategoryDiscovery() {
 
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-3.5 sm:p-4">
                 <div className="min-w-0 text-white">
-                  <p className="truncate text-body-lg font-bold">{category.title}</p>
+                  <p className="truncate text-body-lg font-bold">
+                    {category.title}
+                  </p>
                   <p className="mt-0.5 text-label text-white/80">
                     {formatNumber(category.productCount)} کالا
                     {category.highlight ? ` • ${category.highlight}` : ""}

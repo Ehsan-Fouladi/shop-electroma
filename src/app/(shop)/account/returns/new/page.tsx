@@ -235,10 +235,7 @@ function NewReturnRequestContent() {
                           </SelectTrigger>
                           <SelectContent>
                             {REASONS.map((r) => (
-                              <SelectItem
-                                key={r}
-                                value={String(r)}
-                              >
+                              <SelectItem key={r} value={String(r)}>
                                 {r}
                               </SelectItem>
                             ))}

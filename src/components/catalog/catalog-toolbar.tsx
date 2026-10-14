@@ -30,14 +30,16 @@ export function CatalogToolbar({
         className,
       )}
     >
-
       <div className="flex min-w-0 flex-wrap items-center gap-2">
         {filterTrigger}
         {sort}
       </div>
 
       <p className="text-body-sm text-body">
-        <span className="tabular font-bold text-ink">{toPersianDigits(resultCount)}</span> {label}
+        <span className="tabular font-bold text-ink">
+          {toPersianDigits(resultCount)}
+        </span>{" "}
+        {label}
       </p>
     </div>
   );

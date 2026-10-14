@@ -34,7 +34,8 @@ export default function CategoriesPage() {
   const ordered = [...categories].sort((a, b) => {
     const countA = counts.get(a.slug) ?? 0;
     const countB = counts.get(b.slug) ?? 0;
-    if (countA === 0 && countB === 0) return a.title.localeCompare(b.title, "fa");
+    if (countA === 0 && countB === 0)
+      return a.title.localeCompare(b.title, "fa");
     if (countA === 0) return 1;
     if (countB === 0) return -1;
     return countB - countA;
@@ -58,7 +59,9 @@ export default function CategoriesPage() {
     <Container className="flex flex-col gap-6 py-4 sm:gap-8 sm:py-6 lg:py-8">
       <CatalogHeader
         breadcrumb={
-          <Breadcrumb items={[{ label: "خانه", href: "/" }, { label: "دسته‌بندی‌ها" }]} />
+          <Breadcrumb
+            items={[{ label: "خانه", href: "/" }, { label: "دسته‌بندی‌ها" }]}
+          />
         }
         title="دسته‌بندی‌ها"
         description="کل کاتالوگ الکتروما در یک نگاه. دسته‌بندی مناسب را انتخاب کنید تا محصولات، فیلترها و امتیاز کاربران همان دسته را ببینید."
@@ -117,7 +120,10 @@ export default function CategoriesPage() {
         >
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
-              <h2 id="popular-subcategories" className="text-title font-bold text-ink">
+              <h2
+                id="popular-subcategories"
+                className="text-title font-bold text-ink"
+              >
                 زیردسته‌های پرطرفدار
               </h2>
               <p className="mt-1 text-body-sm text-subtle-ink">

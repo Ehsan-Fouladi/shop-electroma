@@ -12,7 +12,8 @@ function AccountPageHeading({
   description?: React.ReactNode;
   breadcrumbTitle?: string;
 }) {
-  const label = breadcrumbTitle ?? (typeof title === "string" ? title : undefined);
+  const label =
+    breadcrumbTitle ?? (typeof title === "string" ? title : undefined);
   return (
     <div className="mb-5 flex flex-col gap-2.5 sm:mb-6">
       <Breadcrumb
@@ -23,8 +24,12 @@ function AccountPageHeading({
         ]}
       />
       <div>
-        <h1 className="text-heading font-bold text-ink sm:text-heading-lg">{title}</h1>
-        {description ? <p className="mt-1 text-body-sm text-body">{description}</p> : null}
+        <h1 className="text-heading font-bold text-ink sm:text-heading-lg">
+          {title}
+        </h1>
+        {description ? (
+          <p className="mt-1 text-body-sm text-body">{description}</p>
+        ) : null}
       </div>
     </div>
   );
@@ -44,12 +49,18 @@ function AccountPanel({
   className?: string;
 }) {
   return (
-    <section className={`rounded-lg border border-line bg-surface p-4 shadow-soft sm:p-5 ${className}`}>
+    <section
+      className={`rounded-lg border border-line bg-surface p-4 shadow-soft sm:p-5 ${className}`}
+    >
       {title || action ? (
         <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
           <div>
-            {title ? <h2 className="text-title font-bold text-ink">{title}</h2> : null}
-            {description ? <p className="mt-1 text-caption text-subtle-ink">{description}</p> : null}
+            {title ? (
+              <h2 className="text-title font-bold text-ink">{title}</h2>
+            ) : null}
+            {description ? (
+              <p className="mt-1 text-caption text-subtle-ink">{description}</p>
+            ) : null}
           </div>
           {action}
         </div>
@@ -61,7 +72,10 @@ function AccountPanel({
 
 function AccountBackLink({ href, label }: { href: string; label: string }) {
   return (
-    <Link href={href} className="inline-flex items-center gap-1 text-label font-medium text-brand hover:underline">
+    <Link
+      href={href}
+      className="inline-flex items-center gap-1 text-label font-medium text-brand hover:underline"
+    >
       <ChevronRight className="size-3.5" aria-hidden />
       {label}
     </Link>

@@ -55,7 +55,9 @@ export function BlogPreview() {
                 <h3 className="text-title font-bold text-ink transition-colors group-hover:text-brand-active sm:text-heading">
                   {featured.title}
                 </h3>
-                <p className="line-clamp-2 text-body-sm text-body">{featured.excerpt}</p>
+                <p className="line-clamp-2 text-body-sm text-body">
+                  {featured.excerpt}
+                </p>
                 <div className="mt-auto flex items-center justify-between gap-3 pt-1 text-caption text-subtle-ink">
                   <span>{formatPersianDate(featured.publishedAt)}</span>
                   <span className="inline-flex items-center gap-1 font-medium text-brand">

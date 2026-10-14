@@ -62,8 +62,7 @@ export default function AccountProfilePage() {
 
   const [isEditing, setIsEditing] = useState(false);
   const [showMaskedSheba, setShowMaskedSheba] = useState(true);
-  const [showMaskedNationalCode, setShowMaskedNationalCode] =
-    useState(true);
+  const [showMaskedNationalCode, setShowMaskedNationalCode] = useState(true);
 
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileSchema),

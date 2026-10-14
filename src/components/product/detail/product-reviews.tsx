@@ -7,10 +7,18 @@ import { cn } from "@/lib/utils/cn";
 import type { Product } from "@/types";
 
 /** Existing catalogue aggregate plus clearly identified, non-customer demo copy. */
-export function ProductReviews({ product, className }: { product: Product; className?: string }) {
+export function ProductReviews({
+  product,
+  className,
+}: {
+  product: Product;
+  className?: string;
+}) {
   const filled = Math.round(product.rating);
   const demoReviews = getProductDemoReviews(product.id);
-  const reviewCount = toPersianDigits(product.reviewCount.toLocaleString("en-US"));
+  const reviewCount = toPersianDigits(
+    product.reviewCount.toLocaleString("en-US"),
+  );
 
   return (
     <section
@@ -40,7 +48,9 @@ export function ProductReviews({ product, className }: { product: Product; class
                   key={value}
                   className={cn(
                     "size-4",
-                    value <= filled ? "fill-warning text-warning" : "text-line-strong",
+                    value <= filled
+                      ? "fill-warning text-warning"
+                      : "text-line-strong",
                   )}
                 />
               ))}
@@ -50,7 +60,8 @@ export function ProductReviews({ product, className }: { product: Product; class
             </span>
           </span>
           <span className="sr-only">
-            میانگین امتیاز کاتالوگ {toPersianDigits(product.rating.toFixed(1))} از ۵ بر پایه {reviewCount} امتیاز
+            میانگین امتیاز کاتالوگ {toPersianDigits(product.rating.toFixed(1))}{" "}
+            از ۵ بر پایه {reviewCount} امتیاز
           </span>
         </div>
         <p className="text-caption text-subtle-ink">
@@ -69,7 +80,8 @@ export function ProductReviews({ product, className }: { product: Product; class
           </span>
         </div>
         <p className="text-body-sm text-body">
-          متن‌های زیر صرفاً برای نمایش نمونه هستند و نظر تأییدشده یا تجربه‌ی واقعی خریداران نیستند.
+          متن‌های زیر صرفاً برای نمایش نمونه هستند و نظر تأییدشده یا تجربه‌ی
+          واقعی خریداران نیستند.
         </p>
 
         <ul
@@ -82,7 +94,9 @@ export function ProductReviews({ product, className }: { product: Product; class
               className="flex min-w-0 flex-col gap-3 rounded-md border border-line bg-surface p-3.5"
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="text-label font-semibold text-ink">{review.name}</span>
+                <span className="text-label font-semibold text-ink">
+                  {review.name}
+                </span>
                 <span className="rounded-full bg-surface-muted px-2 py-1 text-caption text-subtle-ink">
                   نظر نمونه
                 </span>
@@ -99,7 +113,9 @@ export function ProductReviews({ product, className }: { product: Product; class
                       key={value}
                       className={cn(
                         "size-3.5",
-                        value <= review.rating ? "fill-warning text-warning" : "text-line-strong",
+                        value <= review.rating
+                          ? "fill-warning text-warning"
+                          : "text-line-strong",
                       )}
                     />
                   ))}

@@ -61,9 +61,15 @@ function CatalogHeader({
             {title}
           </HeadingTag>
           {description ? (
-            <p className="mt-1.5 max-w-3xl text-body-sm text-body">{description}</p>
+            <p className="mt-1.5 max-w-3xl text-body-sm text-body">
+              {description}
+            </p>
           ) : null}
-          {meta ? <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">{meta}</div> : null}
+          {meta ? (
+            <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
+              {meta}
+            </div>
+          ) : null}
         </div>
         {action ? <div className="shrink-0">{action}</div> : null}
       </div>

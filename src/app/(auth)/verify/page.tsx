@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ArrowLeft, Clock, Loader2, RefreshCw, ShieldCheck } from "lucide-react";
+import {
+  ArrowLeft,
+  Clock,
+  Loader2,
+  RefreshCw,
+  ShieldCheck,
+} from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -44,7 +50,10 @@ function VerifyContent() {
     }
   };
 
-  const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (
+    index: number,
+    e: React.KeyboardEvent<HTMLInputElement>,
+  ) => {
     if (e.key === "Backspace" && !otp[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
     }
@@ -127,7 +136,11 @@ function VerifyContent() {
             ))}
           </div>
           {error ? (
-            <p id="verify-otp-error" role="alert" className="text-caption text-sale">
+            <p
+              id="verify-otp-error"
+              role="alert"
+              className="text-caption text-sale"
+            >
               {error}
             </p>
           ) : null}
@@ -166,7 +179,12 @@ function VerifyContent() {
           </Button>
         </div>
 
-        <Button type="submit" size="lg" className="w-full gap-2" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full gap-2"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? (
             <>
               <Loader2 className="size-4.5 animate-spin" aria-hidden />

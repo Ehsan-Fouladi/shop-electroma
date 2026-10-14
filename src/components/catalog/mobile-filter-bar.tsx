@@ -61,7 +61,9 @@ export function MobileFilterBar({
           </SheetDescription>
         </SheetHeader>
 
-        <div className="flex-1 overflow-y-auto overscroll-contain">{children}</div>
+        <div className="flex-1 overflow-y-auto overscroll-contain">
+          {children}
+        </div>
 
         <div className="flex items-center justify-between gap-3 border-t border-line bg-surface p-4">
           <Link
@@ -71,7 +73,10 @@ export function MobileFilterBar({
             حذف فیلترها
           </Link>
           <p className="text-body-sm text-body">
-            <span className="tabular font-bold text-ink">{toPersianDigits(resultCount)}</span> کالا
+            <span className="tabular font-bold text-ink">
+              {toPersianDigits(resultCount)}
+            </span>{" "}
+            کالا
           </p>
         </div>
       </SheetContent>

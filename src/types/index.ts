@@ -47,7 +47,8 @@ export interface Brand {
   featured?: boolean;
 }
 
-export type ProductBadge = "sale" | "new" | "bestseller" | "amazing" | "original";
+export type ProductBadge =
+  "sale" | "new" | "bestseller" | "amazing" | "original";
 
 export interface ProductSpec {
   label: string;

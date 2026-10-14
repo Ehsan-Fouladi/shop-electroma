@@ -9,10 +9,12 @@ export const products: Product[] = [
   {
     id: "p-001",
     slug: "apple-iphone-16-pro-max-256",
-    title: "گوشی موبایل اپل مدل iPhone 16 Pro Max ظرفیت ۲۵۶ گیگابایت — نات اکتیو",
+    title:
+      "گوشی موبایل اپل مدل iPhone 16 Pro Max ظرفیت ۲۵۶ گیگابایت — نات اکتیو",
     brandSlug: "apple",
     categorySlug: "mobile-phones",
-    subcategories: ["apple"],image: "/images/products/apple-iphone-16-pro-max-256.webp",
+    subcategories: ["apple"],
+    image: "/images/products/apple-iphone-16-pro-max-256.webp",
     additionalImages: [
       "/images/products/apple-iphone-16-pro-max-256-angle.webp",
       "/images/products/apple-iphone-16-pro-max-256-back.webp",
@@ -42,7 +44,8 @@ export const products: Product[] = [
     title: "گوشی موبایل سامسونگ مدل Galaxy S25 Ultra ظرفیت ۵۱۲ گیگابایت",
     brandSlug: "samsung",
     categorySlug: "mobile-phones",
-    subcategories: ["samsung"],image: "/images/products/samsung-galaxy-s25-ultra-512.webp",
+    subcategories: ["samsung"],
+    image: "/images/products/samsung-galaxy-s25-ultra-512.webp",
     additionalImages: [
       "/images/products/samsung-galaxy-s25-ultra-512-angle.webp",
       "/images/products/samsung-galaxy-s25-ultra-512-back.webp",
@@ -73,7 +76,8 @@ export const products: Product[] = [
     title: "لپ‌تاپ ۱۵ اینچی اپل مدل MacBook Air M4 ظرفیت ۲۵۶ گیگابایت",
     brandSlug: "apple",
     categorySlug: "laptops",
-    subcategories: ["ultrabook", "macbook"],image: "/images/products/apple-macbook-air-m4-15-256.webp",
+    subcategories: ["ultrabook", "macbook"],
+    image: "/images/products/apple-macbook-air-m4-15-256.webp",
     additionalImages: [
       "/images/products/apple-macbook-air-m4-15-256-angle.webp",
       "/images/products/apple-macbook-air-m4-15-256-back.webp",
@@ -100,10 +104,12 @@ export const products: Product[] = [
   {
     id: "p-004",
     slug: "asus-rog-zephyrus-g16-rtx4070",
-    title: "لپ‌تاپ ۱۶ اینچی ایسوس مدل ROG Zephyrus G16 با پردازنده Core Ultra 9",
+    title:
+      "لپ‌تاپ ۱۶ اینچی ایسوس مدل ROG Zephyrus G16 با پردازنده Core Ultra 9",
     brandSlug: "asus",
     categorySlug: "laptops",
-    subcategories: ["gaming"],image: "/images/products/asus-rog-zephyrus-g16-rtx4070.webp",
+    subcategories: ["gaming"],
+    image: "/images/products/asus-rog-zephyrus-g16-rtx4070.webp",
     additionalImages: [
       "/images/products/asus-rog-zephyrus-g16-rtx4070-angle.webp",
       "/images/products/asus-rog-zephyrus-g16-rtx4070-back.webp",
@@ -132,7 +138,8 @@ export const products: Product[] = [
     title: "هدفون بی‌سیم سونی مدل WH-1000XM5 با قابلیت نویز کنسلینگ فعال",
     brandSlug: "sony",
     categorySlug: "headphones",
-    subcategories: ["headphone"],image: "/images/products/sony-wh-1000xm5.webp",
+    subcategories: ["headphone"],
+    image: "/images/products/sony-wh-1000xm5.webp",
     additionalImages: [
       "/images/products/sony-wh-1000xm5-angle.webp",
       "/images/products/sony-wh-1000xm5-back.webp",
@@ -164,7 +171,8 @@ export const products: Product[] = [
     title: "هندزفری بی‌سیم اپل مدل AirPods Pro 2 با پورت USB-C",
     brandSlug: "apple",
     categorySlug: "headphones",
-    subcategories: ["earbuds"],image: "/images/products/apple-airpods-pro-2-usb-c.webp",
+    subcategories: ["earbuds"],
+    image: "/images/products/apple-airpods-pro-2-usb-c.webp",
     additionalImages: [
       "/images/products/apple-airpods-pro-2-usb-c-angle.webp",
       "/images/products/apple-airpods-pro-2-usb-c-back.webp",
@@ -194,7 +202,8 @@ export const products: Product[] = [
     title: "گوشی موبایل شیائومی مدل Redmi Note 14 Pro ظرفیت ۲۵۶ گیگابایت",
     brandSlug: "xiaomi",
     categorySlug: "mobile-phones",
-    subcategories: ["xiaomi"],image: "/images/products/xiaomi-redmi-note-14-pro-256.webp",
+    subcategories: ["xiaomi"],
+    image: "/images/products/xiaomi-redmi-note-14-pro-256.webp",
     additionalImages: [
       "/images/products/xiaomi-redmi-note-14-pro-256-angle.webp",
       "/images/products/xiaomi-redmi-note-14-pro-256-back.webp",
@@ -224,7 +233,8 @@ export const products: Product[] = [
     title: "ساعت هوشمند سامسونگ مدل Galaxy Watch7 سایز ۴۴ میلی‌متری",
     brandSlug: "samsung",
     categorySlug: "smart-watches",
-    subcategories: ["watch"],image: "/images/products/samsung-galaxy-watch7-44mm.webp",
+    subcategories: ["watch"],
+    image: "/images/products/samsung-galaxy-watch7-44mm.webp",
     additionalImages: [
       "/images/products/samsung-galaxy-watch7-44mm-angle.webp",
       "/images/products/samsung-galaxy-watch7-44mm-back.webp",
@@ -253,7 +263,8 @@ export const products: Product[] = [
     slug: "jbl-charge-6",
     title: "اسپیکر پرتابل جی‌بی‌ال مدل Charge 6 با توان ۴۰ وات",
     brandSlug: "jbl",
-    categorySlug: "speakers",image: "/images/products/jbl-charge-6.webp",
+    categorySlug: "speakers",
+    image: "/images/products/jbl-charge-6.webp",
     additionalImages: [
       "/images/products/jbl-charge-6-angle.webp",
       "/images/products/jbl-charge-6-back.webp",
@@ -282,7 +293,8 @@ export const products: Product[] = [
     title: "لپ‌تاپ ۱۵.۶ اینچی لنوو مدل IdeaPad Slim 3 با پردازنده Core i5",
     brandSlug: "lenovo",
     categorySlug: "laptops",
-    subcategories: ["ultrabook"],image: "/images/products/lenovo-ideapad-slim-3-15.webp",
+    subcategories: ["ultrabook"],
+    image: "/images/products/lenovo-ideapad-slim-3-15.webp",
     additionalImages: [
       "/images/products/lenovo-ideapad-slim-3-15-angle.webp",
       "/images/products/lenovo-ideapad-slim-3-15-back.webp",
@@ -311,7 +323,8 @@ export const products: Product[] = [
     title: "پاوربانک انکر مدل 737 ظرفیت ۲۴۰۰۰ میلی‌آمپرساعت توان ۱۴۰ وات",
     brandSlug: "anker",
     categorySlug: "power-banks",
-    subcategories: ["power-bank"],image: "/images/products/anker-power-bank-737-24000.webp",
+    subcategories: ["power-bank"],
+    image: "/images/products/anker-power-bank-737-24000.webp",
     additionalImages: [
       "/images/products/anker-power-bank-737-24000-angle.webp",
       "/images/products/anker-power-bank-737-24000-back.webp",
@@ -341,7 +354,8 @@ export const products: Product[] = [
     title: "ساعت هوشمند هواوی مدل Watch GT 5 سایز ۴۶ میلی‌متری",
     brandSlug: "huawei",
     categorySlug: "smart-watches",
-    subcategories: ["watch"],image: "/images/products/huawei-watch-gt5-46mm.webp",
+    subcategories: ["watch"],
+    image: "/images/products/huawei-watch-gt5-46mm.webp",
     additionalImages: [
       "/images/products/huawei-watch-gt5-46mm-angle.webp",
       "/images/products/huawei-watch-gt5-46mm-back.webp",
@@ -360,7 +374,11 @@ export const products: Product[] = [
       { label: "مقاومت", value: "5ATM" },
       { label: "وزن", value: "۳۷ گرم" },
     ],
-    highlights: ["سیستم TruSense", "مسیرهای دوچرخه‌سواری آفلاین", "تماس بلوتوثی"],
+    highlights: [
+      "سیستم TruSense",
+      "مسیرهای دوچرخه‌سواری آفلاین",
+      "تماس بلوتوثی",
+    ],
     warranty: "۱۸ ماه گارانتی رسمی",
     seller: "الکتروما",
     colors: ["مشکی", "طلایی"],
@@ -370,7 +388,8 @@ export const products: Product[] = [
     slug: "apple-ipad-air-m3-11-128",
     title: "تبلت ۱۱ اینچی اپل مدل iPad Air M3 ظرفیت ۱۲۸ گیگابایت",
     brandSlug: "apple",
-    categorySlug: "tablets",image: "/images/products/apple-ipad-air-m3-11-128.webp",
+    categorySlug: "tablets",
+    image: "/images/products/apple-ipad-air-m3-11-128.webp",
     additionalImages: [
       "/images/products/apple-ipad-air-m3-11-128-angle.webp",
       "/images/products/apple-ipad-air-m3-11-128-back.webp",
@@ -399,7 +418,8 @@ export const products: Product[] = [
     slug: "sony-alpha-a7c-ii-body",
     title: "دوربین بدون آینه سونی مدل Alpha A7C II بدنه",
     brandSlug: "sony",
-    categorySlug: "cameras",image: "/images/products/sony-alpha-a7c-ii-body.webp",
+    categorySlug: "cameras",
+    image: "/images/products/sony-alpha-a7c-ii-body.webp",
     additionalImages: [
       "/images/products/sony-alpha-a7c-ii-body-angle.webp",
       "/images/products/sony-alpha-a7c-ii-body-back.webp",
@@ -428,7 +448,8 @@ export const products: Product[] = [
     title: "هدست گیمینگ هایپرایکس مدل Cloud III Wireless",
     brandSlug: "hyperx",
     categorySlug: "headphones",
-    subcategories: ["headphone", "headset"],image: "/images/products/hyperx-cloud-iii-wireless.webp",
+    subcategories: ["headphone", "headset"],
+    image: "/images/products/hyperx-cloud-iii-wireless.webp",
     additionalImages: [
       "/images/products/hyperx-cloud-iii-wireless-angle.webp",
       "/images/products/hyperx-cloud-iii-wireless-back.webp",
@@ -456,7 +477,8 @@ export const products: Product[] = [
     slug: "western-digital-sn850x-1tb",
     title: "حافظه SSD وسترن دیجیتال مدل Black SN850X ظرفیت ۱ ترابایت",
     brandSlug: "western-digital",
-    categorySlug: "ssd",image: "/images/products/western-digital-sn850x-1tb.webp",
+    categorySlug: "ssd",
+    image: "/images/products/western-digital-sn850x-1tb.webp",
     additionalImages: [
       "/images/products/western-digital-sn850x-1tb-angle.webp",
       "/images/products/western-digital-sn850x-1tb-back.webp",
@@ -484,7 +506,8 @@ export const products: Product[] = [
     slug: "logitech-mx-master-3s",
     title: "ماوس بی‌سیم لاجیتک مدل MX Master 3S",
     brandSlug: "logitech",
-    categorySlug: "computer-accessories",image: "/images/products/logitech-mx-master-3s.webp",
+    categorySlug: "computer-accessories",
+    image: "/images/products/logitech-mx-master-3s.webp",
     additionalImages: [
       "/images/products/logitech-mx-master-3s-angle.webp",
       "/images/products/logitech-mx-master-3s-back.webp",
@@ -512,7 +535,8 @@ export const products: Product[] = [
     slug: "asus-tuf-gaming-vg279qm",
     title: "مانیتور ۲۷ اینچ ایسوس مدل TUF VG279QM با نرخ نوسازی ۲۸۰ هرتز",
     brandSlug: "asus",
-    categorySlug: "monitors",image: "/images/products/asus-tuf-gaming-vg279qm.webp",
+    categorySlug: "monitors",
+    image: "/images/products/asus-tuf-gaming-vg279qm.webp",
     additionalImages: [
       "/images/products/asus-tuf-gaming-vg279qm-angle.webp",
       "/images/products/asus-tuf-gaming-vg279qm-back.webp",
@@ -541,7 +565,8 @@ export const products: Product[] = [
     title: "مچ‌بند هوشمند شیائومی مدل Smart Band 9",
     brandSlug: "xiaomi",
     categorySlug: "smart-watches",
-    subcategories: ["band"],image: "/images/products/xiaomi-smart-band-9.webp",
+    subcategories: ["band"],
+    image: "/images/products/xiaomi-smart-band-9.webp",
     additionalImages: [
       "/images/products/xiaomi-smart-band-9-angle.webp",
       "/images/products/xiaomi-smart-band-9-back.webp",
@@ -571,7 +596,8 @@ export const products: Product[] = [
     slug: "tp-link-archer-ax73",
     title: "روتر بی‌سیم تی‌پی-لینک مدل Archer AX73 با پشتیبانی Wi-Fi 6",
     brandSlug: "tp-link",
-    categorySlug: "networking",image: "/images/products/tp-link-archer-ax73.webp",
+    categorySlug: "networking",
+    image: "/images/products/tp-link-archer-ax73.webp",
     additionalImages: [
       "/images/products/tp-link-archer-ax73-angle.webp",
       "/images/products/tp-link-archer-ax73-back.webp",
@@ -599,7 +625,8 @@ export const products: Product[] = [
     title: "گوشی موبایل سامسونگ مدل Galaxy S24 FE ظرفیت ۲۵۶ گیگابایت",
     brandSlug: "samsung",
     categorySlug: "mobile-phones",
-    subcategories: ["samsung"],image: "/images/products/samsung-galaxy-s24-fe-256.webp",
+    subcategories: ["samsung"],
+    image: "/images/products/samsung-galaxy-s24-fe-256.webp",
     additionalImages: [
       "/images/products/samsung-galaxy-s24-fe-256-angle.webp",
       "/images/products/samsung-galaxy-s24-fe-256-back.webp",
@@ -628,7 +655,8 @@ export const products: Product[] = [
     title: "ساعت هوشمند اپل مدل Watch SE 2 سایز ۴۴ میلی‌متری",
     brandSlug: "apple",
     categorySlug: "smart-watches",
-    subcategories: ["watch"],image: "/images/products/apple-watch-se-2-44mm.webp",
+    subcategories: ["watch"],
+    image: "/images/products/apple-watch-se-2-44mm.webp",
     additionalImages: [
       "/images/products/apple-watch-se-2-44mm-angle.webp",
       "/images/products/apple-watch-se-2-44mm-back.webp",
@@ -656,7 +684,8 @@ export const products: Product[] = [
     title: "لپ‌تاپ ۱۶ اینچی اچ‌پی مدل Victus Gaming با پردازنده Ryzen 7",
     brandSlug: "hp",
     categorySlug: "laptops",
-    subcategories: ["gaming"],image: "/images/products/hp-victus-16-gaming.webp",
+    subcategories: ["gaming"],
+    image: "/images/products/hp-victus-16-gaming.webp",
     additionalImages: [
       "/images/products/hp-victus-16-gaming-angle.webp",
       "/images/products/hp-victus-16-gaming-back.webp",
@@ -684,7 +713,8 @@ export const products: Product[] = [
     title: "هدفون بی‌سیم جی‌بی‌ال مدل Tune 770NC",
     brandSlug: "jbl",
     categorySlug: "headphones",
-    subcategories: ["headphone"],image: "/images/products/jbl-tune-770nc.webp",
+    subcategories: ["headphone"],
+    image: "/images/products/jbl-tune-770nc.webp",
     additionalImages: [
       "/images/products/jbl-tune-770nc-angle.webp",
       "/images/products/jbl-tune-770nc-back.webp",
@@ -713,7 +743,8 @@ export const products: Product[] = [
     slug: "samsung-galaxy-tab-s10-fe",
     title: "تبلت ۱۰.۹ اینچی سامسونگ مدل Galaxy Tab S10 FE",
     brandSlug: "samsung",
-    categorySlug: "tablets",image: "/images/products/samsung-galaxy-tab-s10-fe.webp",
+    categorySlug: "tablets",
+    image: "/images/products/samsung-galaxy-tab-s10-fe.webp",
     additionalImages: [
       "/images/products/samsung-galaxy-tab-s10-fe-angle.webp",
       "/images/products/samsung-galaxy-tab-s10-fe-back.webp",
@@ -741,7 +772,8 @@ export const products: Product[] = [
     slug: "canon-eos-r50-kit",
     title: "دوربین بدون آینه کانن مدل EOS R50 همراه لنز ۱۸-۴۵ میلی‌متر",
     brandSlug: "canon",
-    categorySlug: "cameras",image: "/images/products/canon-eos-r50-kit.webp",
+    categorySlug: "cameras",
+    image: "/images/products/canon-eos-r50-kit.webp",
     additionalImages: [
       "/images/products/canon-eos-r50-kit-angle.webp",
       "/images/products/canon-eos-r50-kit-back.webp",
@@ -769,7 +801,8 @@ export const products: Product[] = [
     title: "شارژر دیواری انکر مدل 737 توان ۱۲۰ وات با ۳ پورت",
     brandSlug: "anker",
     categorySlug: "chargers",
-    subcategories: ["charger"],image: "/images/products/anker-737-charger-120w.webp",
+    subcategories: ["charger"],
+    image: "/images/products/anker-737-charger-120w.webp",
     additionalImages: [
       "/images/products/anker-737-charger-120w-angle.webp",
       "/images/products/anker-737-charger-120w-back.webp",
@@ -795,7 +828,8 @@ export const products: Product[] = [
     slug: "hyperx-alloy-origins-core",
     title: "کیبورد مکانیکال گیمینگ هایپرایکس مدل Alloy Origins Core",
     brandSlug: "hyperx",
-    categorySlug: "computer-accessories",image: "/images/products/hyperx-alloy-origins-core.webp",
+    categorySlug: "computer-accessories",
+    image: "/images/products/hyperx-alloy-origins-core.webp",
     additionalImages: [
       "/images/products/hyperx-alloy-origins-core-angle.webp",
       "/images/products/hyperx-alloy-origins-core-back.webp",
@@ -822,7 +856,8 @@ export const products: Product[] = [
     title: "هندزفری بی‌سیم شیائومی مدل Redmi Buds 6 Pro",
     brandSlug: "xiaomi",
     categorySlug: "headphones",
-    subcategories: ["earbuds"],image: "/images/products/xiaomi-redmi-buds-6.webp",
+    subcategories: ["earbuds"],
+    image: "/images/products/xiaomi-redmi-buds-6.webp",
     additionalImages: [
       "/images/products/xiaomi-redmi-buds-6-angle.webp",
       "/images/products/xiaomi-redmi-buds-6-back.webp",
@@ -851,7 +886,8 @@ export const products: Product[] = [
     slug: "apple-magic-keyboard-touch-id",
     title: "کیبورد بی‌سیم اپل مدل Magic Keyboard با Touch ID",
     brandSlug: "apple",
-    categorySlug: "computer-accessories",image: "/images/products/apple-magic-keyboard-touch-id.webp",
+    categorySlug: "computer-accessories",
+    image: "/images/products/apple-magic-keyboard-touch-id.webp",
     additionalImages: [
       "/images/products/apple-magic-keyboard-touch-id-angle.webp",
       "/images/products/apple-magic-keyboard-touch-id-back.webp",
@@ -877,7 +913,8 @@ export const products: Product[] = [
     slug: "lg-ultragear-27gs95qe-oled",
     title: "مانیتور ۲۷ اینچ ال‌جی مدل UltraGear OLED با نرخ نوسازی ۲۴۰ هرتز",
     brandSlug: "lg",
-    categorySlug: "monitors",image: "/images/products/lg-ultragear-27gs95qe-oled.webp",
+    categorySlug: "monitors",
+    image: "/images/products/lg-ultragear-27gs95qe-oled.webp",
     additionalImages: [
       "/images/products/lg-ultragear-27gs95qe-oled-angle.webp",
       "/images/products/lg-ultragear-27gs95qe-oled-back.webp",
@@ -904,7 +941,8 @@ export const products: Product[] = [
     slug: "western-digital-my-passport-2tb",
     title: "هارد اکسترنال وسترن دیجیتال مدل My Passport ظرفیت ۲ ترابایت",
     brandSlug: "western-digital",
-    categorySlug: "hard-drives",image: "/images/products/western-digital-my-passport-2tb.webp",
+    categorySlug: "hard-drives",
+    image: "/images/products/western-digital-my-passport-2tb.webp",
     additionalImages: [
       "/images/products/western-digital-my-passport-2tb-angle.webp",
       "/images/products/western-digital-my-passport-2tb-back.webp",
@@ -931,7 +969,8 @@ export const products: Product[] = [
     title: "هندزفری بی‌سیم سامسونگ مدل Galaxy Buds3 Pro",
     brandSlug: "samsung",
     categorySlug: "headphones",
-    subcategories: ["earbuds"],image: "/images/products/samsung-galaxy-buds3-pro.webp",
+    subcategories: ["earbuds"],
+    image: "/images/products/samsung-galaxy-buds3-pro.webp",
     additionalImages: [
       "/images/products/samsung-galaxy-buds3-pro-angle.webp",
       "/images/products/samsung-galaxy-buds3-pro-back.webp",
@@ -949,7 +988,11 @@ export const products: Product[] = [
       { label: "درایور", value: "دوگانه" },
       { label: "مقاومت", value: "IP57" },
     ],
-    highlights: ["صدای ۲۴ بیتی Hi-Fi", "Galaxy AI ترجمه زنده", "نورپردازی Blade"],
+    highlights: [
+      "صدای ۲۴ بیتی Hi-Fi",
+      "Galaxy AI ترجمه زنده",
+      "نورپردازی Blade",
+    ],
     warranty: "۱۸ ماه گارانتی سام سرویس",
     seller: "الکتروما",
     colors: ["نقره‌ای", "مشکی"],
@@ -960,7 +1003,8 @@ export const products: Product[] = [
     title: "لپ‌تاپ ۱۴ اینچی ایسوس مدل Zenbook 14 OLED با پردازنده Ultra 7",
     brandSlug: "asus",
     categorySlug: "laptops",
-    subcategories: ["ultrabook"],image: "/images/products/asus-zenbook-14-oled-ultra7.webp",
+    subcategories: ["ultrabook"],
+    image: "/images/products/asus-zenbook-14-oled-ultra7.webp",
     additionalImages: [
       "/images/products/asus-zenbook-14-oled-ultra7-angle.webp",
       "/images/products/asus-zenbook-14-oled-ultra7-back.webp",
@@ -989,7 +1033,8 @@ export const products: Product[] = [
     slug: "xiaomi-pad-7-pro-12",
     title: "تبلت ۱۲.۴ اینچی شیائومی مدل Pad 7 Pro ظرفیت ۲۵۶ گیگابایت",
     brandSlug: "xiaomi",
-    categorySlug: "tablets",image: "/images/products/xiaomi-pad-7-pro-12.webp",
+    categorySlug: "tablets",
+    image: "/images/products/xiaomi-pad-7-pro-12.webp",
     additionalImages: [
       "/images/products/xiaomi-pad-7-pro-12-angle.webp",
       "/images/products/xiaomi-pad-7-pro-12-back.webp",
@@ -1017,7 +1062,8 @@ export const products: Product[] = [
     title: "دسته بازی بی‌سیم سونی مدل DualSense Edge",
     brandSlug: "sony",
     categorySlug: "gaming-consoles",
-    subcategories: ["controller"],image: "/images/products/sony-dualsense-edge.webp",
+    subcategories: ["controller"],
+    image: "/images/products/sony-dualsense-edge.webp",
     additionalImages: [
       "/images/products/sony-dualsense-edge-angle.webp",
       "/images/products/sony-dualsense-edge-back.webp",
@@ -1070,11 +1116,12 @@ export function getNewArrivals(limit = 12): Product[] {
 }
 
 /** Discounted products that are not part of the running flash sale. */
-export function getSaleProducts(limit = 12, excludeIds: string[] = []): Product[] {
+export function getSaleProducts(
+  limit = 12,
+  excludeIds: string[] = [],
+): Product[] {
   return products
-    .filter(
-      (product) => product.oldPrice && !excludeIds.includes(product.id),
-    )
+    .filter((product) => product.oldPrice && !excludeIds.includes(product.id))
     .sort(
       (a, b) =>
         (b.oldPrice! - b.price) / b.oldPrice! -
@@ -1102,7 +1149,9 @@ export function getMostDiscounted(limit = 10): Product[] {
 }
 
 export function getProductsByCategory(slug: string, limit = 12): Product[] {
-  return products.filter((product) => product.categorySlug === slug).slice(0, limit);
+  return products
+    .filter((product) => product.categorySlug === slug)
+    .slice(0, limit);
 }
 
 /**
@@ -1121,7 +1170,9 @@ export function getRelatedProducts(product: Product, limit = 8): Product[] {
     }
   };
 
-  const sameCategory = products.filter((item) => item.categorySlug === product.categorySlug);
+  const sameCategory = products.filter(
+    (item) => item.categorySlug === product.categorySlug,
+  );
   const sharingSubcategory = sameCategory.filter((item) =>
     item.subcategories?.some((slug) => product.subcategories?.includes(slug)),
   );
@@ -1137,7 +1188,9 @@ export function getRelatedProducts(product: Product, limit = 8): Product[] {
 /** Other products of the same brand, used by the brand rail on the detail page. */
 export function getSameBrandProducts(product: Product, limit = 8): Product[] {
   return products
-    .filter((item) => item.brandSlug === product.brandSlug && item.id !== product.id)
+    .filter(
+      (item) => item.brandSlug === product.brandSlug && item.id !== product.id,
+    )
     .slice(0, limit);
 }
 

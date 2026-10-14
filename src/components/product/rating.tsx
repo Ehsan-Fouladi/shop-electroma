@@ -10,7 +10,12 @@ interface RatingProps {
   className?: string;
 }
 
-export function Rating({ value, reviewCount, size = "sm", className }: RatingProps) {
+export function Rating({
+  value,
+  reviewCount,
+  size = "sm",
+  className,
+}: RatingProps) {
   return (
     <div className={cn("flex items-center gap-1.5", className)}>
       <span
@@ -20,7 +25,10 @@ export function Rating({ value, reviewCount, size = "sm", className }: RatingPro
         )}
       >
         <Star
-          className={cn("fill-[#92400e] text-[#92400e]", size === "sm" ? "size-3.5" : "size-4")}
+          className={cn(
+            "fill-[#92400e] text-[#92400e]",
+            size === "sm" ? "size-3.5" : "size-4",
+          )}
           aria-hidden
         />
         {toPersianDigits(value.toFixed(1))}

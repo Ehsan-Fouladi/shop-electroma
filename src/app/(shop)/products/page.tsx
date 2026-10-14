@@ -4,14 +4,26 @@ import { LayoutGrid, ShieldCheck, Tag, Users } from "lucide-react";
 
 import { CatalogHeader, StatPill } from "@/components/catalog/catalog-layout";
 import { CatalogResults } from "@/components/catalog/catalog-results";
-import { EmptyResults, EmptySearchHint } from "@/components/catalog/empty-results";
+import {
+  EmptyResults,
+  EmptySearchHint,
+} from "@/components/catalog/empty-results";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { Container } from "@/components/layout/container";
 import { BrandWallLite } from "@/components/catalog/brand-wall-lite";
 import { categories } from "@/data/categories";
 import { products } from "@/data/products";
-import { catalogHref, parseCatalogQuery, type CatalogSearchParams } from "@/lib/catalog/query";
-import { buildCatalogFacets, filterProducts, priceBounds, sortProducts } from "@/lib/catalog/results";
+import {
+  catalogHref,
+  parseCatalogQuery,
+  type CatalogSearchParams,
+} from "@/lib/catalog/query";
+import {
+  buildCatalogFacets,
+  filterProducts,
+  priceBounds,
+  sortProducts,
+} from "@/lib/catalog/results";
 import { categoryCounts, statsFor } from "@/lib/catalog/stats";
 import { toPersianDigits } from "@/lib/formatters/number";
 
@@ -49,7 +61,9 @@ export default async function ProductsPage({
     <Container className="flex flex-col gap-5 py-4 sm:gap-6 sm:py-6 lg:py-8">
       <CatalogHeader
         breadcrumb={
-          <Breadcrumb items={[{ label: "خانه", href: "/" }, { label: "همه محصولات" }]} />
+          <Breadcrumb
+            items={[{ label: "خانه", href: "/" }, { label: "همه محصولات" }]}
+          />
         }
         title="همه محصولات"
         description="کاتالوگ کامل کالای دیجیتال الکتروما. با فیلترهای دسته‌بندی، برند، قیمت و امتیاز کاربران دقیقاً همان چیزی را پیدا کنید که می‌خواهید."
@@ -80,8 +94,13 @@ export default async function ProductsPage({
       />
 
       {/* Category context — quick entry into the most stocked categories */}
-      <nav aria-label="ورود سریع به دسته‌بندی‌ها" className="flex flex-col gap-2">
-        <p className="text-label font-medium text-subtle-ink">دسته‌بندی‌های پرکالا</p>
+      <nav
+        aria-label="ورود سریع به دسته‌بندی‌ها"
+        className="flex flex-col gap-2"
+      >
+        <p className="text-label font-medium text-subtle-ink">
+          دسته‌بندی‌های پرکالا
+        </p>
         <ul className="no-scrollbar flex flex-wrap gap-2">
           {topCategories.map(({ category, count }) => (
             <li key={category.slug}>
@@ -134,7 +153,10 @@ export default async function ProductsPage({
 
       <EmptySearchHint className="pb-2" />
 
-      <section aria-labelledby="products-brands" className="flex flex-col gap-4 pt-1">
+      <section
+        aria-labelledby="products-brands"
+        className="flex flex-col gap-4 pt-1"
+      >
         <div className="flex items-end justify-between gap-4">
           <h2 id="products-brands" className="text-title font-bold text-ink">
             خرید بر اساس برند

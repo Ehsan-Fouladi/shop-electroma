@@ -1,7 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronDown, Headphones, LayoutGrid, LogIn, Menu, Percent } from "lucide-react";
+import {
+  ChevronDown,
+  Headphones,
+  LayoutGrid,
+  LogIn,
+  Menu,
+  Percent,
+} from "lucide-react";
 
 import { SiteLogo } from "@/components/navigation/site-logo";
 import { Button } from "@/components/ui/button";
@@ -46,7 +53,10 @@ export function MobileNavSheet() {
         <div className="flex-1 overflow-y-auto px-3 pb-6">
           <ul className="flex flex-col">
             {mainNav.map((item) => (
-              <li key={item.title} className="border-b border-line-subtle last:border-0">
+              <li
+                key={item.title}
+                className="border-b border-line-subtle last:border-0"
+              >
                 {item.columns?.length ? (
                   <details className="group">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-2 rounded-sm px-3 py-3.5 text-body font-medium text-foreground marker:hidden">

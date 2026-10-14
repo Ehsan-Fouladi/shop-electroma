@@ -16,7 +16,13 @@ interface PriceProps {
 }
 
 /** Price block: discount chip, struck-through old price and the final price. */
-export function Price({ price, oldPrice, size = "default", valueClassName, className }: PriceProps) {
+export function Price({
+  price,
+  oldPrice,
+  size = "default",
+  valueClassName,
+  className,
+}: PriceProps) {
   const off = discountPercent(price, oldPrice);
 
   return (
@@ -36,7 +42,9 @@ export function Price({ price, oldPrice, size = "default", valueClassName, class
           className={cn(
             "tabular font-bold",
             valueClassName ??
-              (size === "lg" ? "text-heading sm:text-heading-lg" : "text-title-sm sm:text-title"),
+              (size === "lg"
+                ? "text-heading sm:text-heading-lg"
+                : "text-title-sm sm:text-title"),
           )}
         >
           {formatPrice(price)}

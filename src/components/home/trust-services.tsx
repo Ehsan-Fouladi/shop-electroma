@@ -49,7 +49,9 @@ export function TrustServices() {
             </p>
             <div className="mt-auto flex flex-wrap items-center gap-2 pt-1">
               <Button asChild>
-                <a href={siteConfig.supportPhoneHref}>{siteConfig.supportPhone}</a>
+                <a href={siteConfig.supportPhoneHref}>
+                  {siteConfig.supportPhone}
+                </a>
               </Button>
               <Button asChild variant="outline">
                 <Link href="/support/contact">فرم تماس با ما</Link>
@@ -61,12 +63,20 @@ export function TrustServices() {
             <span className="grid size-11 place-items-center rounded-md bg-success-soft text-success">
               <PackageSearch className="size-5" aria-hidden />
             </span>
-            <p className="text-title font-bold text-ink">پیگیری و بازگشت سفارش</p>
+            <p className="text-title font-bold text-ink">
+              پیگیری و بازگشت سفارش
+            </p>
             <ul className="flex flex-col gap-2">
               {[
                 { label: "پیگیری وضعیت سفارش", href: "/support/tracking" },
-                { label: "رویه بازگرداندن کالا (تا ۷ روز)", href: "/support/returns" },
-                { label: "شرایط گارانتی و خدمات پس از فروش", href: "/support/warranty" },
+                {
+                  label: "رویه بازگرداندن کالا (تا ۷ روز)",
+                  href: "/support/returns",
+                },
+                {
+                  label: "شرایط گارانتی و خدمات پس از فروش",
+                  href: "/support/warranty",
+                },
               ].map((item) => (
                 <li key={item.href}>
                   <Link
@@ -91,8 +101,14 @@ export function TrustServices() {
             <p className="text-title font-bold text-ink">خرید مطمئن</p>
             <ul className="flex flex-col gap-2.5">
               {securePurchasePoints.map((point) => (
-                <li key={point.label} className="flex items-start gap-2 text-body-sm text-body">
-                  <point.icon className="mt-1 size-4 shrink-0 text-success" aria-hidden />
+                <li
+                  key={point.label}
+                  className="flex items-start gap-2 text-body-sm text-body"
+                >
+                  <point.icon
+                    className="mt-1 size-4 shrink-0 text-success"
+                    aria-hidden
+                  />
                   {point.label}
                 </li>
               ))}

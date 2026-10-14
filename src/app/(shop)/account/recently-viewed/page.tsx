@@ -17,7 +17,9 @@ export default function AccountRecentlyViewedPage() {
   // If store is empty, fallback to 4 products to show realistic UI
   const viewedProducts =
     ids.length > 0
-      ? ids.map((id) => products.find((p) => p.id === id)).filter((p): p is (typeof products)[0] => Boolean(p))
+      ? ids
+          .map((id) => products.find((p) => p.id === id))
+          .filter((p): p is (typeof products)[0] => Boolean(p))
       : [];
 
   const handleClear = () => {
@@ -46,7 +48,9 @@ export default function AccountRecentlyViewedPage() {
             <Eye className="size-8" aria-hidden />
           </span>
           <div>
-            <h2 className="text-title font-bold text-ink">تاریخچه بازدید شما خالی است</h2>
+            <h2 className="text-title font-bold text-ink">
+              تاریخچه بازدید شما خالی است
+            </h2>
             <p className="mt-1 text-body-sm text-subtle-ink">
               هر کالایی را که در فروشگاه بررسی کنید در این قسمت ذخیره می‌شود.
             </p>

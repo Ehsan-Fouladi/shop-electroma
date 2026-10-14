@@ -123,8 +123,8 @@
 }
 
 @theme inline {
-  --font-sans: "IRANSans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    sans-serif;
+  --font-sans:
+    "IRANSans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* shadcn/ui primitives */
   --color-background: var(--background);
@@ -221,12 +221,17 @@
   --animate-fade-up: fade-up 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
   --animate-fade-in: fade-in 0.25s ease-out both;
   --animate-fade-out: fade-out 0.2s ease-in both;
-  --animate-slide-in-right: slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
-  --animate-slide-out-right: slide-out-right 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-in-right: slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+  --animate-slide-out-right: slide-out-right 0.25s cubic-bezier(0.16, 1, 0.3, 1)
+    both;
   --animate-slide-in-left: slide-in-left 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
-  --animate-slide-out-left: slide-out-left 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
-  --animate-slide-in-bottom: slide-in-bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
-  --animate-slide-out-bottom: slide-out-bottom 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-out-left: slide-out-left 0.25s cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+  --animate-slide-in-bottom: slide-in-bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+  --animate-slide-out-bottom: slide-out-bottom 0.25s
+    cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-marquee-y: marquee-y 22s linear infinite;
 }
 

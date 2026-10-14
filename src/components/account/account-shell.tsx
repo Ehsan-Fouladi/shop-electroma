@@ -58,10 +58,17 @@ export function AccountShell({ children }: { children: React.ReactNode }) {
             <div className="sticky top-28 overflow-hidden rounded-lg border border-line bg-surface shadow-soft">
               <div className="border-b border-line-subtle bg-surface-soft p-4">
                 <p className="text-label text-subtle-ink">حساب نمایشی</p>
-                <p className="mt-1 truncate text-body font-bold text-ink">{profile.name}</p>
-                <p className="mt-0.5 truncate text-caption text-subtle-ink">{profile.phone}</p>
+                <p className="mt-1 truncate text-body font-bold text-ink">
+                  {profile.name}
+                </p>
+                <p className="mt-0.5 truncate text-caption text-subtle-ink">
+                  {profile.phone}
+                </p>
               </div>
-              <nav aria-label="ناوبری حساب کاربری" className="flex flex-col gap-1 p-2">
+              <nav
+                aria-label="ناوبری حساب کاربری"
+                className="flex flex-col gap-1 p-2"
+              >
                 {accountLinks.map((item) => {
                   const active = isActivePath(pathname, item.href);
                   return (

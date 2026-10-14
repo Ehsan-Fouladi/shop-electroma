@@ -172,7 +172,8 @@ export const customerCoupons: CustomerCoupon[] = [
   {
     code: "DIGI-1405",
     title: "تخفیف خرید لوازم جانبی",
-    description: "کد نمایشی برای آشنایی با بخش کوپن‌ها؛ در تسویه‌حساب اعمال نمی‌شود.",
+    description:
+      "کد نمایشی برای آشنایی با بخش کوپن‌ها؛ در تسویه‌حساب اعمال نمی‌شود.",
     expiresAt: "2026-12-30",
     state: "available",
   },

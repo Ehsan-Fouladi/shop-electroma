@@ -6,7 +6,11 @@ import { toast } from "sonner";
 import { AddToCartButton } from "@/components/product/add-to-cart-button";
 import { Button } from "@/components/ui/button";
 import { formatNumber, toPersianDigits } from "@/lib/formatters/number";
-import { useCartStore, useCompareStore, useWishlistStore } from "@/store/shop-store";
+import {
+  useCartStore,
+  useCompareStore,
+  useWishlistStore,
+} from "@/store/shop-store";
 import { cn } from "@/lib/utils/cn";
 import { useState } from "react";
 
@@ -46,7 +50,8 @@ export function ProductPurchasePanel({
 
   const cartLine = useCartStore((state) =>
     state.lines.find(
-      (line) => line.productId === productId && line.variant === selectedColor?.name,
+      (line) =>
+        line.productId === productId && line.variant === selectedColor?.name,
     ),
   );
   const wishlistIds = useWishlistStore((state) => state.ids);
@@ -57,21 +62,28 @@ export function ProductPurchasePanel({
   const inWishlist = wishlistIds.includes(productId);
   const inCompare = compareIds.includes(productId);
   const maxQuantity = Math.max(1, Math.min(stock, 10));
-  const soldPercent = offer ? Math.min(96, Math.round((offer.sold / offer.total) * 100)) : null;
+  const soldPercent = offer
+    ? Math.min(96, Math.round((offer.sold / offer.total) * 100))
+    : null;
 
   const handleWishlistToggle = () => {
     const adding = !inWishlist;
     try {
       toggleWishlist(productId);
     } catch {
-      toast.error("به‌روزرسانی علاقه‌مندی‌ها انجام نشد.", { id: `wishlist-${productId}` });
+      toast.error("به‌روزرسانی علاقه‌مندی‌ها انجام نشد.", {
+        id: `wishlist-${productId}`,
+      });
       return;
     }
 
-    toast.success(adding ? "به علاقه‌مندی‌ها اضافه شد" : "از علاقه‌مندی‌ها حذف شد", {
-      id: `wishlist-${productId}`,
-      description: productTitle,
-    });
+    toast.success(
+      adding ? "به علاقه‌مندی‌ها اضافه شد" : "از علاقه‌مندی‌ها حذف شد",
+      {
+        id: `wishlist-${productId}`,
+        description: productTitle,
+      },
+    );
   };
 
   const handleCompareToggle = () => {
@@ -80,7 +92,9 @@ export function ProductPurchasePanel({
     try {
       toggleCompare(productId);
     } catch {
-      toast.error("به‌روزرسانی فهرست مقایسه انجام نشد.", { id: `compare-${productId}` });
+      toast.error("به‌روزرسانی فهرست مقایسه انجام نشد.", {
+        id: `compare-${productId}`,
+      });
       return;
     }
 
@@ -90,7 +104,10 @@ export function ProductPurchasePanel({
         ? "به فهرست مقایسه اضافه شد"
         : "از فهرست مقایسه حذف شد";
 
-    toast.success(message, { id: `compare-${productId}`, description: productTitle });
+    toast.success(message, {
+      id: `compare-${productId}`,
+      description: productTitle,
+    });
   };
 
   return (
@@ -104,7 +121,8 @@ export function ProductPurchasePanel({
       {colors.length > 0 ? (
         <fieldset className="flex flex-col gap-2.5">
           <legend className="text-label font-medium text-subtle-ink">
-            رنگ: <span className="font-bold text-ink">{selectedColor?.name}</span>
+            رنگ:{" "}
+            <span className="font-bold text-ink">{selectedColor?.name}</span>
           </legend>
           <div className="flex flex-wrap gap-2">
             {colors.map((color, index) => (
@@ -128,7 +146,9 @@ export function ProductPurchasePanel({
                 <span
                   aria-hidden
                   className="size-4 shrink-0 rounded-full border border-line-strong"
-                  style={color.swatch ? { backgroundColor: color.swatch } : undefined}
+                  style={
+                    color.swatch ? { backgroundColor: color.swatch } : undefined
+                  }
                 />
                 {color.name}
               </label>
@@ -144,7 +164,10 @@ export function ProductPurchasePanel({
         </p>
       ) : (
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <span id="quantity-label" className="text-label font-medium text-subtle-ink">
+          <span
+            id="quantity-label"
+            className="text-label font-medium text-subtle-ink"
+          >
             تعداد
           </span>
           <div
@@ -161,7 +184,10 @@ export function ProductPurchasePanel({
             >
               <Minus aria-hidden />
             </Button>
-            <output aria-live="polite" className="w-9 text-center text-body font-bold text-ink tabular">
+            <output
+              aria-live="polite"
+              className="w-9 text-center text-body font-bold text-ink tabular"
+            >
               {toPersianDigits(quantity)}
             </output>
             <Button
@@ -169,7 +195,9 @@ export function ProductPurchasePanel({
               size="icon-sm"
               aria-label="افزایش تعداد"
               disabled={quantity >= maxQuantity}
-              onClick={() => setQuantity((value) => Math.min(maxQuantity, value + 1))}
+              onClick={() =>
+                setQuantity((value) => Math.min(maxQuantity, value + 1))
+              }
             >
               <Plus aria-hidden />
             </Button>
@@ -202,7 +230,10 @@ export function ProductPurchasePanel({
           variant="outline"
           aria-pressed={inWishlist}
           onClick={handleWishlistToggle}
-          className={cn(inWishlist && "border-sale/30 bg-sale-soft text-sale hover:bg-sale-soft")}
+          className={cn(
+            inWishlist &&
+              "border-sale/30 bg-sale-soft text-sale hover:bg-sale-soft",
+          )}
         >
           <Heart className={cn(inWishlist && "fill-sale")} aria-hidden />
           {inWishlist ? "در علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"}
@@ -212,7 +243,8 @@ export function ProductPurchasePanel({
           aria-pressed={inCompare}
           onClick={handleCompareToggle}
           className={cn(
-            inCompare && "border-primary/30 bg-brand-soft text-brand-active hover:bg-brand-soft",
+            inCompare &&
+              "border-primary/30 bg-brand-soft text-brand-active hover:bg-brand-soft",
           )}
         >
           <ArrowLeftRight aria-hidden />
@@ -222,7 +254,8 @@ export function ProductPurchasePanel({
 
       {cartLine ? (
         <p className="text-caption text-success" aria-live="polite">
-          این کالا در سبد خرید شما ({toPersianDigits(cartLine.quantity)} عدد) قرار دارد.
+          این کالا در سبد خرید شما ({toPersianDigits(cartLine.quantity)} عدد)
+          قرار دارد.
         </p>
       ) : null}
 
@@ -242,8 +275,10 @@ export function ProductPurchasePanel({
             />
           </div>
           <p className="text-caption text-subtle-ink">
-            <span className="tabular font-bold text-ink">{toPersianDigits(soldPercent)}٪</span> از{" "}
-            {toPersianDigits(offer.total)} کالای این پیشنهاد فروخته شده است.
+            <span className="tabular font-bold text-ink">
+              {toPersianDigits(soldPercent)}٪
+            </span>{" "}
+            از {toPersianDigits(offer.total)} کالای این پیشنهاد فروخته شده است.
           </p>
         </div>
       ) : null}

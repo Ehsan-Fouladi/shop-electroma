@@ -32,7 +32,8 @@ export const MOCK_COUPONS: Record<string, CouponDefinition> = {
   WELCOME: {
     code: "WELCOME",
     title: "هدیه اولین خرید",
-    description: "۵۰۰,۰۰۰ تومان تخفیف مستقیم برای سفارش‌های بالای ۱ میلیون تومان",
+    description:
+      "۵۰۰,۰۰۰ تومان تخفیف مستقیم برای سفارش‌های بالای ۱ میلیون تومان",
     type: "fixed",
     value: 500_000,
     minSubtotal: 1_000_000,
@@ -109,7 +110,9 @@ export function validateMockCoupon(
     discountAmount = Math.min(coupon.value, subtotal);
   } else if (coupon.type === "percentage") {
     const calculated = Math.round((subtotal * coupon.value) / 100);
-    discountAmount = coupon.maxDiscount ? Math.min(calculated, coupon.maxDiscount) : calculated;
+    discountAmount = coupon.maxDiscount
+      ? Math.min(calculated, coupon.maxDiscount)
+      : calculated;
   } else if (coupon.type === "free_shipping") {
     discountAmount = shippingFee;
     freeShippingDiscount = true;

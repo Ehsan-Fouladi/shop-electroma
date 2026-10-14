@@ -121,7 +121,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-dvh antialiased">
-        <Direction.Provider  dir="rtl">
+        <Direction.Provider dir="rtl">
           {children}
           <Toaster
             position="top-right"

@@ -157,7 +157,10 @@ export function productSummary(product: Product): string {
     .filter(Boolean)
     .join(" ");
 
-  return [parts ? `${product.title} ${parts}.` : `${product.title}.`, specs ? `مشخصات شاخص — ${specs}.` : ""]
+  return [
+    parts ? `${product.title} ${parts}.` : `${product.title}.`,
+    specs ? `مشخصات شاخص — ${specs}.` : "",
+  ]
     .filter(Boolean)
     .join(" ");
 }
@@ -167,7 +170,9 @@ export function productDescription(product: Product): string[] {
   if (product.description) return [product.description];
 
   const overview = productSummary(product);
-  const warranty = product.warranty ? `این کالا با ${product.warranty} ارائه می‌شود.` : "";
+  const warranty = product.warranty
+    ? `این کالا با ${product.warranty} ارائه می‌شود.`
+    : "";
   const seller = product.seller ? `فروشنده: ${product.seller}.` : "";
   const stockLine =
     product.stock > 0
@@ -236,7 +241,7 @@ export function productJsonLd(product: Product, url: string) {
   const brand = getBrand(product.brandSlug);
   const category = getCategory(product.categorySlug);
   const availability = availabilityFor(product);
-  
+
   const allImages = [product.image, ...(product.additionalImages ?? [])]
     .filter((img): img is string => Boolean(img))
     .map((img) => (img.startsWith("http") ? img : `${siteConfig.url}${img}`));
@@ -260,7 +265,12 @@ export function productJsonLd(product: Product, url: string) {
       : {}),
     ...(category ? { category: category.title } : {}),
     ...(product.highlights.length
-      ? { additionalProperty: product.highlights.map((item) => ({ "@type": "PropertyValue", name: item })) }
+      ? {
+          additionalProperty: product.highlights.map((item) => ({
+            "@type": "PropertyValue",
+            name: item,
+          })),
+        }
       : {}),
     offers: {
       "@type": "Offer",

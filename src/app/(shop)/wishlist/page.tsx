@@ -15,10 +15,7 @@ export default function WishlistPage() {
   return (
     <Container className="flex flex-col gap-6 py-5 sm:gap-7 sm:py-7 lg:py-9">
       <Breadcrumb
-        items={[
-          { label: "خانه", href: "/" },
-          { label: "علاقه‌مندی‌ها" },
-        ]}
+        items={[{ label: "خانه", href: "/" }, { label: "علاقه‌مندی‌ها" }]}
       />
       <WishlistGrid showHeading={true} />
     </Container>

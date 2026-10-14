@@ -293,9 +293,7 @@ interface FaqItem {
 export function InteractiveFaqList({ faqs }: { faqs: FaqItem[] }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [feedback, setFeedback] = useState<Record<number, "up" | "down">>(
-    {},
-  );
+  const [feedback, setFeedback] = useState<Record<number, "up" | "down">>({});
 
   const categories = ["all", ...new Set(faqs.map((f) => f.category))];
 

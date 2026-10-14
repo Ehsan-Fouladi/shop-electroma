@@ -20,7 +20,11 @@ interface ProductCardProps {
 }
 
 /** Primary commerce unit reused by every rail, grid and collection. */
-export function ProductCard({ product, className, priority = false }: ProductCardProps) {
+export function ProductCard({
+  product,
+  className,
+  priority = false,
+}: ProductCardProps) {
   const brand = getBrand(product.brandSlug);
   const lowStock = product.stock <= 8;
   const specLine = product.specs
@@ -51,17 +55,21 @@ export function ProductCard({ product, className, priority = false }: ProductCar
           </div>
         </Link>
 
-        <ProductBadges product={product} />
         <ProductCardActions product={product} />
       </div>
 
       <div className="flex flex-1 flex-col gap-2 px-3.5 pb-3">
         {brand ? (
-          <span className="text-caption font-medium text-subtle-ink">{brand.title}</span>
+          <span className="text-caption font-medium text-subtle-ink">
+            {brand.title}
+          </span>
         ) : null}
 
         <h3 className="text-body-sm font-medium leading-6 text-ink">
-          <Link href={`/product/${product.slug}`} className="line-clamp-2 hover:text-brand">
+          <Link
+            href={`/product/${product.slug}`}
+            className="line-clamp-2 hover:text-brand"
+          >
             {product.title}
           </Link>
         </h3>
@@ -99,7 +107,9 @@ export function ProductCard({ product, className, priority = false }: ProductCar
             ) : (
               <CheckCircle2 className="size-3.5" aria-hidden />
             )}
-            {lowStock ? `تنها ${toPersianDigits(product.stock)} عدد` : "موجود در انبار"}
+            {lowStock
+              ? `تنها ${toPersianDigits(product.stock)} عدد`
+              : "موجود در انبار"}
           </span>
 
           <AddToCartButton

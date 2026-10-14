@@ -17,8 +17,14 @@ export const heroSlides: HeroSlide[] = [
     title: "آیفون ۱۶ پرو مکس",
     description:
       "بدنه تیتانیومی، تراشه A18 Pro و سیستم دوربین ۴۸ مگاپیکسلی؛ انتخابی برای کسانی که بهترین را می‌خواهند.",
-    primaryCta: { label: "مشاهده و خرید", href: "/product/apple-iphone-16-pro-max-256" },
-    secondaryCta: { label: "همه گوشی‌های موبایل", href: "/category/mobile-phones" },
+    primaryCta: {
+      label: "مشاهده و خرید",
+      href: "/product/apple-iphone-16-pro-max-256",
+    },
+    secondaryCta: {
+      label: "همه گوشی‌های موبایل",
+      href: "/category/mobile-phones",
+    },
     image: "/images/hero/slide-phone.webp",
     theme: "brand",
     stats: [
@@ -33,7 +39,10 @@ export const heroSlides: HeroSlide[] = [
     title: "مک‌بوک ایر M4",
     description:
       "نمایشگر ۱۵ اینچی، تراشه M4 و تا ۲۴ ساعت شارژدهی؛ سبک‌ترین انتخاب برای کار، مطالعه و طراحی.",
-    primaryCta: { label: "مشاهده و خرید", href: "/product/apple-macbook-air-m4-15-256" },
+    primaryCta: {
+      label: "مشاهده و خرید",
+      href: "/product/apple-macbook-air-m4-15-256",
+    },
     secondaryCta: { label: "همه لپ‌تاپ‌ها", href: "/category/laptops" },
     image: "/images/hero/slide-laptop.webp",
     theme: "slate",
@@ -143,7 +152,8 @@ export const valueProps: ValueProp[] = [
   {
     id: "value-original",
     title: "ضمانت اصالت کالا",
-    description: "همه محصولات از فروشندگان معتبر و با گارانتی رسمی تأمین می‌شوند.",
+    description:
+      "همه محصولات از فروشندگان معتبر و با گارانتی رسمی تأمین می‌شوند.",
     icon: "badge-check",
   },
   {
@@ -155,7 +165,8 @@ export const valueProps: ValueProp[] = [
   {
     id: "value-payment",
     title: "پرداخت امن",
-    description: "اتصال به درگاه امن بانکی و امکان انتخاب پرداخت اعتباری در تسویه.",
+    description:
+      "اتصال به درگاه امن بانکی و امکان انتخاب پرداخت اعتباری در تسویه.",
     icon: "credit-card",
   },
   {
@@ -167,7 +178,8 @@ export const valueProps: ValueProp[] = [
   {
     id: "value-support",
     title: "پشتیبانی ۷ روز هفته",
-    description: "پاسخ‌گویی کارشناسان از طریق تلفن، چت و تیکت در تمام روزهای هفته.",
+    description:
+      "پاسخ‌گویی کارشناسان از طریق تلفن، چت و تیکت در تمام روزهای هفته.",
     icon: "headset",
   },
   {

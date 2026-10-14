@@ -45,10 +45,7 @@ export function CompareView() {
   return (
     <Container className="flex flex-col gap-6 py-5 sm:gap-7 sm:py-7 lg:py-9">
       <Breadcrumb
-        items={[
-          { label: "خانه", href: "/" },
-          { label: "مقایسه محصولات" },
-        ]}
+        items={[{ label: "خانه", href: "/" }, { label: "مقایسه محصولات" }]}
       />
 
       <div className="flex flex-wrap items-center justify-between gap-4">
@@ -88,14 +85,19 @@ export function CompareView() {
           </span>
 
           <div>
-            <h2 className="text-title font-bold text-ink">کالایی برای مقایسه انتخاب نشده است</h2>
+            <h2 className="text-title font-bold text-ink">
+              کالایی برای مقایسه انتخاب نشده است
+            </h2>
             <p className="mt-1 max-w-md text-body-sm text-subtle-ink">
-              در کارت یا صفحه هر محصول، روی دکمه مقایسه کلیک کنید تا مشخصات آن در این صفحه قرار گیرد.
+              در کارت یا صفحه هر محصول، روی دکمه مقایسه کلیک کنید تا مشخصات آن
+              در این صفحه قرار گیرد.
             </p>
           </div>
 
           <div className="mt-4 flex flex-col gap-2">
-            <p className="text-label font-bold text-ink">کالاهای پیشنهادی برای شروع مقایسه:</p>
+            <p className="text-label font-bold text-ink">
+              کالاهای پیشنهادی برای شروع مقایسه:
+            </p>
             <div className="flex flex-wrap justify-center gap-2">
               {products.slice(0, 3).map((p) => (
                 <Button
@@ -104,7 +106,9 @@ export function CompareView() {
                   size="sm"
                   onClick={() => {
                     useCompareStore.getState().toggle(p.id);
-                    toast.success("به مقایسه اضافه شد", { description: p.title });
+                    toast.success("به مقایسه اضافه شد", {
+                      description: p.title,
+                    });
                   }}
                 >
                   <Plus aria-hidden />
@@ -135,7 +139,10 @@ export function CompareView() {
             </div>
 
             {comparedProducts.map((product) => (
-              <div key={product.id} className="relative flex flex-col justify-between p-4 bg-surface">
+              <div
+                key={product.id}
+                className="relative flex flex-col justify-between p-4 bg-surface"
+              >
                 <button
                   type="button"
                   onClick={() => handleRemove(product.id, product.title)}
@@ -158,7 +165,10 @@ export function CompareView() {
                   </Link>
 
                   <div className="mt-2 flex items-center justify-center">
-                    <Rating value={product.rating} reviewCount={product.reviewCount} />
+                    <Rating
+                      value={product.rating}
+                      reviewCount={product.reviewCount}
+                    />
                   </div>
 
                   <div className="mt-2">
@@ -216,7 +226,9 @@ export function CompareView() {
                 className="p-3.5 text-body-sm border-t border-line-subtle text-center"
               >
                 {p.stock > 0 ? (
-                  <span className="text-success font-medium">موجود در انبار</span>
+                  <span className="text-success font-medium">
+                    موجود در انبار
+                  </span>
                 ) : (
                   <span className="text-sale font-medium">ناموجود</span>
                 )}
@@ -244,7 +256,8 @@ export function CompareView() {
                   </div>
 
                   {comparedProducts.map((p) => {
-                    const val = p.specs.find((s) => s.label === specLabel)?.value || "—";
+                    const val =
+                      p.specs.find((s) => s.label === specLabel)?.value || "—";
                     return (
                       <div
                         key={`${p.id}-${specLabel}`}

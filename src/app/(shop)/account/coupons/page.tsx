@@ -10,7 +10,9 @@ import { cn } from "@/lib/utils/cn";
 import { useState } from "react";
 
 export default function AccountCouponsPage() {
-  const [activeTab, setActiveTab] = useState<"available" | "used" | "expired">("available");
+  const [activeTab, setActiveTab] = useState<"available" | "used" | "expired">(
+    "available",
+  );
 
   const filtered = customerCoupons.filter((c) => c.state === activeTab);
 
@@ -55,9 +57,12 @@ export default function AccountCouponsPage() {
             <TicketPercent className="size-8" aria-hidden />
           </span>
           <div>
-            <h2 className="text-title font-bold text-ink">کد تخفیفی در این بخش ندارید</h2>
+            <h2 className="text-title font-bold text-ink">
+              کد تخفیفی در این بخش ندارید
+            </h2>
             <p className="mt-1 text-body-sm text-subtle-ink">
-              کدهای تخفیف جشنواره‌ها و خریدهای شگفت‌انگیز در این بخش قرار می‌گیرند.
+              کدهای تخفیف جشنواره‌ها و خریدهای شگفت‌انگیز در این بخش قرار
+              می‌گیرند.
             </p>
           </div>
         </div>
@@ -95,7 +100,9 @@ export default function AccountCouponsPage() {
                   </span>
                 </div>
 
-                <p className="mt-3 text-body-sm text-body">{coupon.description}</p>
+                <p className="mt-3 text-body-sm text-body">
+                  {coupon.description}
+                </p>
                 <p className="mt-2 text-caption text-subtle-ink">
                   مهلت اعتبار: <span dir="ltr">{coupon.expiresAt}</span>
                 </p>
@@ -103,7 +110,10 @@ export default function AccountCouponsPage() {
 
               {coupon.state === "available" && (
                 <div className="mt-4 flex items-center justify-between gap-2 rounded-lg border border-dashed border-primary/40 bg-brand-soft/30 p-2.5">
-                  <span className="font-mono text-body font-bold text-brand-active" dir="ltr">
+                  <span
+                    className="font-mono text-body font-bold text-brand-active"
+                    dir="ltr"
+                  >
                     {coupon.code}
                   </span>
                   <Button

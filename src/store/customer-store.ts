@@ -28,7 +28,10 @@ interface CustomerState {
   demoContact: string | null;
   updateProfile: (changes: Partial<CustomerProfile>) => void;
   addAddress: (address: Omit<CustomerAddress, "id">) => string;
-  updateAddress: (id: string, changes: Partial<Omit<CustomerAddress, "id">>) => void;
+  updateAddress: (
+    id: string,
+    changes: Partial<Omit<CustomerAddress, "id">>,
+  ) => void;
   removeAddress: (id: string) => void;
   setDefaultAddress: (id: string) => void;
   addOrder: (order: CustomerOrder) => void;
@@ -56,7 +59,11 @@ export const useCustomerStore = create<CustomerState>((set) => ({
     set((state) => ({
       addresses: [
         ...state.addresses.map((item) => ({ ...item, isDefault: false })),
-        { ...address, id, isDefault: state.addresses.length === 0 || address.isDefault },
+        {
+          ...address,
+          id,
+          isDefault: state.addresses.length === 0 || address.isDefault,
+        },
       ],
     }));
     return id;
@@ -69,7 +76,9 @@ export const useCustomerStore = create<CustomerState>((set) => ({
     })),
   removeAddress: (id) =>
     set((state) => {
-      const wasDefault = state.addresses.find((address) => address.id === id)?.isDefault;
+      const wasDefault = state.addresses.find(
+        (address) => address.id === id,
+      )?.isDefault;
       const remaining = state.addresses.filter((address) => address.id !== id);
       return {
         addresses: remaining.map((address, index) => ({
@@ -86,7 +95,9 @@ export const useCustomerStore = create<CustomerState>((set) => ({
       })),
     })),
   addOrder: (order) =>
-    set((state) => ({ orders: [order, ...state.orders.filter((item) => item.id !== order.id)] })),
+    set((state) => ({
+      orders: [order, ...state.orders.filter((item) => item.id !== order.id)],
+    })),
   chargeMockWallet: (amount, title) => {
     let charged = false;
     set((state) => {
@@ -119,7 +130,10 @@ export const useCustomerStore = create<CustomerState>((set) => ({
     })),
   markAllNotificationsRead: () =>
     set((state) => ({
-      notifications: state.notifications.map((item) => ({ ...item, read: true })),
+      notifications: state.notifications.map((item) => ({
+        ...item,
+        read: true,
+      })),
     })),
   setDemoContact: (contact) => set({ demoContact: contact }),
 }));

@@ -13,7 +13,11 @@ import {
   Truck,
 } from "lucide-react";
 
-import { AccountBackLink, AccountPageHeading, AccountPanel } from "@/components/account/account-page-heading";
+import {
+  AccountBackLink,
+  AccountPageHeading,
+  AccountPanel,
+} from "@/components/account/account-page-heading";
 import { StatusBadge } from "@/components/account/status-badge";
 import { Button } from "@/components/ui/button";
 import { formatPersianDate } from "@/lib/formatters/date";
@@ -22,12 +26,42 @@ import { useCustomerStore } from "@/store/customer-store";
 import type { OrderStatus } from "@/types/customer";
 
 const TRACKING_STEPS = [
-  { id: 1, title: "ثبت سفارش", desc: "سفارش در سیستم ثبت شد.", icon: FileCheck2 },
-  { id: 2, title: "تأیید سفارش", desc: "اطلاعات مالی و پرداخت تأیید شد.", icon: CheckCircle2 },
-  { id: 3, title: "آماده‌سازی", desc: "کالا از انبار بسته‌بندی شد.", icon: Box },
-  { id: 4, title: "تحویل به شرکت حمل", desc: "بسته به مأمور ارسال تحویل گردید.", icon: Truck },
-  { id: 5, title: "در مسیر تحویل", desc: "مرسوله در مسیر نشانی گیرنده است.", icon: Clock },
-  { id: 6, title: "تحویل‌شده", desc: "بسته با موفقیت به گیرنده تحویل شد.", icon: PackageCheck },
+  {
+    id: 1,
+    title: "ثبت سفارش",
+    desc: "سفارش در سیستم ثبت شد.",
+    icon: FileCheck2,
+  },
+  {
+    id: 2,
+    title: "تأیید سفارش",
+    desc: "اطلاعات مالی و پرداخت تأیید شد.",
+    icon: CheckCircle2,
+  },
+  {
+    id: 3,
+    title: "آماده‌سازی",
+    desc: "کالا از انبار بسته‌بندی شد.",
+    icon: Box,
+  },
+  {
+    id: 4,
+    title: "تحویل به شرکت حمل",
+    desc: "بسته به مأمور ارسال تحویل گردید.",
+    icon: Truck,
+  },
+  {
+    id: 5,
+    title: "در مسیر تحویل",
+    desc: "مرسوله در مسیر نشانی گیرنده است.",
+    icon: Clock,
+  },
+  {
+    id: 6,
+    title: "تحویل‌شده",
+    desc: "بسته با موفقیت به گیرنده تحویل شد.",
+    icon: PackageCheck,
+  },
 ];
 
 function getActiveStepIndex(status: OrderStatus): number {
@@ -64,7 +98,9 @@ export default function OrderTrackingPage() {
       <div className="flex flex-col items-center gap-4 rounded-xl border border-line bg-surface p-8 text-center shadow-soft">
         <AlertCircle className="size-10 text-subtle-ink" aria-hidden />
         <div>
-          <h1 className="text-title font-bold text-ink">سفارش مورد نظر یافت نشد</h1>
+          <h1 className="text-title font-bold text-ink">
+            سفارش مورد نظر یافت نشد
+          </h1>
           <p className="mt-1 text-body-sm text-subtle-ink">
             امکان رهگیری سفارشی با این شناسه وجود ندارد.
           </p>
@@ -80,12 +116,18 @@ export default function OrderTrackingPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <AccountBackLink href={`/account/orders/${order.id}`} label="بازگشت به جزئیات سفارش" />
+      <AccountBackLink
+        href={`/account/orders/${order.id}`}
+        label="بازگشت به جزئیات سفارش"
+      />
 
       <AccountPageHeading
         title={
           <span>
-            رهگیری وضعیت مرسوله <span dir="ltr" className="inline-block whitespace-nowrap">{order.id}</span>
+            رهگیری وضعیت مرسوله{" "}
+            <span dir="ltr" className="inline-block whitespace-nowrap">
+              {order.id}
+            </span>
           </span>
         }
         breadcrumbTitle={`رهگیری وضعیت مرسوله ${order.id}`}
@@ -100,12 +142,16 @@ export default function OrderTrackingPage() {
             <StatusBadge status={order.status} />
           </div>
           <p className="mt-1 text-caption text-subtle-ink">
-            روش ارسال: {order.shippingMethod} • گیرنده: {order.address.recipient} ({order.address.city})
+            روش ارسال: {order.shippingMethod} • گیرنده:{" "}
+            {order.address.recipient} ({order.address.city})
           </p>
         </div>
 
         <div className="w-fit rounded-md border border-line bg-surface-soft px-3 py-2 text-label">
-          کد رهگیری پستی: <span className="font-bold text-ink" dir="ltr">{order.trackingCode || "EL-TRK-PENDING"}</span>
+          کد رهگیری پستی:{" "}
+          <span className="font-bold text-ink" dir="ltr">
+            {order.trackingCode || "EL-TRK-PENDING"}
+          </span>
         </div>
       </div>
 
@@ -130,10 +176,19 @@ export default function OrderTrackingPage() {
                           : "bg-surface-muted text-disabled-ink",
                     )}
                   >
-                    {isPast ? <Check className="size-4" aria-hidden /> : <s.icon className="size-4" aria-hidden />}
+                    {isPast ? (
+                      <Check className="size-4" aria-hidden />
+                    ) : (
+                      <s.icon className="size-4" aria-hidden />
+                    )}
                   </span>
                   {!isLast && (
-                    <div className={cn("w-0.5 flex-1 my-1.5", isPast ? "bg-primary/40" : "bg-line-subtle")} />
+                    <div
+                      className={cn(
+                        "w-0.5 flex-1 my-1.5",
+                        isPast ? "bg-primary/40" : "bg-line-subtle",
+                      )}
+                    />
                   )}
                 </div>
 
@@ -144,7 +199,11 @@ export default function OrderTrackingPage() {
                       <p
                         className={cn(
                           "text-body-sm font-bold",
-                          isCurrent ? "text-brand-active" : isPast ? "text-ink" : "text-subtle-ink",
+                          isCurrent
+                            ? "text-brand-active"
+                            : isPast
+                              ? "text-ink"
+                              : "text-subtle-ink",
                         )}
                       >
                         {s.title}
@@ -155,7 +214,9 @@ export default function OrderTrackingPage() {
                         </span>
                       )}
                     </div>
-                    <p className="mt-1 text-caption text-subtle-ink">{s.desc}</p>
+                    <p className="mt-1 text-caption text-subtle-ink">
+                      {s.desc}
+                    </p>
                   </div>
                 </div>
               </div>

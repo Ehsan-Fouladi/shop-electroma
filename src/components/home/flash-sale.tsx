@@ -101,9 +101,13 @@ export function FlashSale({
                 aria-label="زمان باقی‌مانده تا پایان پیشنهادها"
               >
                 <CountdownTile value={time?.hours ?? 0} label="ساعت" />
-                <span className="mb-5 text-title-sm font-bold text-white/50">:</span>
+                <span className="mb-5 text-title-sm font-bold text-white/50">
+                  :
+                </span>
                 <CountdownTile value={time?.minutes ?? 0} label="دقیقه" />
-                <span className="mb-5 text-title-sm font-bold text-white/50">:</span>
+                <span className="mb-5 text-title-sm font-bold text-white/50">
+                  :
+                </span>
                 <CountdownTile value={time?.seconds ?? 0} label="ثانیه" />
               </div>
 

@@ -34,7 +34,12 @@ import { ProductMedia } from "@/components/product/product-media";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { products } from "@/data/products";
 import { getCartEntries } from "@/lib/cart/summary";
@@ -108,20 +113,25 @@ export function CheckoutFlow() {
   const [submitting, setSubmitting] = useState(false);
 
   // Coupon state
-  const [appliedCoupon, setAppliedCoupon] = useState<AppliedCouponState | null>(null);
+  const [appliedCoupon, setAppliedCoupon] = useState<AppliedCouponState | null>(
+    null,
+  );
 
   const entries = getCartEntries(lines, products);
 
   // Subtotal before any discount
   const subtotal = entries.reduce(
-    (sum, { line, product }) => sum + (product.oldPrice ?? product.price) * line.quantity,
+    (sum, { line, product }) =>
+      sum + (product.oldPrice ?? product.price) * line.quantity,
     0,
   );
 
   // Catalog product discount
   const productDiscount = entries.reduce(
     (sum, { line, product }) =>
-      sum + Math.max(0, (product.oldPrice ?? product.price) - product.price) * line.quantity,
+      sum +
+      Math.max(0, (product.oldPrice ?? product.price) - product.price) *
+        line.quantity,
     0,
   );
 
@@ -139,13 +149,15 @@ export function CheckoutFlow() {
   // Shipping
   const freeShipping = itemTotal >= siteConfig.freeShippingThreshold;
   const currentShippingOption =
-    DELIVERY_OPTIONS.find((opt) => opt.id === shippingMethodId) || DELIVERY_OPTIONS[0];
+    DELIVERY_OPTIONS.find((opt) => opt.id === shippingMethodId) ||
+    DELIVERY_OPTIONS[0];
   const shippingFee = freeShipping ? 0 : currentShippingOption.fee;
 
   // Final grand total
   const grandTotal = finalItemTotal + shippingFee;
 
-  const selectedAddress = addresses.find((a) => a.id === selectedAddressId) || addresses[0];
+  const selectedAddress =
+    addresses.find((a) => a.id === selectedAddressId) || addresses[0];
 
   // If cart is empty, show empty state
   if (entries.length === 0) {
@@ -155,7 +167,9 @@ export function CheckoutFlow() {
           <AlertCircle className="size-8" aria-hidden />
         </span>
         <div>
-          <h2 className="text-title font-bold text-ink">سبد خرید شما برای تسویه حساب خالی است</h2>
+          <h2 className="text-title font-bold text-ink">
+            سبد خرید شما برای تسویه حساب خالی است
+          </h2>
           <p className="mt-1 text-body-sm text-subtle-ink">
             لطفاً ابتدا کالای مورد نظرتان را به سبد خرید اضافه کنید.
           </p>
@@ -171,10 +185,12 @@ export function CheckoutFlow() {
   const canNavigateToStep = (targetId: number): boolean => {
     if (targetId === 1) return true;
     if (targetId === 2) return Boolean(selectedAddress);
-    if (targetId === 3) return Boolean(selectedAddress) && Boolean(shippingMethodId);
+    if (targetId === 3)
+      return Boolean(selectedAddress) && Boolean(shippingMethodId);
     if (targetId === 4) {
       if (!selectedAddress || !shippingMethodId) return false;
-      if (paymentMethod === "wallet" && walletBalance < grandTotal) return false;
+      if (paymentMethod === "wallet" && walletBalance < grandTotal)
+        return false;
       return true;
     }
     return false;
@@ -184,7 +200,11 @@ export function CheckoutFlow() {
     if (!canNavigateToStep(targetStep)) {
       if (targetStep >= 2 && !selectedAddress) {
         toast.error("لطفاً ابتدا نشانی تحویل را انتخاب کنید.");
-      } else if (targetStep === 4 && paymentMethod === "wallet" && walletBalance < grandTotal) {
+      } else if (
+        targetStep === 4 &&
+        paymentMethod === "wallet" &&
+        walletBalance < grandTotal
+      ) {
         toast.error("موجودی کیف پول کافی نیست.");
       }
       return;
@@ -198,7 +218,11 @@ export function CheckoutFlow() {
       toast.error("لطفاً یک نشانی تحویل انتخاب یا ثبت کنید.");
       return;
     }
-    if (step === 3 && paymentMethod === "wallet" && walletBalance < grandTotal) {
+    if (
+      step === 3 &&
+      paymentMethod === "wallet" &&
+      walletBalance < grandTotal
+    ) {
       toast.error("موجودی کیف پول شما برای این سفارش کافی نیست.");
       return;
     }
@@ -227,7 +251,9 @@ export function CheckoutFlow() {
         ...state.walletTransactions,
       ],
     }));
-    toast.success(`مبلغ ${formatPrice(deficit)} تومان به صورت نمایشی به کیف پول افزوده شد.`);
+    toast.success(
+      `مبلغ ${formatPrice(deficit)} تومان به صورت نمایشی به کیف پول افزوده شد.`,
+    );
   };
 
   const handleCreateOrder = () => {
@@ -315,7 +341,10 @@ export function CheckoutFlow() {
             >
               <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-line-subtle pb-4">
                 <div>
-                  <h2 id="step-1-title" className="text-title font-bold text-ink">
+                  <h2
+                    id="step-1-title"
+                    className="text-title font-bold text-ink"
+                  >
                     انتخاب نشانی تحویل
                   </h2>
                   <p className="mt-1 text-body-sm text-subtle-ink">
@@ -336,7 +365,9 @@ export function CheckoutFlow() {
 
               {addresses.length === 0 ? (
                 <div className="py-8 text-center">
-                  <p className="text-body-sm text-subtle-ink">هیچ نشانی ثبت‌شده‌ای در حساب شما وجود ندارد.</p>
+                  <p className="text-body-sm text-subtle-ink">
+                    هیچ نشانی ثبت‌شده‌ای در حساب شما وجود ندارد.
+                  </p>
                   <Button
                     type="button"
                     className="mt-3 gap-1.5"
@@ -370,16 +401,23 @@ export function CheckoutFlow() {
                               onChange={() => setSelectedAddressId(addr.id)}
                               className="size-4 text-primary focus:ring-primary"
                             />
-                            <span className="font-bold text-ink">{addr.title}</span>
+                            <span className="font-bold text-ink">
+                              {addr.title}
+                            </span>
                           </div>
                           {addr.isDefault ? (
-                            <Badge variant="brand" className="text-caption font-medium">
+                            <Badge
+                              variant="brand"
+                              className="text-caption font-medium"
+                            >
                               پیش‌فرض
                             </Badge>
                           ) : null}
                         </div>
 
-                        <p className="mt-2 line-clamp-2 text-body-sm text-body">{addr.address}</p>
+                        <p className="mt-2 line-clamp-2 text-body-sm text-body">
+                          {addr.address}
+                        </p>
 
                         <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-line-subtle pt-2.5 text-caption text-subtle-ink">
                           <span>گیرنده: {addr.recipient}</span>
@@ -392,14 +430,20 @@ export function CheckoutFlow() {
               )}
 
               {/* Add Address Dialog */}
-              <Dialog open={isNewAddressOpen} onOpenChange={setIsNewAddressOpen}>
+              <Dialog
+                open={isNewAddressOpen}
+                onOpenChange={setIsNewAddressOpen}
+              >
                 <DialogContent className="w-full max-w-lg h-full overflow-y-auto">
                   <DialogHeader>
                     <DialogTitle>افزودن نشانی جدید</DialogTitle>
                   </DialogHeader>
                   <AddressForm
                     onSubmit={(vals) => {
-                      const newId = addAddress({ ...vals, isDefault: addresses.length === 0 });
+                      const newId = addAddress({
+                        ...vals,
+                        isDefault: addresses.length === 0,
+                      });
                       setSelectedAddressId(newId);
                       setIsNewAddressOpen(false);
                       toast.success("نشانی جدید ثبت و انتخاب شد");
@@ -452,7 +496,9 @@ export function CheckoutFlow() {
                         />
                         <div>
                           <p className="font-bold text-ink">{opt.title}</p>
-                          <p className="mt-0.5 text-body-sm text-subtle-ink">{opt.description}</p>
+                          <p className="mt-0.5 text-body-sm text-subtle-ink">
+                            {opt.description}
+                          </p>
                           <p className="mt-1 text-caption font-medium text-brand-active">
                             زمان تقریبی تحویل: {opt.days}
                           </p>
@@ -460,11 +506,15 @@ export function CheckoutFlow() {
                       </div>
                       <div className="text-end shrink-0">
                         {freeShipping ? (
-                          <span className="font-bold text-success">ارسال رایگان</span>
+                          <span className="font-bold text-success">
+                            ارسال رایگان
+                          </span>
                         ) : (
                           <span className="font-bold text-ink">
                             {formatPrice(fee)}{" "}
-                            <span className="text-caption font-normal">تومان</span>
+                            <span className="text-caption font-normal">
+                              تومان
+                            </span>
                           </span>
                         )}
                       </div>
@@ -477,7 +527,8 @@ export function CheckoutFlow() {
                 <Alert variant="success" className="mt-4">
                   <CheckCircle2 className="size-4 text-success" aria-hidden />
                   <AlertDescription>
-                    سفارش شما بیش از ۵ میلیون تومان است؛ ارسال استاندارد سفارش شما کاملاً رایگان خواهد بود!
+                    سفارش شما بیش از ۵ میلیون تومان است؛ ارسال استاندارد سفارش
+                    شما کاملاً رایگان خواهد بود!
                   </AlertDescription>
                 </Alert>
               )}
@@ -495,7 +546,8 @@ export function CheckoutFlow() {
                   شیوه پرداخت
                 </h2>
                 <p className="mt-1 text-body-sm text-subtle-ink">
-                  درگاه شبیه‌سازی‌شده شاپرک یا کیف پول الکتروما را انتخاب نمایید.
+                  درگاه شبیه‌سازی‌شده شاپرک یا کیف پول الکتروما را انتخاب
+                  نمایید.
                 </p>
               </div>
 
@@ -523,21 +575,30 @@ export function CheckoutFlow() {
                         <CreditCard className="size-5" aria-hidden />
                       </div>
                       <div className="hidden sm:block">
-                        <p className="font-bold text-ink">پرداخت اینترنتی با کلیه کارت‌های عضو شتاب</p>
+                        <p className="font-bold text-ink">
+                          پرداخت اینترنتی با کلیه کارت‌های عضو شتاب
+                        </p>
                         <p className="text-caption text-subtle-ink">
-                          اتصال مستقیم به درگاه پرداخت امن شاپرک (محیط شبیه‌سازی‌شده فرانت‌اند)
+                          اتصال مستقیم به درگاه پرداخت امن شاپرک (محیط
+                          شبیه‌سازی‌شده فرانت‌اند)
                         </p>
                       </div>
                     </div>
-                    <Badge variant="brand" className="shrink-0 text-caption mt-1 sm:mt-0">
+                    <Badge
+                      variant="brand"
+                      className="shrink-0 text-caption mt-1 sm:mt-0"
+                    >
                       سریع و بدون کارمزد
                     </Badge>
                   </label>
 
                   <div className="block sm:hidden">
-                    <p className="font-bold text-ink">پرداخت اینترنتی با کلیه کارت‌های عضو شتاب</p>
+                    <p className="font-bold text-ink">
+                      پرداخت اینترنتی با کلیه کارت‌های عضو شتاب
+                    </p>
                     <p className="text-caption text-subtle-ink">
-                      اتصال مستقیم به درگاه پرداخت امن شاپرک (محیط شبیه‌سازی‌شده فرانت‌اند)
+                      اتصال مستقیم به درگاه پرداخت امن شاپرک (محیط شبیه‌سازی‌شده
+                      فرانت‌اند)
                     </p>
                   </div>
 
@@ -563,10 +624,17 @@ export function CheckoutFlow() {
                               aria-pressed={isBankActive}
                             >
                               <Building2
-                                className={cn("size-4.5", isBankActive ? "text-white" : "text-subtle-ink")}
+                                className={cn(
+                                  "size-4.5",
+                                  isBankActive
+                                    ? "text-white"
+                                    : "text-subtle-ink",
+                                )}
                                 aria-hidden
                               />
-                              <span className="text-caption leading-tight">{bank.name}</span>
+                              <span className="text-caption leading-tight">
+                                {bank.name}
+                              </span>
                               <span
                                 className={cn(
                                   "rounded-xs px-1.5 py-0.2 text-[10px]",
@@ -598,25 +666,27 @@ export function CheckoutFlow() {
                     <div className="flex items-center sm:items-start justify-between gap-3 w-full">
                       <div className="flex max-sm:items-center gap-3">
                         <input
-                        type="radio"
-                        name="payment-method"
-                        value="wallet"
-                        checked={paymentMethod === "wallet"}
-                        onChange={() => setPaymentMethod("wallet")}
-                        className="mt-1 size-4 text-primary focus:ring-primary"
-                      />
-                      <div className="grid size-10 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand-active">
-                        <Wallet className="size-5" aria-hidden />
-                      </div>
-                      <div className="hidden sm:block">
-                        <p className="font-bold text-ink">پرداخت با کیف پول الکتروما</p>
-                        <p className="text-caption text-subtle-ink">
-                          موجودی اعتباری فعلی:{" "}
-                          <span className="font-bold text-ink">
-                            {formatPrice(walletBalance)} تومان
-                          </span>
-                        </p>
-                      </div>
+                          type="radio"
+                          name="payment-method"
+                          value="wallet"
+                          checked={paymentMethod === "wallet"}
+                          onChange={() => setPaymentMethod("wallet")}
+                          className="mt-1 size-4 text-primary focus:ring-primary"
+                        />
+                        <div className="grid size-10 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand-active">
+                          <Wallet className="size-5" aria-hidden />
+                        </div>
+                        <div className="hidden sm:block">
+                          <p className="font-bold text-ink">
+                            پرداخت با کیف پول الکتروما
+                          </p>
+                          <p className="text-caption text-subtle-ink">
+                            موجودی اعتباری فعلی:{" "}
+                            <span className="font-bold text-ink">
+                              {formatPrice(walletBalance)} تومان
+                            </span>
+                          </p>
+                        </div>
                       </div>
                       <div className="shrink-0">
                         {walletBalance < grandTotal ? (
@@ -633,27 +703,35 @@ export function CheckoutFlow() {
                   </label>
 
                   <div className="block sm:hidden">
-                      <p className="font-bold text-ink">پرداخت با کیف پول الکتروما</p>
-                      <p className="text-caption text-subtle-ink">
-                        موجودی اعتباری فعلی:{" "}
-                        <span className="font-bold text-ink">
-                          {formatPrice(walletBalance)} تومان
-                        </span>
-                      </p>
-                    </div>
+                    <p className="font-bold text-ink">
+                      پرداخت با کیف پول الکتروما
+                    </p>
+                    <p className="text-caption text-subtle-ink">
+                      موجودی اعتباری فعلی:{" "}
+                      <span className="font-bold text-ink">
+                        {formatPrice(walletBalance)} تومان
+                      </span>
+                    </p>
+                  </div>
 
                   {paymentMethod === "wallet" && (
                     <div className="border-t border-line-subtle pt-3 text-caption">
                       {walletBalance < grandTotal ? (
                         <div className="flex flex-col gap-2 rounded-md bg-sale-soft/50 p-3 text-sale">
                           <div className="flex items-center gap-1.5 font-bold">
-                            <AlertCircle className="size-4 shrink-0" aria-hidden />
+                            <AlertCircle
+                              className="size-4 shrink-0"
+                              aria-hidden
+                            />
                             <span>
-                              کسری موجودی: مبلغ {formatPrice(grandTotal - walletBalance)} تومان برای پرداخت با کیف پول نیاز دارید.
+                              کسری موجودی: مبلغ{" "}
+                              {formatPrice(grandTotal - walletBalance)} تومان
+                              برای پرداخت با کیف پول نیاز دارید.
                             </span>
                           </div>
                           <p className="text-subtle-ink">
-                            می‌توانید درگاه اینترنتی شتاب را انتخاب کنید یا با کلیک زیر کیف پول نمایشی را شارژ نمایید:
+                            می‌توانید درگاه اینترنتی شتاب را انتخاب کنید یا با
+                            کلیک زیر کیف پول نمایشی را شارژ نمایید:
                           </p>
                           <div>
                             <Button
@@ -673,7 +751,8 @@ export function CheckoutFlow() {
                           <div className="flex items-center gap-1.5 font-medium">
                             <Check className="size-4 shrink-0" aria-hidden />
                             <span>
-                              موجودی کیف پول برای پرداخت این سفارش کافی است ({formatPrice(grandTotal)} تومان کسر خواهد شد).
+                              موجودی کیف پول برای پرداخت این سفارش کافی است (
+                              {formatPrice(grandTotal)} تومان کسر خواهد شد).
                             </span>
                           </div>
                         </div>
@@ -687,7 +766,10 @@ export function CheckoutFlow() {
               <Alert variant="warning" className="mt-5">
                 <ShieldCheck className="size-4 text-warning" aria-hidden />
                 <AlertDescription className="text-caption leading-relaxed">
-                  <strong>یادآوری محیط شبیه‌سازی:</strong> تمام روش‌های پرداخت در این سیستم صرفاً جهت بررسی رابط کاربری طراحی شده‌اند و هیچ‌گونه تراکنش بانکی، انتقال پول یا اتصال به شبکه شاپرک انجام نخواهد شد.
+                  <strong>یادآوری محیط شبیه‌سازی:</strong> تمام روش‌های پرداخت
+                  در این سیستم صرفاً جهت بررسی رابط کاربری طراحی شده‌اند و
+                  هیچ‌گونه تراکنش بانکی، انتقال پول یا اتصال به شبکه شاپرک انجام
+                  نخواهد شد.
                 </AlertDescription>
               </Alert>
             </section>
@@ -704,7 +786,8 @@ export function CheckoutFlow() {
                   بررسی نهایی و ثبت سفارش
                 </h2>
                 <p className="mt-1 text-body-sm text-subtle-ink">
-                  اطلاعات نشانی، روش ارسال و اقلام سفارش را مرور و تأیید فرمایید.
+                  اطلاعات نشانی، روش ارسال و اقلام سفارش را مرور و تأیید
+                  فرمایید.
                 </p>
               </div>
 
@@ -712,7 +795,9 @@ export function CheckoutFlow() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-lg border border-line-subtle bg-surface-soft p-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-caption font-bold text-subtle-ink">نشانی تحویل گیرنده</span>
+                    <span className="text-caption font-bold text-subtle-ink">
+                      نشانی تحویل گیرنده
+                    </span>
                     <button
                       type="button"
                       onClick={() => setStep(1)}
@@ -721,17 +806,23 @@ export function CheckoutFlow() {
                       ویرایش
                     </button>
                   </div>
-                  <p className="mt-2 text-body-sm font-medium text-ink">{selectedAddress?.recipient}</p>
-                  <p className="mt-1 text-caption text-body">{selectedAddress?.address}</p>
+                  <p className="mt-2 text-body-sm font-medium text-ink">
+                    {selectedAddress?.recipient}
+                  </p>
+                  <p className="mt-1 text-caption text-body">
+                    {selectedAddress?.address}
+                  </p>
                   <p className="mt-1 text-caption text-subtle-ink">
-                    تلفن: <span dir="ltr">{selectedAddress?.phone}</span> | کد پستی:{" "}
-                    <span dir="ltr">{selectedAddress?.postalCode}</span>
+                    تلفن: <span dir="ltr">{selectedAddress?.phone}</span> | کد
+                    پستی: <span dir="ltr">{selectedAddress?.postalCode}</span>
                   </p>
                 </div>
 
                 <div className="rounded-lg border border-line-subtle bg-surface-soft p-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-caption font-bold text-subtle-ink">روش تحویل و پرداخت</span>
+                    <span className="text-caption font-bold text-subtle-ink">
+                      روش تحویل و پرداخت
+                    </span>
                     <button
                       type="button"
                       onClick={() => setStep(2)}
@@ -741,7 +832,8 @@ export function CheckoutFlow() {
                     </button>
                   </div>
                   <p className="mt-2 text-body-sm font-medium text-ink">
-                    روش ارسال: {currentShippingOption.title} ({currentShippingOption.days})
+                    روش ارسال: {currentShippingOption.title} (
+                    {currentShippingOption.days})
                   </p>
                   <p className="mt-1 text-caption text-subtle-ink">
                     شیوه پرداخت:{" "}
@@ -752,7 +844,10 @@ export function CheckoutFlow() {
                   {appliedCoupon && (
                     <div className="mt-2 flex items-center gap-1.5 border-t border-line-subtle pt-2 text-caption text-success font-medium">
                       <Tag className="size-3.5" aria-hidden />
-                      <span>کد تخفیف: {appliedCoupon.code} ({formatPrice(couponDiscount)} تومان تخفیف)</span>
+                      <span>
+                        کد تخفیف: {appliedCoupon.code} (
+                        {formatPrice(couponDiscount)} تومان تخفیف)
+                      </span>
                     </div>
                   )}
                 </div>
@@ -773,12 +868,17 @@ export function CheckoutFlow() {
                         <ProductMedia product={product} sizes="56px" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="line-clamp-1 text-body-sm font-medium text-ink">{product.title}</p>
+                        <p className="line-clamp-1 text-body-sm font-medium text-ink">
+                          {product.title}
+                        </p>
                         {line.variant && (
-                          <p className="text-caption text-subtle-ink">مدل: {line.variant}</p>
+                          <p className="text-caption text-subtle-ink">
+                            مدل: {line.variant}
+                          </p>
                         )}
                         <p className="text-caption text-subtle-ink">
-                          تعداد: {toPersianDigits(line.quantity)} × {formatPrice(product.price)} تومان
+                          تعداد: {toPersianDigits(line.quantity)} ×{" "}
+                          {formatPrice(product.price)} تومان
                         </p>
                       </div>
                       <div className="text-end font-bold text-ink">
@@ -792,7 +892,10 @@ export function CheckoutFlow() {
               {/* Cancellation link */}
               <div className="rounded-lg bg-surface-soft p-3 text-caption text-subtle-ink">
                 می‌توانید برای انصراف از پرداخت یا شبیه‌سازی وضعیت لغو، به صفحه{" "}
-                <Link href="/checkout/cancelled" className="text-sale hover:underline">
+                <Link
+                  href="/checkout/cancelled"
+                  className="text-sale hover:underline"
+                >
                   انصراف از پرداخت
                 </Link>{" "}
                 بروید.
@@ -803,12 +906,21 @@ export function CheckoutFlow() {
           {/* Stepper Navigation Buttons */}
           <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-3">
             {step > 1 ? (
-              <Button type="button" variant="outline" onClick={handlePrevStep} className="gap-1.5 max-sm:w-full">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handlePrevStep}
+                className="gap-1.5 max-sm:w-full"
+              >
                 <ArrowRight className="size-4" aria-hidden />
                 مرحله قبل
               </Button>
             ) : (
-              <Button asChild variant="outline" className="gap-1.5 max-sm:w-full">
+              <Button
+                asChild
+                variant="outline"
+                className="gap-1.5 max-sm:w-full"
+              >
                 <Link href="/cart">
                   <ArrowRight className="size-4" aria-hidden />
                   بازگشت به سبد خرید
@@ -817,7 +929,12 @@ export function CheckoutFlow() {
             )}
 
             {step < 4 ? (
-              <Button type="button" size="lg" onClick={handleNextStep} className="gap-1.5 max-sm:w-full">
+              <Button
+                type="button"
+                size="lg"
+                onClick={handleNextStep}
+                className="gap-1.5 max-sm:w-full"
+              >
                 ادامه به مرحله بعد
                 <ArrowLeft className="size-4" aria-hidden />
               </Button>
@@ -830,7 +947,9 @@ export function CheckoutFlow() {
                 className="gap-2 bg-success text-white hover:bg-success/90 shadow-soft max-sm:w-full"
               >
                 <Lock className="size-4" aria-hidden />
-                {submitting ? "در حال ثبت سفارش…" : "پرداخت و ثبت نهایی سفارش (نمایشی)"}
+                {submitting
+                  ? "در حال ثبت سفارش…"
+                  : "پرداخت و ثبت نهایی سفارش (نمایشی)"}
               </Button>
             )}
           </div>
@@ -849,12 +968,16 @@ export function CheckoutFlow() {
 
           {/* Order Summary Card */}
           <div className="flex flex-col gap-4 rounded-xl border border-line bg-surface p-5 shadow-soft">
-            <h2 className="text-title-sm font-bold text-ink">خلاصه پیش‌فاکتور</h2>
+            <h2 className="text-title-sm font-bold text-ink">
+              خلاصه پیش‌فاکتور
+            </h2>
 
             <dl className="flex flex-col gap-2.5 text-body-sm">
               <div className="flex items-center justify-between text-subtle-ink">
                 <dt>قیمت کالاها ({toPersianDigits(entries.length)})</dt>
-                <dd className="font-medium text-ink">{formatPrice(subtotal)} تومان</dd>
+                <dd className="font-medium text-ink">
+                  {formatPrice(subtotal)} تومان
+                </dd>
               </div>
 
               {productDiscount > 0 && (
@@ -870,7 +993,11 @@ export function CheckoutFlow() {
                 <div className="flex items-center justify-between text-subtle-ink">
                   <dt className="flex items-center gap-1.5">
                     <span>کد تخفیف</span>
-                    <Badge variant="brand" className="font-mono text-caption" dir="ltr">
+                    <Badge
+                      variant="brand"
+                      className="font-mono text-caption"
+                      dir="ltr"
+                    >
                       {appliedCoupon.code}
                     </Badge>
                   </dt>
@@ -897,17 +1024,24 @@ export function CheckoutFlow() {
             <div>
               <div className="flex items-end justify-between">
                 <div>
-                  <p className="text-body-sm font-bold text-ink">مبلغ قابل پرداخت</p>
-                  <p className="text-caption text-subtle-ink">با احتساب کلیه تخفیف‌ها و هزینه ارسال</p>
+                  <p className="text-body-sm font-bold text-ink">
+                    مبلغ قابل پرداخت
+                  </p>
+                  <p className="text-caption text-subtle-ink">
+                    با احتساب کلیه تخفیف‌ها و هزینه ارسال
+                  </p>
                 </div>
                 <p className="text-title font-bold text-brand-active">
-                  {formatPrice(grandTotal)} <span className="text-caption font-normal">تومان</span>
+                  {formatPrice(grandTotal)}{" "}
+                  <span className="text-caption font-normal">تومان</span>
                 </p>
               </div>
             </div>
 
             <div className="rounded-md bg-surface-soft p-3 text-caption text-subtle-ink">
-              <p className="font-medium text-ink">ضمانت‌های خرید از الکتروما:</p>
+              <p className="font-medium text-ink">
+                ضمانت‌های خرید از الکتروما:
+              </p>
               <ul className="mt-1 flex flex-col gap-0.5">
                 <li>• ۷ روز ضمانت بازگشت کالا</li>
                 <li>• تضمین ۱۰۰٪ اصالت کالای دیجیتال</li>

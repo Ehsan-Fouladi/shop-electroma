@@ -6,7 +6,12 @@ import { toast } from "sonner";
 import { AccountPageHeading } from "@/components/account/account-page-heading";
 import { AddressForm } from "@/components/account/address-form";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { useCustomerStore } from "@/store/customer-store";
 import type { CustomerAddress } from "@/types/customer";
 import { useState } from "react";
@@ -16,10 +21,14 @@ export default function AccountAddressesPage() {
   const addAddress = useCustomerStore((state) => state.addAddress);
   const updateAddress = useCustomerStore((state) => state.updateAddress);
   const removeAddress = useCustomerStore((state) => state.removeAddress);
-  const setDefaultAddress = useCustomerStore((state) => state.setDefaultAddress);
+  const setDefaultAddress = useCustomerStore(
+    (state) => state.setDefaultAddress,
+  );
 
   const [isAddOpen, setIsAddOpen] = useState(false);
-  const [editingAddress, setEditingAddress] = useState<CustomerAddress | null>(null);
+  const [editingAddress, setEditingAddress] = useState<CustomerAddress | null>(
+    null,
+  );
 
   const handleDelete = (id: string, title: string) => {
     removeAddress(id);
@@ -50,7 +59,9 @@ export default function AccountAddressesPage() {
             <MapPin className="size-8" aria-hidden />
           </span>
           <div>
-            <h2 className="text-title font-bold text-ink">هنوز نشانی ثبت نکرده‌اید</h2>
+            <h2 className="text-title font-bold text-ink">
+              هنوز نشانی ثبت نکرده‌اید
+            </h2>
             <p className="mt-1 text-body-sm text-subtle-ink">
               برای تسریع در خرید و دریافت بسته‌ها، یک نشانی ثبت کنید.
             </p>
@@ -108,7 +119,9 @@ export default function AccountAddressesPage() {
                     <span>گیرنده: {addr.recipient}</span>
                     <span dir="ltr">تلفن: {addr.phone}</span>
                   </div>
-                  <p className="text-caption text-subtle-ink">کد پستی: {addr.postalCode}</p>
+                  <p className="text-caption text-subtle-ink">
+                    کد پستی: {addr.postalCode}
+                  </p>
                 </div>
               </div>
 

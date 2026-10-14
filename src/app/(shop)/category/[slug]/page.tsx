@@ -9,7 +9,11 @@ import { EmptyResults } from "@/components/catalog/empty-results";
 import { SubcategoryNav } from "@/components/catalog/subcategory-nav";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { Container } from "@/components/layout/container";
-import { getCategory, getSubcategoryLabel, categories } from "@/data/categories";
+import {
+  getCategory,
+  getSubcategoryLabel,
+  categories,
+} from "@/data/categories";
 import {
   catalogHref,
   parseCatalogQuery,
@@ -83,9 +87,7 @@ export default async function CategoryPage({
     .filter(
       (item) => item.slug !== category.slug && (counts.get(item.slug) ?? 0) > 0,
     )
-    .sort(
-      (a, b) => (counts.get(b.slug) ?? 0) - (counts.get(a.slug) ?? 0),
-    )
+    .sort((a, b) => (counts.get(b.slug) ?? 0) - (counts.get(a.slug) ?? 0))
     .slice(0, 4);
 
   return (
@@ -148,7 +150,12 @@ export default async function CategoryPage({
         results={results}
         facets={facets}
         bounds={bounds}
-        show={{ categories: false, subcategories: true, brands: true, colors: true }}
+        show={{
+          categories: false,
+          subcategories: true,
+          brands: true,
+          colors: true,
+        }}
         empty={
           <EmptyResults
             title={`کالایی در «${category.title}» با این فیلترها پیدا نشد`}
@@ -179,7 +186,10 @@ export default async function CategoryPage({
       />
 
       {relatedCategories.length ? (
-        <section aria-labelledby="related-categories" className="flex flex-col gap-4 pt-1">
+        <section
+          aria-labelledby="related-categories"
+          className="flex flex-col gap-4 pt-1"
+        >
           <h2 id="related-categories" className="text-title font-bold text-ink">
             دسته‌بندی‌های مرتبط
           </h2>

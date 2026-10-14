@@ -13,7 +13,10 @@ interface EmptyResultsProps {
   clearHref?: string;
   clearLabel?: string;
   /** Optional suggestion block, e.g. categories or popular searches. */
-  suggestions?: { title: string; items: { label: string; href: string; hint?: string }[] };
+  suggestions?: {
+    title: string;
+    items: { label: string; href: string; hint?: string }[];
+  };
   className?: string;
 }
 
@@ -80,7 +83,12 @@ function EmptyResults({
 /** Compact "try a search instead" block used by empty catalogue pages. */
 function EmptySearchHint({ className }: { className?: string }) {
   return (
-    <div className={cn("flex flex-wrap items-center justify-center gap-2", className)}>
+    <div
+      className={cn(
+        "flex flex-wrap items-center justify-center gap-2",
+        className,
+      )}
+    >
       <span className="flex items-center gap-1.5 text-label text-subtle-ink">
         <Search className="size-3.5" aria-hidden />
         جستجوهای پرطرفدار:

@@ -26,9 +26,17 @@ export function ProductOverview({ product }: { product: Product }) {
       })) ?? [];
 
   const facts: { label: string; value: string; href?: string }[] = [
-    ...(brand ? [{ label: "برند", value: brand.title, href: `/brand/${brand.slug}` }] : []),
+    ...(brand
+      ? [{ label: "برند", value: brand.title, href: `/brand/${brand.slug}` }]
+      : []),
     ...(category
-      ? [{ label: "دسته‌بندی", value: category.title, href: `/category/${category.slug}` }]
+      ? [
+          {
+            label: "دسته‌بندی",
+            value: category.title,
+            href: `/category/${category.slug}`,
+          },
+        ]
       : []),
     ...(subcategoryLabels.length
       ? [
@@ -65,8 +73,14 @@ export function ProductOverview({ product }: { product: Product }) {
           <h3 className="text-body-sm font-bold text-ink">نکات کلیدی</h3>
           <ul className="grid gap-2 sm:grid-cols-2">
             {product.highlights.map((highlight) => (
-              <li key={highlight} className="flex items-start gap-2 text-body-sm text-body">
-                <Check className="mt-1 size-4 shrink-0 text-success" aria-hidden />
+              <li
+                key={highlight}
+                className="flex items-start gap-2 text-body-sm text-body"
+              >
+                <Check
+                  className="mt-1 size-4 shrink-0 text-success"
+                  aria-hidden
+                />
                 {highlight}
               </li>
             ))}
@@ -78,11 +92,19 @@ export function ProductOverview({ product }: { product: Product }) {
         <h3 className="text-body-sm font-bold text-ink">در یک نگاه</h3>
         <dl className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
           {facts.map((fact) => (
-            <div key={fact.label} className="flex items-baseline justify-between gap-4">
-              <dt className="shrink-0 text-body-sm text-subtle-ink">{fact.label}</dt>
+            <div
+              key={fact.label}
+              className="flex items-baseline justify-between gap-4"
+            >
+              <dt className="shrink-0 text-body-sm text-subtle-ink">
+                {fact.label}
+              </dt>
               <dd className="text-end text-body-sm font-medium text-ink">
                 {fact.href ? (
-                  <Link href={fact.href} className="transition-colors hover:text-brand">
+                  <Link
+                    href={fact.href}
+                    className="transition-colors hover:text-brand"
+                  >
                     {fact.value}
                   </Link>
                 ) : (

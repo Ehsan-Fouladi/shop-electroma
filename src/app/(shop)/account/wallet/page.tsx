@@ -1,11 +1,25 @@
 "use client";
 
-import { ArrowDownLeft, ArrowUpRight, Plus, ShieldCheck, Wallet } from "lucide-react";
+import {
+  ArrowDownLeft,
+  ArrowUpRight,
+  Plus,
+  ShieldCheck,
+  Wallet,
+} from "lucide-react";
 import { toast } from "sonner";
 
-import { AccountPageHeading, AccountPanel } from "@/components/account/account-page-heading";
+import {
+  AccountPageHeading,
+  AccountPanel,
+} from "@/components/account/account-page-heading";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { formatPersianDate } from "@/lib/formatters/date";
 import { formatPrice } from "@/lib/formatters/number";
 import { cn } from "@/lib/utils/cn";
@@ -58,7 +72,9 @@ export default function AccountWalletPage() {
               <p className="text-body-sm text-white/80">موجودی قابل استفاده</p>
               <p className="mt-1 text-heading font-bold sm:text-display-sm">
                 {formatPrice(walletBalance)}{" "}
-                <span className="text-body font-normal text-white/80">تومان</span>
+                <span className="text-body font-normal text-white/80">
+                  تومان
+                </span>
               </p>
             </div>
           </div>
@@ -107,7 +123,9 @@ export default function AccountWalletPage() {
                     )}
                   </span>
                   <div>
-                    <p className="text-body-sm font-bold text-ink">{tx.title}</p>
+                    <p className="text-body-sm font-bold text-ink">
+                      {tx.title}
+                    </p>
                     <p className="text-caption text-subtle-ink">
                       {formatPersianDate(tx.date)}
                       {tx.note ? ` • ${tx.note}` : ""}
@@ -122,7 +140,8 @@ export default function AccountWalletPage() {
                       tx.direction === "in" ? "text-success" : "text-ink",
                     )}
                   >
-                    {tx.direction === "in" ? "+" : "−"} {formatPrice(tx.amount)} تومان
+                    {tx.direction === "in" ? "+" : "−"} {formatPrice(tx.amount)}{" "}
+                    تومان
                   </span>
                 </div>
               </div>
@@ -163,7 +182,8 @@ export default function AccountWalletPage() {
 
             <div className="rounded-lg bg-surface-soft p-3 text-caption text-subtle-ink">
               <ShieldCheck className="mb-1 size-4 text-brand inline me-1" />
-              این شارژ صرفاً در وضعیت حافظه مرورگر اعمال می‌شود و مستلزم پرداخت بانکی واقعی نیست.
+              این شارژ صرفاً در وضعیت حافظه مرورگر اعمال می‌شود و مستلزم پرداخت
+              بانکی واقعی نیست.
             </div>
 
             <div className="flex justify-end gap-2 pt-2">

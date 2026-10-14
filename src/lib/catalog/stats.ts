@@ -30,7 +30,8 @@ export function statsFor(scope: Product[]): CatalogStats {
   }
 
   const prices = scope.map((product) => product.price);
-  const ratings = scope.reduce((total, product) => total + product.rating, 0) / scope.length;
+  const ratings =
+    scope.reduce((total, product) => total + product.rating, 0) / scope.length;
 
   return {
     count: scope.length,
@@ -39,7 +40,9 @@ export function statsFor(scope: Product[]): CatalogStats {
     discountedCount: scope.filter((product) => product.oldPrice).length,
     avgRating: Math.round(ratings * 10) / 10,
     maxDiscount: Math.max(
-      ...scope.map((product) => discountPercent(product.price, product.oldPrice) ?? 0),
+      ...scope.map(
+        (product) => discountPercent(product.price, product.oldPrice) ?? 0,
+      ),
     ),
     price: { min: Math.min(...prices), max: Math.max(...prices) },
     inStockCount: scope.filter((product) => product.stock > 0).length,
@@ -50,10 +53,14 @@ export function productsByCategory(slug: string): Product[] {
   return products.filter((product) => product.categorySlug === slug);
 }
 
-export function productsBySubcategory(categorySlug: string, subSlug: string): Product[] {
+export function productsBySubcategory(
+  categorySlug: string,
+  subSlug: string,
+): Product[] {
   return products.filter(
     (product) =>
-      product.categorySlug === categorySlug && product.subcategories?.includes(subSlug),
+      product.categorySlug === categorySlug &&
+      product.subcategories?.includes(subSlug),
   );
 }
 
@@ -65,7 +72,10 @@ export function productsByBrand(slug: string): Product[] {
 export function categoryCounts(): Map<string, number> {
   const counts = new Map<string, number>();
   for (const product of products) {
-    counts.set(product.categorySlug, (counts.get(product.categorySlug) ?? 0) + 1);
+    counts.set(
+      product.categorySlug,
+      (counts.get(product.categorySlug) ?? 0) + 1,
+    );
   }
   return counts;
 }

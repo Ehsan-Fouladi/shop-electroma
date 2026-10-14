@@ -14,6 +14,8 @@ export const metadata: Metadata = {
 };
 
 /** Shared customer-account navigation and responsive shell. */
-export default function AccountLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function AccountLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return <AccountShell>{children}</AccountShell>;
 }

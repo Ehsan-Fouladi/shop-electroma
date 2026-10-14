@@ -22,7 +22,7 @@ export function BrandLogo({ mark, label, latin, className }: BrandLogoProps) {
       <span
         aria-hidden
         className={cn(
-          "grid size-9 place-items-center rounded-sm bg-brand-soft text-label font-bold text-brand-active",
+          "grid size-9 place-items-center rounded-sm bg-brand-soft text-primary-active font-bold",
           className,
         )}
       >

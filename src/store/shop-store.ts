@@ -16,7 +16,9 @@ interface CartState {
   clear: () => void;
 }
 
-export function cartLineKey(line: Pick<CartLine, "productId" | "variant">): string {
+export function cartLineKey(
+  line: Pick<CartLine, "productId" | "variant">,
+): string {
   return `${line.productId}::${line.variant ?? ""}`;
 }
 
@@ -36,7 +38,12 @@ export const useCartStore = create<CartState>((set) => ({
           ),
         };
       }
-      return { lines: [...state.lines, { productId, quantity, ...(variant ? { variant } : {}) }] };
+      return {
+        lines: [
+          ...state.lines,
+          { productId, quantity, ...(variant ? { variant } : {}) },
+        ],
+      };
     }),
   setQuantity: (lineKey, quantity) =>
     set((state) => ({
@@ -48,7 +55,9 @@ export const useCartStore = create<CartState>((set) => ({
             ),
     })),
   removeLine: (lineKey) =>
-    set((state) => ({ lines: state.lines.filter((line) => cartLineKey(line) !== lineKey) })),
+    set((state) => ({
+      lines: state.lines.filter((line) => cartLineKey(line) !== lineKey),
+    })),
   removeItem: (productId, variant) =>
     set((state) => ({
       lines: state.lines.filter((line) =>
@@ -74,7 +83,8 @@ export const useWishlistStore = create<WishlistState>((set) => ({
         ? state.ids.filter((id) => id !== productId)
         : [...state.ids, productId],
     })),
-  remove: (productId) => set((state) => ({ ids: state.ids.filter((id) => id !== productId) })),
+  remove: (productId) =>
+    set((state) => ({ ids: state.ids.filter((id) => id !== productId) })),
 }));
 
 interface CompareState {
@@ -92,7 +102,8 @@ export const useCompareStore = create<CompareState>((set) => ({
         ? state.ids.filter((id) => id !== productId)
         : [...state.ids, productId].slice(-4),
     })),
-  remove: (productId) => set((state) => ({ ids: state.ids.filter((id) => id !== productId) })),
+  remove: (productId) =>
+    set((state) => ({ ids: state.ids.filter((id) => id !== productId) })),
   clear: () => set({ ids: [] }),
 }));
 
@@ -105,7 +116,12 @@ interface RecentlyViewedState {
 export const useRecentlyViewedStore = create<RecentlyViewedState>((set) => ({
   ids: [],
   record: (productId) =>
-    set((state) => ({ ids: [productId, ...state.ids.filter((id) => id !== productId)].slice(0, 12) })),
+    set((state) => ({
+      ids: [productId, ...state.ids.filter((id) => id !== productId)].slice(
+        0,
+        12,
+      ),
+    })),
   clear: () => set({ ids: [] }),
 }));
 

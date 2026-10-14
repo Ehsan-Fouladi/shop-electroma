@@ -33,7 +33,8 @@ export interface OrderAddressSnapshot {
   building: string;
 }
 
-export type OrderStatus = "pending" | "processing" | "shipped" | "delivered" | "cancelled";
+export type OrderStatus =
+  "pending" | "processing" | "shipped" | "delivered" | "cancelled";
 export type PaymentMethod = "gateway" | "wallet";
 export type PaymentStatus = "mock-pending" | "mock-complete" | "cancelled";
 

@@ -79,7 +79,10 @@ export function CategoryCard({
             {toPersianDigits(productCount)} کالا
           </Badge>
         ) : (
-          <Badge variant="warning" className="absolute bottom-2 end-2 shadow-soft">
+          <Badge
+            variant="warning"
+            className="absolute bottom-2 end-2 shadow-soft"
+          >
             به‌زودی
           </Badge>
         )}
@@ -90,7 +93,9 @@ export function CategoryCard({
           <p className="line-clamp-2 text-body-sm font-bold text-ink transition-colors group-hover:text-brand-active">
             {category.title}
           </p>
-          {meta ? <p className="truncate text-caption text-subtle-ink">{meta}</p> : null}
+          {meta ? (
+            <p className="truncate text-caption text-subtle-ink">{meta}</p>
+          ) : null}
         </div>
         <ChevronLeft
           className="size-4 shrink-0 text-disabled-ink transition-all group-hover:-translate-x-0.5 group-hover:text-brand"

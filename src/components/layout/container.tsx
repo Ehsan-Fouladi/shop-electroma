@@ -22,11 +22,14 @@ function Container({
 }
 
 /** Vertical rhythm wrapper — keeps the homepage section spacing consistent. */
-function Section({
-  className,
-  ...props
-}: React.ComponentProps<"section">) {
-  return <section data-slot="section" className={cn("section-y", className)} {...props} />;
+function Section({ className, ...props }: React.ComponentProps<"section">) {
+  return (
+    <section
+      data-slot="section"
+      className={cn("section-y", className)}
+      {...props}
+    />
+  );
 }
 
 export { Container, Section };

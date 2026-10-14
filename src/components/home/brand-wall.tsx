@@ -53,7 +53,9 @@ export function BrandWall() {
               href="/brands"
               className="group flex h-full flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed border-line-strong bg-surface-soft px-3 py-4 text-center transition-colors hover:border-primary/40 hover:bg-brand-soft"
             >
-              <span className="text-label font-medium text-brand-active">مشاهده همه</span>
+              <span className="text-label font-medium text-brand-active">
+                مشاهده همه
+              </span>
               <ChevronLeft
                 className="size-4 text-brand transition-transform group-hover:-translate-x-0.5"
                 aria-hidden

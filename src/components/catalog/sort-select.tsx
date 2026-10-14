@@ -25,7 +25,12 @@ interface SortSelectProps {
  * Sorting control for catalogue toolbars. It re-writes the `sort` parameter of
  * the current URL and drops pagination, so the visitor always lands on page 1.
  */
-export function SortSelect({ value, options, basePath, className }: SortSelectProps) {
+export function SortSelect({
+  value,
+  options,
+  basePath,
+  className,
+}: SortSelectProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -37,12 +42,18 @@ export function SortSelect({ value, options, basePath, className }: SortSelectPr
     router.push(query ? `${basePath}?${query}` : basePath, { scroll: false });
   };
 
-  const currentLabel = options.find((o) => o.value === value)?.label ?? "مرتب‌سازی";
+  const currentLabel =
+    options.find((o) => o.value === value)?.label ?? "مرتب‌سازی";
 
   return (
     <div className={cn("flex items-center gap-2", className)}>
-      <ArrowUpDown className="hidden size-4 shrink-0 text-subtle-ink sm:block" aria-hidden />
-      <span className="hidden shrink-0 text-label text-subtle-ink sm:block">مرتب‌سازی:</span>
+      <ArrowUpDown
+        className="hidden size-4 shrink-0 text-subtle-ink sm:block"
+        aria-hidden
+      />
+      <span className="hidden shrink-0 text-label text-subtle-ink sm:block">
+        مرتب‌سازی:
+      </span>
       <Select value={value} onValueChange={onChange}>
         <SelectTrigger
           aria-label="مرتب‌سازی نتایج"

@@ -32,7 +32,13 @@ function parseAmount(value: string): number | null {
  * Min/max price form. Values are applied through the URL so the filtered view
  * stays shareable; submitting clears pagination.
  */
-export function PriceFilter({ basePath, minPrice, maxPrice, bounds, className }: PriceFilterProps) {
+export function PriceFilter({
+  basePath,
+  minPrice,
+  maxPrice,
+  bounds,
+  className,
+}: PriceFilterProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [min, setMin] = useState(minPrice ? String(minPrice) : "");
@@ -105,24 +111,40 @@ export function PriceFilter({ basePath, minPrice, maxPrice, bounds, className }:
       </div>
 
       {error ? (
-        <p id="price-filter-error" role="alert" className="text-caption text-sale">
+        <p
+          id="price-filter-error"
+          role="alert"
+          className="text-caption text-sale"
+        >
           {error}
         </p>
       ) : (
         <p className="text-caption text-disabled-ink">
-          بازه موجود: {formatNumber(bounds.min)} تا {formatNumber(bounds.max)} تومان
+          بازه موجود: {formatNumber(bounds.min)} تا {formatNumber(bounds.max)}{" "}
+          تومان
         </p>
       )}
 
-      <Button type="submit" variant="secondary" size="sm" className="self-start">
+      <Button
+        type="submit"
+        variant="secondary"
+        size="sm"
+        className="self-start"
+      >
         اعمال قیمت
       </Button>
 
       {minPrice !== null || maxPrice !== null ? (
         <p className="tabular text-caption text-subtle-ink">
           فیلتر فعال:{" "}
-          {minPrice !== null ? `از ${toPersianDigits(formatNumber(minPrice))}` : "از ابتدا"} تا{" "}
-          {maxPrice !== null ? toPersianDigits(formatNumber(maxPrice)) : "بی‌نهایت"} تومان
+          {minPrice !== null
+            ? `از ${toPersianDigits(formatNumber(minPrice))}`
+            : "از ابتدا"}{" "}
+          تا{" "}
+          {maxPrice !== null
+            ? toPersianDigits(formatNumber(maxPrice))
+            : "بی‌نهایت"}{" "}
+          تومان
         </p>
       ) : null}
     </form>

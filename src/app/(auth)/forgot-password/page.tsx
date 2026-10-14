@@ -42,7 +42,8 @@ export default function ForgotPasswordPage() {
       <div className="mb-6 flex flex-col gap-2">
         <h1 className="text-heading font-bold text-ink">فراموشی رمز عبور</h1>
         <p className="text-body-sm text-subtle-ink">
-          شماره موبایل یا ایمیلی که با آن ثبت‌نام کرده‌اید را وارد کنید تا لینک بازیابی ارسال شود.
+          شماره موبایل یا ایمیلی که با آن ثبت‌نام کرده‌اید را وارد کنید تا لینک
+          بازیابی ارسال شود.
         </p>
       </div>
 
@@ -53,13 +54,16 @@ export default function ForgotPasswordPage() {
             <div className="text-body-sm">
               <p className="font-bold">پیام بازیابی شبیه‌سازی شد</p>
               <p className="mt-1 text-caption text-success/90">
-                لینک یا کد بازنشانی برای «{submittedContact}» آماده شد. در این نسخه نمایشی می‌توانید مستقیماً به مرحله بازنشانی رمز بروید:
+                لینک یا کد بازنشانی برای «{submittedContact}» آماده شد. در این
+                نسخه نمایشی می‌توانید مستقیماً به مرحله بازنشانی رمز بروید:
               </p>
             </div>
           </div>
 
           <Button asChild size="lg" className="w-full">
-            <Link href={`/reset-password?contact=${encodeURIComponent(submittedContact)}`}>
+            <Link
+              href={`/reset-password?contact=${encodeURIComponent(submittedContact)}`}
+            >
               ادامه به صفحه تعیین رمز جدید
             </Link>
           </Button>
@@ -78,7 +82,11 @@ export default function ForgotPasswordPage() {
         </div>
       ) : (
         <Form {...form}>
-          <form noValidate onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+          <form
+            noValidate
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex flex-col gap-4"
+          >
             <FormField
               control={form.control}
               name="contact"

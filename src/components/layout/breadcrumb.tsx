@@ -41,7 +41,10 @@ export function Breadcrumb({
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
-            <li key={`${item.label}-${index}`} className="flex min-w-0 items-center gap-1.5">
+            <li
+              key={`${item.label}-${index}`}
+              className="flex min-w-0 items-center gap-1.5"
+            >
               {item.href && !isLast ? (
                 <Link
                   href={item.href}
@@ -54,7 +57,8 @@ export function Breadcrumb({
                   aria-current={isLast ? "page" : undefined}
                   className={cn(
                     "text-body",
-                    isLast && "max-w-[200px] truncate font-medium text-ink sm:max-w-none",
+                    isLast &&
+                      "max-w-[200px] truncate font-medium text-ink sm:max-w-none",
                   )}
                   title={item.label}
                 >
@@ -62,7 +66,10 @@ export function Breadcrumb({
                 </span>
               )}
               {!isLast ? (
-                <ChevronLeft className="size-3.5 shrink-0 text-disabled-ink" aria-hidden />
+                <ChevronLeft
+                  className="size-3.5 shrink-0 text-disabled-ink"
+                  aria-hidden
+                />
               ) : null}
             </li>
           );

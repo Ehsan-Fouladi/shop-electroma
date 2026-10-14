@@ -25,7 +25,10 @@ export function CampaignSection() {
         <article className="relative overflow-hidden rounded-xl bg-ink text-white shadow-card lg:col-span-2">
           <div className="grid h-full items-stretch sm:grid-cols-2">
             <div className="order-2 flex flex-col items-start gap-4 p-5 sm:order-1 sm:p-7">
-              <Badge variant="ink" className="gap-1.5 border border-white/15 bg-white/10 px-3 py-1">
+              <Badge
+                variant="ink"
+                className="gap-1.5 border border-white/15 bg-white/10 px-3 py-1"
+              >
                 <Sparkles className="size-3.5" aria-hidden />
                 {wideBanner.eyebrow}
               </Badge>
@@ -41,8 +44,14 @@ export function CampaignSection() {
               {wideBanner.bullets ? (
                 <ul className="flex flex-col gap-1.5">
                   {wideBanner.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-center gap-2 text-body-sm text-white/85">
-                      <CheckCircle2 className="size-4 text-brand-subtle" aria-hidden />
+                    <li
+                      key={bullet}
+                      className="flex items-center gap-2 text-body-sm text-white/85"
+                    >
+                      <CheckCircle2
+                        className="size-4 text-brand-subtle"
+                        aria-hidden
+                      />
                       {bullet}
                     </li>
                   ))}

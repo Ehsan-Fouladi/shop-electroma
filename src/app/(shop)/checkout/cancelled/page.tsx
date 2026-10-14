@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { AlertTriangle, ArrowRight, RotateCcw, ShoppingBag, ShoppingCart } from "lucide-react";
+import {
+  AlertTriangle,
+  ArrowRight,
+  RotateCcw,
+  ShoppingBag,
+  ShoppingCart,
+} from "lucide-react";
 
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { Container } from "@/components/layout/container";
@@ -34,8 +40,9 @@ export default function CheckoutCancelledPage() {
         <div>
           <h1 className="text-heading font-bold text-ink">پرداخت تکمیل نشد</h1>
           <p className="mt-2 text-body-sm text-subtle-ink">
-            فرآیند پرداخت از سمت کاربر یا درگاه بانکی لغو شد. هیچ مبلغی از حساب شما کسر نشده است و
-            کالاهای انتخابی شما همچنان در سبد خرید محفوظ هستند.
+            فرآیند پرداخت از سمت کاربر یا درگاه بانکی لغو شد. هیچ مبلغی از حساب
+            شما کسر نشده است و کالاهای انتخابی شما همچنان در سبد خرید محفوظ
+            هستند.
           </p>
         </div>
 
@@ -43,8 +50,12 @@ export default function CheckoutCancelledPage() {
           <p className="font-bold text-ink">چه کار می‌توانید بکنید؟</p>
           <ul className="mt-1.5 flex flex-col gap-1 text-subtle-ink">
             <li>• می‌توانید مجدداً درگاه دیگری را برای تسویه انتخاب کنید.</li>
-            <li>• می‌توانید سبد خرید خود را ویرایش یا اقلام آن را کم و زیاد کنید.</li>
-            <li>• در صورت بروز هرگونه ابهام، با پشتیبانی الکتروما تماس بگیرید.</li>
+            <li>
+              • می‌توانید سبد خرید خود را ویرایش یا اقلام آن را کم و زیاد کنید.
+            </li>
+            <li>
+              • در صورت بروز هرگونه ابهام، با پشتیبانی الکتروما تماس بگیرید.
+            </li>
           </ul>
         </div>
 

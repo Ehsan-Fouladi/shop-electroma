@@ -7,9 +7,15 @@ export const phoneField = z
   .string()
   .trim()
   .min(1, "شماره تماس را وارد کنید.")
-  .refine((value) => /^(?:\+98|0098|0)?9\d{9}$/.test(toLatinDigits(value).replace(/[\s-]/g, "")), {
-    message: "شماره موبایل معتبر وارد کنید.",
-  });
+  .refine(
+    (value) =>
+      /^(?:\+98|0098|0)?9\d{9}$/.test(
+        toLatinDigits(value).replace(/[\s-]/g, ""),
+      ),
+    {
+      message: "شماره موبایل معتبر وارد کنید.",
+    },
+  );
 
 export const emailField = z
   .string()
@@ -28,9 +34,12 @@ export const addressSchema = z.object({
   postalCode: z
     .string()
     .trim()
-    .refine((value) => /^\d{10}$/.test(toLatinDigits(value).replace(/[\s-]/g, "")), {
-      message: "کد پستی باید ۱۰ رقم باشد.",
-    }),
+    .refine(
+      (value) => /^\d{10}$/.test(toLatinDigits(value).replace(/[\s-]/g, "")),
+      {
+        message: "کد پستی باید ۱۰ رقم باشد.",
+      },
+    ),
   unit: z.string().trim().max(12, "شماره واحد بیش از حد طولانی است."),
   building: z.string().trim().max(12, "شماره پلاک بیش از حد طولانی است."),
 });
@@ -55,7 +64,12 @@ export const profileSchema = z.object({
   name: z.string().trim().min(2, "نام و نام خانوادگی را وارد کنید."),
   phone: phoneField,
   email: emailField,
-  birthDate: z.string().trim().max(20, "تاریخ تولد معتبر نیست.").optional().or(z.literal("")),
+  birthDate: z
+    .string()
+    .trim()
+    .max(20, "تاریخ تولد معتبر نیست.")
+    .optional()
+    .or(z.literal("")),
   nationalCode: z
     .string()
     .trim()
@@ -115,7 +129,10 @@ export const verifyCodeSchema = z.object({
   code: z
     .string()
     .trim()
-    .refine((value) => /^\d{6}$/.test(toLatinDigits(value)), "کد نمایشی باید ۶ رقم باشد."),
+    .refine(
+      (value) => /^\d{6}$/.test(toLatinDigits(value)),
+      "کد نمایشی باید ۶ رقم باشد.",
+    ),
 });
 
 export const resetPasswordSchema = z
@@ -143,13 +160,21 @@ export const returnRequestSchema = z.object({
   orderId: z.string().min(1, "لطفاً سفارش مورد نظر را انتخاب کنید."),
   productId: z.string().min(1, "لطفاً کالای مورد نظر را مشخص کنید."),
   reason: z.string().min(1, "علت درخواست مرجوعی را مشخص کنید."),
-  description: z.string().trim().min(10, "توضیحات مرجوعی باید حداقل ۱۰ نویسه باشد."),
+  description: z
+    .string()
+    .trim()
+    .min(10, "توضیحات مرجوعی باید حداقل ۱۰ نویسه باشد."),
 });
 
 export const contactFormSchema = z.object({
   name: z.string().trim().min(2, "نام و نام خانوادگی باید حداقل ۲ نویسه باشد."),
   phone: phoneField,
-  email: z.string().trim().email("ایمیل معتبر وارد کنید.").optional().or(z.literal("")),
+  email: z
+    .string()
+    .trim()
+    .email("ایمیل معتبر وارد کنید.")
+    .optional()
+    .or(z.literal("")),
   subject: z.string().min(1, "موضوع پیام را مشخص کنید."),
   message: z.string().trim().min(10, "متن پیام باید حداقل ۱۰ نویسه باشد."),
 });

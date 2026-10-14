@@ -43,10 +43,16 @@ export function SiteHeader() {
             </span>
           </p>
           <div className="flex items-center gap-4">
-            <Link href="/support/tracking" className="text-white/80 hover:text-white">
+            <Link
+              href="/support/tracking"
+              className="text-white/80 hover:text-white"
+            >
               پیگیری سفارش
             </Link>
-            <Link href="/support/faq" className="text-white/80 hover:text-white">
+            <Link
+              href="/support/faq"
+              className="text-white/80 hover:text-white"
+            >
               سوالات متداول
             </Link>
             <a
@@ -74,7 +80,11 @@ export function SiteHeader() {
               <Link
                 href="/compare"
                 className="relative hidden items-center gap-1.5 rounded-md px-2.5 py-2 text-body-sm font-medium text-ink transition-colors hover:bg-surface-soft hover:text-brand-active lg:inline-flex"
-                aria-label={compareCount > 0 ? `مقایسه، ${toPersianDigits(compareCount)} کالا` : "مقایسه محصولات"}
+                aria-label={
+                  compareCount > 0
+                    ? `مقایسه، ${toPersianDigits(compareCount)} کالا`
+                    : "مقایسه محصولات"
+                }
               >
                 <ArrowLeftRight className="size-5" aria-hidden />
                 {compareCount > 0 ? (
@@ -87,7 +97,11 @@ export function SiteHeader() {
               <Link
                 href="/wishlist"
                 className="relative hidden items-center gap-1.5 rounded-md px-2.5 py-2 text-body-sm font-medium text-ink transition-colors hover:bg-surface-soft hover:text-brand-active sm:inline-flex"
-                aria-label={wishlistCount > 0 ? `علاقه‌مندی‌ها، ${toPersianDigits(wishlistCount)} کالا` : "علاقه‌مندی‌ها"}
+                aria-label={
+                  wishlistCount > 0
+                    ? `علاقه‌مندی‌ها، ${toPersianDigits(wishlistCount)} کالا`
+                    : "علاقه‌مندی‌ها"
+                }
               >
                 <Heart className="size-5" aria-hidden />
                 {wishlistCount > 0 ? (

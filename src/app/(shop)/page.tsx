@@ -5,7 +5,10 @@ import { BrandWall } from "@/components/home/brand-wall";
 import { CampaignSection } from "@/components/home/campaign-section";
 import { CategoryDiscovery } from "@/components/home/category-discovery";
 import { DealCard } from "@/components/home/deal-card";
-import { EditorPick, type EditorPickGroup } from "@/components/home/editor-pick";
+import {
+  EditorPick,
+  type EditorPickGroup,
+} from "@/components/home/editor-pick";
 import { FlashSale } from "@/components/home/flash-sale";
 import { HeroCarousel } from "@/components/home/hero-carousel";
 import { NewsletterSection } from "@/components/home/newsletter-section";

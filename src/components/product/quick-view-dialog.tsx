@@ -64,7 +64,11 @@ export function QuickViewDialog({
 
           <div className="flex flex-col gap-3">
             <Rating value={product.rating} reviewCount={product.reviewCount} />
-            <Price price={product.price} oldPrice={product.oldPrice} size="lg" />
+            <Price
+              price={product.price}
+              oldPrice={product.oldPrice}
+              size="lg"
+            />
             <dl className="grid grid-cols-1 gap-1.5 text-body-sm sm:grid-cols-2">
               {product.specs.slice(0, 4).map((spec) => (
                 <div

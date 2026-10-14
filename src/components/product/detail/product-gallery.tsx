@@ -12,8 +12,11 @@ import { useState } from "react";
 
 // Genuine component-level lazy loading: modal chunk is loaded only when user triggers zoom
 const ProductZoomDialog = dynamic(
-  () => import("@/components/product/detail/product-zoom-dialog").then((m) => m.ProductZoomDialog),
-  { ssr: false }
+  () =>
+    import("@/components/product/detail/product-zoom-dialog").then(
+      (m) => m.ProductZoomDialog,
+    ),
+  { ssr: false },
 );
 
 interface ProductGalleryProps {
@@ -29,7 +32,12 @@ interface ProductGalleryProps {
  * Product media area. It supports any number of real product photos while
  * keeping the existing designed fallback for products without photography.
  */
-export function ProductGallery({ product, images, fallback, className }: ProductGalleryProps) {
+export function ProductGallery({
+  product,
+  images,
+  fallback,
+  className,
+}: ProductGalleryProps) {
   const [index, setIndex] = useState(0);
   const [viewerOpen, setViewerOpen] = useState(false);
   const total = images.length;
@@ -120,7 +128,8 @@ export function ProductGallery({ product, images, fallback, className }: Product
                 aria-atomic="true"
                 className="rounded-xs bg-surface/90 px-2 py-1 text-caption text-body tabular backdrop-blur"
               >
-                تصویر {toPersianDigits(currentIndex + 1)} از {toPersianDigits(total)}
+                تصویر {toPersianDigits(currentIndex + 1)} از{" "}
+                {toPersianDigits(total)}
               </span>
               <Button
                 type="button"
@@ -141,12 +150,17 @@ export function ProductGallery({ product, images, fallback, className }: Product
           <>
             {isDemoGallery ? (
               <p className="rounded-sm bg-warning-soft px-3 py-2 text-caption text-warning">
-                گالری نمایشی است؛ همین تصویر برای قابل‌آزمایش بودن کنترل‌ها سه بار تکرار شده است.
+                گالری نمایشی است؛ همین تصویر برای قابل‌آزمایش بودن کنترل‌ها سه
+                بار تکرار شده است.
               </p>
             ) : null}
             <div
               role="group"
-              aria-label={isDemoGallery ? "انتخاب تصویر نمایشی محصول" : "انتخاب تصویر محصول"}
+              aria-label={
+                isDemoGallery
+                  ? "انتخاب تصویر نمایشی محصول"
+                  : "انتخاب تصویر محصول"
+              }
               className="no-scrollbar flex max-w-full touch-pan-x gap-2 overflow-x-auto overscroll-x-contain rounded-md p-1"
             >
               {images.map((image, itemIndex) => (

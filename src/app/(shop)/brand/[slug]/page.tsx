@@ -12,8 +12,17 @@ import { Container } from "@/components/layout/container";
 import { BrandLogo } from "@/components/product/brand-logo";
 import { getBrand } from "@/data/brands";
 import { getCategory } from "@/data/categories";
-import { catalogHref, parseCatalogQuery, type CatalogSearchParams } from "@/lib/catalog/query";
-import { buildCatalogFacets, filterProducts, priceBounds, sortProducts } from "@/lib/catalog/results";
+import {
+  catalogHref,
+  parseCatalogQuery,
+  type CatalogSearchParams,
+} from "@/lib/catalog/query";
+import {
+  buildCatalogFacets,
+  filterProducts,
+  priceBounds,
+  sortProducts,
+} from "@/lib/catalog/results";
 import { productsByBrand, statsFor } from "@/lib/catalog/stats";
 import { formatNumber, toPersianDigits } from "@/lib/formatters/number";
 
@@ -54,12 +63,15 @@ export default async function BrandPage({
   const stats = statsFor(scope);
 
   // Category chips are derived from the brand's own catalogue slice.
-  const categorySlugs = [...new Set(scope.map((product) => product.categorySlug))];
+  const categorySlugs = [
+    ...new Set(scope.map((product) => product.categorySlug)),
+  ];
   const categoryChips = categorySlugs
     .map((categorySlug) => ({
       slug: categorySlug,
       title: getCategory(categorySlug)?.title ?? categorySlug,
-      count: scope.filter((product) => product.categorySlug === categorySlug).length,
+      count: scope.filter((product) => product.categorySlug === categorySlug)
+        .length,
     }))
     .sort((a, b) => b.count - a.count);
 
@@ -71,7 +83,9 @@ export default async function BrandPage({
         } دسته‌بندی ${categoryChips
           .slice(0, 3)
           .map((chip) => chip.title)
-          .join("، ")}${categoryChips.length > 3 ? " و دیگر دسته‌ها" : ""} موجود است.`;
+          .join(
+            "، ",
+          )}${categoryChips.length > 3 ? " و دیگر دسته‌ها" : ""} موجود است.`;
 
   return (
     <Container className="flex flex-col gap-5 py-4 sm:gap-6 sm:py-6 lg:py-8">
@@ -98,7 +112,9 @@ export default async function BrandPage({
             />
           </span>
           <div className="min-w-0">
-            <h1 className="text-heading font-bold text-ink sm:text-heading-lg">{brand.title}</h1>
+            <h1 className="text-heading font-bold text-ink sm:text-heading-lg">
+              {brand.title}
+            </h1>
             <p className="mt-0.5 text-label text-disabled-ink" dir="ltr">
               {brand.latin}
             </p>
@@ -139,7 +155,10 @@ export default async function BrandPage({
               {categoryChips.map((chip) => (
                 <li key={chip.slug}>
                   <Link
-                    href={catalogHref(basePath, query, { categories: [chip.slug], page: 1 })}
+                    href={catalogHref(basePath, query, {
+                      categories: [chip.slug],
+                      page: 1,
+                    })}
                     className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-label text-body transition-colors hover:border-primary/25 hover:bg-brand-soft hover:text-brand-active"
                   >
                     {chip.title}
@@ -166,7 +185,12 @@ export default async function BrandPage({
         results={results}
         facets={facets}
         bounds={bounds}
-        show={{ categories: true, subcategories: false, brands: false, colors: true }}
+        show={{
+          categories: true,
+          subcategories: false,
+          brands: false,
+          colors: true,
+        }}
         empty={
           <EmptyResults
             title={`کالایی از ${brand.title} با این فیلترها پیدا نشد`}
@@ -196,7 +220,10 @@ export default async function BrandPage({
         }
       />
 
-      <section aria-labelledby="other-brands" className="flex flex-col gap-4 pt-1">
+      <section
+        aria-labelledby="other-brands"
+        className="flex flex-col gap-4 pt-1"
+      >
         <div className="flex items-end justify-between gap-4">
           <h2 id="other-brands" className="text-title font-bold text-ink">
             برندهای دیگر

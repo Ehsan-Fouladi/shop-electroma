@@ -116,7 +116,9 @@ function ToggleFacet({
           aria-hidden
           className={cn(
             "grid size-4 shrink-0 place-items-center rounded-xs border transition-colors",
-            active ? "border-primary bg-primary text-white" : "border-line-strong bg-surface",
+            active
+              ? "border-primary bg-primary text-white"
+              : "border-line-strong bg-surface",
           )}
         >
           {active ? <Check className="size-3" /> : null}
@@ -211,12 +213,16 @@ function FilterPanel({
       <FilterGroup title="وضعیت کالا">
         <ul className="flex flex-col">
           <ToggleFacet
-            href={catalogHref(basePath, query, { availableOnly: !query.availableOnly })}
+            href={catalogHref(basePath, query, {
+              availableOnly: !query.availableOnly,
+            })}
             label="فقط کالاهای موجود"
             active={query.availableOnly}
           />
           <ToggleFacet
-            href={catalogHref(basePath, query, { discountedOnly: !query.discountedOnly })}
+            href={catalogHref(basePath, query, {
+              discountedOnly: !query.discountedOnly,
+            })}
             label="فقط کالاهای تخفیف‌دار"
             active={query.discountedOnly}
           />
@@ -229,7 +235,8 @@ function FilterPanel({
             <ToggleFacet
               key={option.value}
               href={catalogHref(basePath, query, {
-                minRating: query.minRating === option.value ? null : option.value,
+                minRating:
+                  query.minRating === option.value ? null : option.value,
               })}
               label={option.label}
               active={query.minRating === option.value}
@@ -261,7 +268,13 @@ function FilterPanel({
 }
 
 /** Desktop sidebar wrapper: sticky, scrollable, with its own header row. */
-function FilterSidebar({ children, resultCount }: { children: React.ReactNode; resultCount: number }) {
+function FilterSidebar({
+  children,
+  resultCount,
+}: {
+  children: React.ReactNode;
+  resultCount: number;
+}) {
   return (
     <div className="flex flex-col">
       <div className="flex items-center justify-between gap-2 border-b border-line px-3 py-3">
@@ -277,5 +290,12 @@ function FilterSidebar({ children, resultCount }: { children: React.ReactNode; r
   );
 }
 
-export { FilterPanel, FilterGroup, FilterSidebar, CheckboxFacet, ToggleFacet, ChipFacet };
+export {
+  FilterPanel,
+  FilterGroup,
+  FilterSidebar,
+  CheckboxFacet,
+  ToggleFacet,
+  ChipFacet,
+};
 export type { FilterPanelProps };

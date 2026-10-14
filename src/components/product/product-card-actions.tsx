@@ -33,14 +33,19 @@ export function ProductCardActions({ product }: { product: Product }) {
     try {
       toggleWishlist(product.id);
     } catch {
-      toast.error("به‌روزرسانی علاقه‌مندی‌ها انجام نشد.", { id: `wishlist-${product.id}` });
+      toast.error("به‌روزرسانی علاقه‌مندی‌ها انجام نشد.", {
+        id: `wishlist-${product.id}`,
+      });
       return;
     }
 
-    toast.success(adding ? "به علاقه‌مندی‌ها اضافه شد" : "از علاقه‌مندی‌ها حذف شد", {
-      id: `wishlist-${product.id}`,
-      description: product.title,
-    });
+    toast.success(
+      adding ? "به علاقه‌مندی‌ها اضافه شد" : "از علاقه‌مندی‌ها حذف شد",
+      {
+        id: `wishlist-${product.id}`,
+        description: product.title,
+      },
+    );
   };
 
   const handleCompareToggle = () => {
@@ -49,7 +54,9 @@ export function ProductCardActions({ product }: { product: Product }) {
     try {
       toggleCompare(product.id);
     } catch {
-      toast.error("به‌روزرسانی فهرست مقایسه انجام نشد.", { id: `compare-${product.id}` });
+      toast.error("به‌روزرسانی فهرست مقایسه انجام نشد.", {
+        id: `compare-${product.id}`,
+      });
       return;
     }
 
@@ -59,7 +66,10 @@ export function ProductCardActions({ product }: { product: Product }) {
         ? "به فهرست مقایسه اضافه شد"
         : "از فهرست مقایسه حذف شد";
 
-    toast.success(message, { id: `compare-${product.id}`, description: product.title });
+    toast.success(message, {
+      id: `compare-${product.id}`,
+      description: product.title,
+    });
   };
 
   return (
@@ -75,13 +85,17 @@ export function ProductCardActions({ product }: { product: Product }) {
                 inWishlist && "border-sale/30 bg-sale-soft text-sale",
               )}
               aria-pressed={inWishlist}
-              aria-label={inWishlist ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"}
+              aria-label={
+                inWishlist ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"
+              }
               onClick={handleWishlistToggle}
             >
               <Heart className={cn(inWishlist && "fill-sale")} aria-hidden />
             </Button>
           </TooltipTrigger>
-          <TooltipContent>{inWishlist ? "حذف از علاقه‌مندی" : "افزودن به علاقه‌مندی"}</TooltipContent>
+          <TooltipContent>
+            {inWishlist ? "حذف از علاقه‌مندی" : "افزودن به علاقه‌مندی"}
+          </TooltipContent>
         </Tooltip>
 
         <Tooltip>
@@ -91,7 +105,8 @@ export function ProductCardActions({ product }: { product: Product }) {
               size="icon-sm"
               className={cn(
                 "bg-surface/95 backdrop-blur",
-                inCompare && "border-primary/30 bg-brand-soft text-brand-active",
+                inCompare &&
+                  "border-primary/30 bg-brand-soft text-brand-active",
               )}
               aria-pressed={inCompare}
               aria-label={inCompare ? "حذف از مقایسه" : "افزودن به مقایسه"}
@@ -100,7 +115,9 @@ export function ProductCardActions({ product }: { product: Product }) {
               <ArrowLeftRight aria-hidden />
             </Button>
           </TooltipTrigger>
-          <TooltipContent>{inCompare ? "حذف از مقایسه" : "افزودن به مقایسه"}</TooltipContent>
+          <TooltipContent>
+            {inCompare ? "حذف از مقایسه" : "افزودن به مقایسه"}
+          </TooltipContent>
         </Tooltip>
 
         <QuickViewDialog product={product} />

@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { MessageSquareText } from "lucide-react";
 
-import { AccountPageHeading, AccountPanel } from "@/components/account/account-page-heading";
+import {
+  AccountPageHeading,
+  AccountPanel,
+} from "@/components/account/account-page-heading";
 import { customerQuestions } from "@/data/customer";
 import { products } from "@/data/products";
 
@@ -21,7 +24,9 @@ export default function AccountQuestionsPage() {
             <MessageSquareText className="size-8" aria-hidden />
           </span>
           <div>
-            <h2 className="text-title font-bold text-ink">پرسشی ثبت نکرده‌اید</h2>
+            <h2 className="text-title font-bold text-ink">
+              پرسشی ثبت نکرده‌اید
+            </h2>
             <p className="mt-1 text-body-sm text-subtle-ink">
               می‌توانید در صفحه هر محصول، سؤال فنی خود را از کارشناسان بپرسید.
             </p>
@@ -53,7 +58,9 @@ export default function AccountQuestionsPage() {
 
                   {q.answer ? (
                     <div className="rounded-lg bg-surface-soft p-3 text-caption text-body">
-                      <span className="font-bold text-brand-active">پاسخ پشتیبانی الکتروما: </span>
+                      <span className="font-bold text-brand-active">
+                        پاسخ پشتیبانی الکتروما:{" "}
+                      </span>
                       <span>{q.answer}</span>
                     </div>
                   ) : (

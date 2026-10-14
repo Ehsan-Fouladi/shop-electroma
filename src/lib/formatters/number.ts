@@ -20,7 +20,10 @@ export function formatPercent(value: number): string {
 }
 
 /** Discount percentage between the old and the current price. */
-export function discountPercent(price: number, oldPrice?: number): number | null {
+export function discountPercent(
+  price: number,
+  oldPrice?: number,
+): number | null {
   if (!oldPrice || oldPrice <= price) return null;
   return Math.round(((oldPrice - price) / oldPrice) * 100);
 }

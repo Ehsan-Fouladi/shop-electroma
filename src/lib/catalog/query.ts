@@ -79,7 +79,9 @@ export function parseCatalogQuery(
   overrides: Partial<CatalogQuery> = {},
 ): CatalogQuery {
   const rawSort = first(params.sort);
-  const sort = SORT_KEYS.includes(rawSort as SortKey) ? (rawSort as SortKey) : "newest";
+  const sort = SORT_KEYS.includes(rawSort as SortKey)
+    ? (rawSort as SortKey)
+    : "newest";
   const page = Math.max(1, Number.parseInt(first(params.page) ?? "1", 10) || 1);
   const minRating = Number.parseFloat(first(params.rating) ?? "");
 
@@ -107,9 +109,11 @@ export function catalogQueryToParams(query: CatalogQuery): URLSearchParams {
   if (query.q) params.set("q", query.q);
   if (query.sort !== defaultCatalogQuery.sort) params.set("sort", query.sort);
   if (query.page > 1) params.set("page", String(query.page));
-  if (query.categories.length) params.set("category", query.categories.join(","));
+  if (query.categories.length)
+    params.set("category", query.categories.join(","));
   if (query.brands.length) params.set("brand", query.brands.join(","));
-  if (query.subcategories.length) params.set("sub", query.subcategories.join(","));
+  if (query.subcategories.length)
+    params.set("sub", query.subcategories.join(","));
   if (query.colors.length) params.set("color", query.colors.join(","));
   if (query.minPrice !== null) params.set("min", String(query.minPrice));
   if (query.maxPrice !== null) params.set("max", String(query.maxPrice));
@@ -144,20 +148,31 @@ function toggle(list: string[], value: string): string[] {
     : [...list, value];
 }
 
-export const toggleCategory = (query: CatalogQuery, value: string): Partial<CatalogQuery> => ({
+export const toggleCategory = (
+  query: CatalogQuery,
+  value: string,
+): Partial<CatalogQuery> => ({
   categories: toggle(query.categories, value),
 });
 
-export const toggleBrand = (query: CatalogQuery, value: string): Partial<CatalogQuery> => ({
+export const toggleBrand = (
+  query: CatalogQuery,
+  value: string,
+): Partial<CatalogQuery> => ({
   brands: toggle(query.brands, value),
 });
 
 export const toggleSubcategory = (
   query: CatalogQuery,
   value: string,
-): Partial<CatalogQuery> => ({ subcategories: toggle(query.subcategories, value) });
+): Partial<CatalogQuery> => ({
+  subcategories: toggle(query.subcategories, value),
+});
 
-export const toggleColor = (query: CatalogQuery, value: string): Partial<CatalogQuery> => ({
+export const toggleColor = (
+  query: CatalogQuery,
+  value: string,
+): Partial<CatalogQuery> => ({
   colors: toggle(query.colors, value),
 });
 

@@ -16,7 +16,10 @@ import {
   type CatalogQuery,
   type SortKey,
 } from "@/lib/catalog/query";
-import { CATALOG_PAGE_SIZE, availableSortOptions } from "@/lib/constants/catalog";
+import {
+  CATALOG_PAGE_SIZE,
+  availableSortOptions,
+} from "@/lib/constants/catalog";
 import type { CatalogFacets } from "@/lib/catalog/results";
 import type { Product } from "@/types";
 
@@ -65,7 +68,10 @@ export function CatalogResults({
     redirect(catalogHref(basePath, query, { page: pages }));
   }
 
-  const pageProducts = results.slice((page - 1) * CATALOG_PAGE_SIZE, page * CATALOG_PAGE_SIZE);
+  const pageProducts = results.slice(
+    (page - 1) * CATALOG_PAGE_SIZE,
+    page * CATALOG_PAGE_SIZE,
+  );
   const sortOptions = availableSortOptions(Boolean(query.q)) as {
     value: SortKey;
     label: string;
@@ -106,7 +112,13 @@ export function CatalogResults({
     >
       <CatalogToolbar
         resultCount={total}
-        sort={<SortSelect value={query.sort} options={sortOptions} basePath={basePath} />}
+        sort={
+          <SortSelect
+            value={query.sort}
+            options={sortOptions}
+            basePath={basePath}
+          />
+        }
         filterTrigger={
           <MobileFilterBar
             activeCount={activeCount}

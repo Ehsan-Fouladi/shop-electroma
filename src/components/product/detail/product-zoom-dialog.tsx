@@ -137,7 +137,8 @@ export function ProductZoomDialog({
                   aria-atomic="true"
                   className="absolute inset-x-0 bottom-3 z-10 mx-auto w-fit rounded-full bg-surface/90 px-3 py-1.5 text-caption text-body tabular backdrop-blur"
                 >
-                  تصویر {toPersianDigits(currentIndex + 1)} از {toPersianDigits(total)}
+                  تصویر {toPersianDigits(currentIndex + 1)} از{" "}
+                  {toPersianDigits(total)}
                 </span>
               </>
             ) : null}

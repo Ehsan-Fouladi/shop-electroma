@@ -71,7 +71,11 @@ export default async function BrandsPage({
   return (
     <Container className="flex flex-col gap-6 py-4 sm:gap-8 sm:py-6 lg:py-8">
       <CatalogHeader
-        breadcrumb={<Breadcrumb items={[{ label: "خانه", href: "/" }, { label: "برندها" }]} />}
+        breadcrumb={
+          <Breadcrumb
+            items={[{ label: "خانه", href: "/" }, { label: "برندها" }]}
+          />
+        }
         title="برندها"
         description="برندهای فعال در کاتالوگ الکتروما. با انتخاب هر برند، همه محصولات آن برند همراه با فیلتر دسته‌بندی و قیمت نمایش داده می‌شود."
         meta={

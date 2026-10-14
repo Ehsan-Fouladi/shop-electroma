@@ -2,12 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import {
-  CheckCircle2,
-  FileText,
-  ShoppingBag,
-  Truck,
-} from "lucide-react";
+import { CheckCircle2, FileText, ShoppingBag, Truck } from "lucide-react";
 
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { Container } from "@/components/layout/container";
@@ -24,7 +19,8 @@ function CheckoutSuccessContent() {
   const orderId = searchParams.get("orderId");
   const orders = useCustomerStore((state) => state.orders);
 
-  const order = (orderId ? orders.find((o) => o.id === orderId) : orders[0]) || orders[0];
+  const order =
+    (orderId ? orders.find((o) => o.id === orderId) : orders[0]) || orders[0];
 
   return (
     <Container className="flex flex-col gap-6 py-6 sm:py-8 lg:py-10">
@@ -62,7 +58,9 @@ function CheckoutSuccessContent() {
           </div>
 
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line-subtle pb-3">
-            <span className="text-caption text-subtle-ink">مبلغ پرداختی (نمایشی):</span>
+            <span className="text-caption text-subtle-ink">
+              مبلغ پرداختی (نمایشی):
+            </span>
             <span className="font-bold text-brand-active">
               {order ? formatPrice(order.total) : "۰"} تومان
             </span>
@@ -87,7 +85,9 @@ function CheckoutSuccessContent() {
 
         {order && order.items.length > 0 && (
           <div className="w-full text-start">
-            <h2 className="mb-2 text-label font-bold text-ink">اقلام ثبت‌شده در سفارش:</h2>
+            <h2 className="mb-2 text-label font-bold text-ink">
+              اقلام ثبت‌شده در سفارش:
+            </h2>
             <div className="divide-y divide-line-subtle rounded-lg border border-line">
               {order.items.map((item, idx) => {
                 const prod = products.find((p) => p.id === item.productId);
@@ -99,9 +99,12 @@ function CheckoutSuccessContent() {
                       </div>
                     ) : null}
                     <div className="min-w-0 flex-1">
-                      <p className="line-clamp-1 text-body-sm font-medium text-ink">{item.title}</p>
+                      <p className="line-clamp-1 text-body-sm font-medium text-ink">
+                        {item.title}
+                      </p>
                       <p className="text-caption text-subtle-ink">
-                        {toPersianDigits(item.quantity)} عدد × {formatPrice(item.unitPrice)} تومان
+                        {toPersianDigits(item.quantity)} عدد ×{" "}
+                        {formatPrice(item.unitPrice)} تومان
                       </p>
                     </div>
                   </div>
@@ -139,7 +142,8 @@ function CheckoutSuccessContent() {
         </div>
 
         <p className="text-caption text-subtle-ink">
-          سفارش به فهرست سفارش‌های حساب کاربری شما اضافه شد. به دلیل نبود سرور واقعی، پیامک ارسال نمی‌شود.
+          سفارش به فهرست سفارش‌های حساب کاربری شما اضافه شد. به دلیل نبود سرور
+          واقعی، پیامک ارسال نمی‌شود.
         </p>
       </div>
     </Container>

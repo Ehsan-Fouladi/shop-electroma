@@ -9,8 +9,17 @@ import { SubcategoryNav } from "@/components/catalog/subcategory-nav";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { Container } from "@/components/layout/container";
 import { getCategory, getSubcategoryLabel } from "@/data/categories";
-import { catalogHref, parseCatalogQuery, type CatalogSearchParams } from "@/lib/catalog/query";
-import { buildCatalogFacets, filterProducts, priceBounds, sortProducts } from "@/lib/catalog/results";
+import {
+  catalogHref,
+  parseCatalogQuery,
+  type CatalogSearchParams,
+} from "@/lib/catalog/query";
+import {
+  buildCatalogFacets,
+  filterProducts,
+  priceBounds,
+  sortProducts,
+} from "@/lib/catalog/results";
 import { productsBySubcategory, statsFor } from "@/lib/catalog/stats";
 import { formatNumber, toPersianDigits } from "@/lib/formatters/number";
 
@@ -39,7 +48,10 @@ export default async function SubcategoryPage({
   params: Promise<{ slug: string; subcategory: string }>;
   searchParams: Promise<CatalogSearchParams>;
 }) {
-  const [{ slug, subcategory }, rawParams] = await Promise.all([params, searchParams]);
+  const [{ slug, subcategory }, rawParams] = await Promise.all([
+    params,
+    searchParams,
+  ]);
   const category = getCategory(slug);
   const child = category?.children?.find((item) => item.slug === subcategory);
   if (!category || !child) notFound();
@@ -126,7 +138,12 @@ export default async function SubcategoryPage({
         results={results}
         facets={facets}
         bounds={bounds}
-        show={{ categories: false, subcategories: false, brands: true, colors: true }}
+        show={{
+          categories: false,
+          subcategories: false,
+          brands: true,
+          colors: true,
+        }}
         empty={
           <EmptyResults
             title={`در «${title}» کالایی با این فیلترها پیدا نشد`}

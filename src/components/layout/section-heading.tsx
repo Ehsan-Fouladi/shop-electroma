@@ -40,7 +40,9 @@ export function SectionHeading({
           aria-hidden
           className={cn(
             "mt-[0.45rem] h-5 w-1.5 shrink-0 rounded-full sm:h-6",
-            tone === "inverse" ? "bg-white/70" : "bg-gradient-to-b from-primary to-brand-subtle",
+            tone === "inverse"
+              ? "bg-white/70"
+              : "bg-gradient-to-b from-primary to-brand-subtle",
           )}
         />
         <div className="min-w-0">

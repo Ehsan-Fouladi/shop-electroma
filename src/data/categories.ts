@@ -11,7 +11,8 @@ export const categories: Category[] = [
     title: "گوشی موبایل",
     icon: "smartphone",
     productCount: 1284,
-    description: "گوشی‌های هوشمند برندهای معتبر، از مدل‌های اقتصادی تا پرچم‌داران؛ همراه با گارانتی معتبر و ضمانت اصالت کالا.",
+    description:
+      "گوشی‌های هوشمند برندهای معتبر، از مدل‌های اقتصادی تا پرچم‌داران؛ همراه با گارانتی معتبر و ضمانت اصالت کالا.",
     image: "/images/category/mobile.webp",
     highlight: "پرچم‌داران ۱۴۰۴",
     children: [
@@ -26,7 +27,8 @@ export const categories: Category[] = [
     title: "لپ‌تاپ",
     icon: "laptop",
     productCount: 742,
-    description: "لپ‌تاپ‌های اداری، اولترابوک و گیمینگ برای کار، تحصیل و بازی؛ در بازه‌های قیمتی مختلف.",
+    description:
+      "لپ‌تاپ‌های اداری، اولترابوک و گیمینگ برای کار، تحصیل و بازی؛ در بازه‌های قیمتی مختلف.",
     image: "/images/category/laptop.webp",
     highlight: "مخصوص کار و بازی",
     children: [
@@ -40,7 +42,8 @@ export const categories: Category[] = [
     title: "هدفون و ایرباد",
     icon: "headphones",
     productCount: 638,
-    description: "هدفون، ایرباد و هدست با گزینه‌های نویز کنسلینگ، بی‌سیم و حرفه‌ای برای موسیقی، تماس و بازی.",
+    description:
+      "هدفون، ایرباد و هدست با گزینه‌های نویز کنسلینگ، بی‌سیم و حرفه‌ای برای موسیقی، تماس و بازی.",
     image: "/images/category/audio.webp",
     highlight: "نویز کنسلینگ",
     children: [
@@ -54,7 +57,8 @@ export const categories: Category[] = [
     title: "ساعت و مچ‌بند هوشمند",
     icon: "watch",
     productCount: 415,
-    description: "ساعت و مچ‌بند هوشمند با پایش سلامت، اعلان‌ها و قابلیت اتصال به گوشی.",
+    description:
+      "ساعت و مچ‌بند هوشمند با پایش سلامت، اعلان‌ها و قابلیت اتصال به گوشی.",
     image: "/images/category/watch.webp",
     children: [
       { slug: "watch", title: "ساعت هوشمند" },
@@ -66,7 +70,8 @@ export const categories: Category[] = [
     title: "کنسول و گیمینگ",
     icon: "gamepad",
     productCount: 356,
-    description: "کنسول بازی، دسته، هدست و لوازم جانبی گیمینگ برای تکمیل میز بازی شما.",
+    description:
+      "کنسول بازی، دسته، هدست و لوازم جانبی گیمینگ برای تکمیل میز بازی شما.",
     image: "/images/category/gaming.webp",
     children: [
       { slug: "console", title: "کنسول بازی" },
@@ -79,7 +84,8 @@ export const categories: Category[] = [
     title: "لوازم جانبی",
     icon: "plug",
     productCount: 1926,
-    description: "لوازم جانبی موبایل شامل شارژر، پاوربانک، کابل و مبدل‌های کاربردی.",
+    description:
+      "لوازم جانبی موبایل شامل شارژر، پاوربانک، کابل و مبدل‌های کاربردی.",
     image: "/images/category/accessories.webp",
     children: [
       { slug: "charger", title: "شارژر" },
@@ -92,7 +98,8 @@ export const categories: Category[] = [
     title: "تبلت",
     icon: "tablet",
     productCount: 268,
-    description: "تبلت‌های مناسب مطالعه، طراحی، تماشای فیلم و کار سبک، همراه با پشتیبانی از قلم و کیبورد.",
+    description:
+      "تبلت‌های مناسب مطالعه، طراحی، تماشای فیلم و کار سبک، همراه با پشتیبانی از قلم و کیبورد.",
     image: "/images/category/tablet.webp",
   },
   {
@@ -100,7 +107,8 @@ export const categories: Category[] = [
     title: "دوربین",
     icon: "camera",
     productCount: 187,
-    description: "دوربین‌های بدون آینه و لنز برای عکاسی و فیلم‌برداری حرفه‌ای و تولید محتوا.",
+    description:
+      "دوربین‌های بدون آینه و لنز برای عکاسی و فیلم‌برداری حرفه‌ای و تولید محتوا.",
     image: "/images/category/camera.webp",
   },
   {
@@ -108,7 +116,8 @@ export const categories: Category[] = [
     title: "مانیتور",
     icon: "monitor",
     productCount: 224,
-    description: "مانیتورهای اداری و گیمینگ در اندازه‌ها و نرخ نوسازی مختلف با پنل‌های IPS و OLED.",
+    description:
+      "مانیتورهای اداری و گیمینگ در اندازه‌ها و نرخ نوسازی مختلف با پنل‌های IPS و OLED.",
     image: "/images/category/monitor.webp",
   },
   {
@@ -116,42 +125,48 @@ export const categories: Category[] = [
     title: "اسپیکر",
     icon: "speaker",
     productCount: 312,
-    description: "اسپیکرهای پرتابل و خانگی با کیفیت صدای بالا و قابلیت اتصال بی‌سیم.",
+    description:
+      "اسپیکرهای پرتابل و خانگی با کیفیت صدای بالا و قابلیت اتصال بی‌سیم.",
   },
   {
     slug: "chargers",
     title: "شارژر و آداپتور",
     icon: "battery-charging",
     productCount: 586,
-    description: "شارژر و آداپتور دیواری با توان‌های مختلف و فناوری‌های شارژ سریع.",
+    description:
+      "شارژر و آداپتور دیواری با توان‌های مختلف و فناوری‌های شارژ سریع.",
   },
   {
     slug: "power-banks",
     title: "پاوربانک",
     icon: "battery-charging",
     productCount: 274,
-    description: "پاوربانک با ظرفیت و توان خروجی متنوع برای شارژ موبایل و لپ‌تاپ در سفر.",
+    description:
+      "پاوربانک با ظرفیت و توان خروجی متنوع برای شارژ موبایل و لپ‌تاپ در سفر.",
   },
   {
     slug: "cables",
     title: "کابل و مبدل",
     icon: "cable",
     productCount: 431,
-    description: "کابل و مبدل شارژ و انتقال داده در انواع رابط‌های USB-C، Lightning و HDMI.",
+    description:
+      "کابل و مبدل شارژ و انتقال داده در انواع رابط‌های USB-C، Lightning و HDMI.",
   },
   {
     slug: "ssd",
     title: "حافظه SSD",
     icon: "hard-drive",
     productCount: 198,
-    description: "حافظه‌های SSD داخلی و اکسترنال با سرعت بالا برای سیستم، کنسول و ذخیره‌سازی پرتابل.",
+    description:
+      "حافظه‌های SSD داخلی و اکسترنال با سرعت بالا برای سیستم، کنسول و ذخیره‌سازی پرتابل.",
   },
   {
     slug: "hard-drives",
     title: "هارد دیسک",
     icon: "hard-drive",
     productCount: 143,
-    description: "هارد دیسک داخلی و اکسترنال برای ذخیره‌سازی و پشتیبان‌گیری از داده‌ها.",
+    description:
+      "هارد دیسک داخلی و اکسترنال برای ذخیره‌سازی و پشتیبان‌گیری از داده‌ها.",
   },
   {
     slug: "flash-drives",
@@ -165,14 +180,16 @@ export const categories: Category[] = [
     title: "قطعات کامپیوتر",
     icon: "cpu",
     productCount: 352,
-    description: "قطعات کامپیوتر شامل پردازنده، کارت گرافیک، مادربرد، رم و منبع تغذیه.",
+    description:
+      "قطعات کامپیوتر شامل پردازنده، کارت گرافیک، مادربرد، رم و منبع تغذیه.",
   },
   {
     slug: "computer-accessories",
     title: "لوازم جانبی کامپیوتر",
     icon: "keyboard",
     productCount: 497,
-    description: "لوازم جانبی کامپیوتر شامل کیبورد، ماوس، وبکم و پایه‌های ارگونومیک.",
+    description:
+      "لوازم جانبی کامپیوتر شامل کیبورد، ماوس، وبکم و پایه‌های ارگونومیک.",
   },
   {
     slug: "networking",
@@ -186,7 +203,8 @@ export const categories: Category[] = [
     title: "خانه هوشمند",
     icon: "house",
     productCount: 176,
-    description: "محصولات خانه هوشمند برای کنترل روشنایی، امنیت و دستگاه‌های خانگی.",
+    description:
+      "محصولات خانه هوشمند برای کنترل روشنایی، امنیت و دستگاه‌های خانگی.",
   },
   {
     slug: "tv",
@@ -200,7 +218,8 @@ export const categories: Category[] = [
     title: "تجهیزات تولید محتوا",
     icon: "camera",
     productCount: 231,
-    description: "تجهیزات تولید محتوا شامل دوربین، میکروفون، نورپردازی و لوازم استودیویی.",
+    description:
+      "تجهیزات تولید محتوا شامل دوربین، میکروفون، نورپردازی و لوازم استودیویی.",
   },
   {
     slug: "printers",

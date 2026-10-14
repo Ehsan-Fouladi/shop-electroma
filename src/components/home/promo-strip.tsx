@@ -33,7 +33,10 @@ const toneClasses: Record<string, string> = {
  */
 export function PromoStrip() {
   return (
-    <Section className="pt-5 sm:pt-6 lg:pt-8" aria-label="مزایای خرید از الکتروما">
+    <Section
+      className="pt-5 sm:pt-6 lg:pt-8"
+      aria-label="مزایای خرید از الکتروما"
+    >
       <Container>
         <div className="overflow-hidden rounded-xl border border-line bg-surface shadow-soft">
           <ul className="grid divide-y divide-line sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4">
@@ -57,7 +60,9 @@ export function PromoStrip() {
                     <Icon className="size-5" aria-hidden />
                   </span>
                   <div className="min-w-0">
-                    <p className="text-body-sm font-bold text-ink">{card.title}</p>
+                    <p className="text-body-sm font-bold text-ink">
+                      {card.title}
+                    </p>
                     <p className="mt-1 text-label leading-6 text-subtle-ink">
                       {card.description}
                     </p>

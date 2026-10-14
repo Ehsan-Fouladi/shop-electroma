@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { AlertCircle, ArrowLeft, Home, Search, ShoppingBag } from "lucide-react";
+import {
+  AlertCircle,
+  ArrowLeft,
+  Home,
+  Search,
+  ShoppingBag,
+} from "lucide-react";
 
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
@@ -7,7 +13,10 @@ import { Button } from "@/components/ui/button";
 export default function NotFound() {
   return (
     <div className="flex min-h-[70vh] flex-col items-center justify-center py-12">
-      <Container size="narrow" className="flex flex-col items-center text-center">
+      <Container
+        size="narrow"
+        className="flex flex-col items-center text-center"
+      >
         <span className="font-mono text-7xl font-extrabold text-primary/20 sm:text-9xl">
           ۴۰۴
         </span>
@@ -20,7 +29,8 @@ export default function NotFound() {
           صفحه مورد نظر پیدا نشد!
         </h1>
         <p className="mt-2 max-w-md text-body-sm text-subtle-ink leading-relaxed sm:text-body">
-          آدرس واردشده ممکن است تغییر کرده یا حذف شده باشد. می‌توانید عبارت مورد نظر خود را جستجو کنید یا به فروشگاه بازگردید.
+          آدرس واردشده ممکن است تغییر کرده یا حذف شده باشد. می‌توانید عبارت مورد
+          نظر خود را جستجو کنید یا به فروشگاه بازگردید.
         </p>
 
         {/* Quick Categories */}

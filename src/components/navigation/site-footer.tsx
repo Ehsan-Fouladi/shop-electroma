@@ -75,20 +75,35 @@ export function SiteFooter() {
           <ul className="flex flex-col gap-3 text-body-sm text-body">
             <li className="flex items-center gap-2.5">
               <Phone className="size-4 shrink-0 text-brand" aria-hidden />
-              <span className="text-caption text-subtle-ink">تلفن پشتیبانی:</span>
-              <a href={siteConfig.supportPhoneHref} className="font-bold text-ink hover:text-brand-active" dir="ltr">
+              <span className="text-caption text-subtle-ink">
+                تلفن پشتیبانی:
+              </span>
+              <a
+                href={siteConfig.supportPhoneHref}
+                className="font-bold text-ink hover:text-brand-active"
+                dir="ltr"
+              >
                 {siteConfig.supportPhone}
               </a>
             </li>
             <li className="flex items-center gap-2.5">
               <Mail className="size-4 shrink-0 text-brand" aria-hidden />
-              <span className="text-caption text-subtle-ink">پست الکترونیک:</span>
-              <a href={`mailto:${siteConfig.email}`} className="font-medium text-ink hover:text-brand-active" dir="ltr">
+              <span className="text-caption text-subtle-ink">
+                پست الکترونیک:
+              </span>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="font-medium text-ink hover:text-brand-active"
+                dir="ltr"
+              >
                 {siteConfig.email}
               </a>
             </li>
             <li className="flex items-start gap-2.5">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-brand" aria-hidden />
+              <MapPin
+                className="mt-0.5 size-4 shrink-0 text-brand"
+                aria-hidden
+              />
               <span className="text-caption text-subtle-ink leading-relaxed">
                 {siteConfig.address}
               </span>
@@ -105,7 +120,11 @@ export function SiteFooter() {
         {/* Links Navigation Columns */}
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-8">
           {columns.map((column) => (
-            <nav key={column.title} aria-label={column.title} className="flex flex-col gap-3">
+            <nav
+              key={column.title}
+              aria-label={column.title}
+              className="flex flex-col gap-3"
+            >
               <p className="text-body-sm font-bold text-ink">{column.title}</p>
               <ul className="flex flex-col gap-2.5">
                 {column.links.map((link) => (
@@ -140,7 +159,10 @@ export function SiteFooter() {
 
           <div className="flex items-center gap-1.5 text-[11px] text-disabled-ink">
             <Info className="size-3.5" aria-hidden />
-            <span>نسخه نمایشی (UI Prototype) • فاقد درگاه مالی واقعی یا نمادهای شبیه‌سازی‌نشده</span>
+            <span>
+              نسخه نمایشی (UI Prototype) • فاقد درگاه مالی واقعی یا نمادهای
+              شبیه‌سازی‌نشده
+            </span>
           </div>
         </Container>
       </div>
@@ -150,7 +172,8 @@ export function SiteFooter() {
       {/* Copyright Bar */}
       <Container className="flex flex-col items-center justify-between gap-3 py-4 pb-20 sm:flex-row lg:pb-4 text-caption text-subtle-ink">
         <p>
-          تمامی حقوق مادی و معنوی این وب‌سایت متعلق به {siteConfig.name} است. © ۱۴۰۵
+          تمامی حقوق مادی و معنوی این وب‌سایت متعلق به {siteConfig.name} است. ©
+          ۱۴۰۵
         </p>
         <p className="text-[11px] text-disabled-ink">
           طراحی‌شده بر اساس اصول تجربه کاربری و دیزاین سیستم الکتروما

@@ -44,7 +44,9 @@ export async function generateMetadata({
       modifiedTime: post.updatedAt || post.publishedAt,
       authors: [post.author],
       siteName: siteConfig.name,
-      images: post.image ? [{ url: `${siteConfig.url}${post.image}` }] : undefined,
+      images: post.image
+        ? [{ url: `${siteConfig.url}${post.image}` }]
+        : undefined,
     },
   };
 }
@@ -66,7 +68,9 @@ export default async function BlogPostPage({
     ? products.filter((p) => post.recommendedProductIds?.includes(p.id))
     : [];
 
-  const relatedPosts = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
+  const relatedPosts = blogPosts
+    .filter((p) => p.slug !== post.slug)
+    .slice(0, 2);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -75,7 +79,9 @@ export default async function BlogPostPage({
     description: post.excerpt,
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post.publishedAt,
-    image: post.image ? `${siteConfig.url}${post.image}` : `${siteConfig.url}/favicon.svg`,
+    image: post.image
+      ? `${siteConfig.url}${post.image}`
+      : `${siteConfig.url}/favicon.svg`,
     author: {
       "@type": "Person",
       name: post.author,
@@ -163,7 +169,9 @@ export default async function BlogPostPage({
               نویسنده: {post.author}
             </span>
             {post.authorRole && (
-              <span className="text-caption text-disabled-ink">• {post.authorRole}</span>
+              <span className="text-caption text-disabled-ink">
+                • {post.authorRole}
+              </span>
             )}
           </div>
         </Container>
@@ -229,7 +237,8 @@ export default async function BlogPostPage({
                               href={`#${sub.id}`}
                               className="transition-colors hover:text-brand-active hover:underline"
                             >
-                              {toPersianDigits(i + 1)}.{toPersianDigits(subIdx + 1)} {sub.title}
+                              {toPersianDigits(i + 1)}.
+                              {toPersianDigits(subIdx + 1)} {sub.title}
                             </a>
                           </li>
                         ))}
@@ -263,7 +272,11 @@ export default async function BlogPostPage({
                   {section.subsections && section.subsections.length > 0 && (
                     <div className="mt-2 flex flex-col gap-6 ps-2">
                       {section.subsections.map((sub) => (
-                        <div key={sub.id} id={sub.id} className="scroll-mt-24 flex flex-col gap-3">
+                        <div
+                          key={sub.id}
+                          id={sub.id}
+                          className="scroll-mt-24 flex flex-col gap-3"
+                        >
                           <h3 className="text-body font-bold text-ink sm:text-title-sm">
                             {sub.title}
                           </h3>
@@ -282,7 +295,9 @@ export default async function BlogPostPage({
           ) : (
             <div className="flex flex-col gap-5 text-body text-body leading-loose sm:text-body-lg">
               {post.content ? (
-                post.content.map((paragraph, idx) => <p key={idx}>{paragraph}</p>)
+                post.content.map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))
               ) : (
                 <p>{post.excerpt}</p>
               )}
@@ -293,14 +308,19 @@ export default async function BlogPostPage({
           {post.table && (
             <div className="my-10 overflow-hidden rounded-xl border border-line bg-surface shadow-soft">
               <div className="border-b border-line bg-surface-soft px-5 py-3.5">
-                <h3 className="font-bold text-ink text-body-sm sm:text-title-sm">{post.table.title}</h3>
+                <h3 className="font-bold text-ink text-body-sm sm:text-title-sm">
+                  {post.table.title}
+                </h3>
               </div>
               <div className="overflow-x-auto w-full">
                 <table className="w-full text-start max-sm:text-nowrap text-caption sm:text-body-sm">
                   <thead>
                     <tr className="border-b border-line bg-surface-soft/60">
                       {post.table.headers.map((h, i) => (
-                        <th key={i} className="p-3 text-start font-bold text-ink">
+                        <th
+                          key={i}
+                          className="p-3 text-start font-bold text-ink"
+                        >
                           {h}
                         </th>
                       ))}
@@ -351,8 +371,13 @@ export default async function BlogPostPage({
               </h3>
               <div className="flex flex-col gap-3.5">
                 {post.faqs.map((faq, i) => (
-                  <div key={i} className="rounded-xl border border-line-subtle bg-surface-soft p-4 sm:p-5">
-                    <h4 className="font-bold text-ink text-body-sm sm:text-body">{faq.q}</h4>
+                  <div
+                    key={i}
+                    className="rounded-xl border border-line-subtle bg-surface-soft p-4 sm:p-5"
+                  >
+                    <h4 className="font-bold text-ink text-body-sm sm:text-body">
+                      {faq.q}
+                    </h4>
                     <p className="mt-2 text-caption text-subtle-ink leading-relaxed sm:text-body-sm">
                       {faq.a}
                     </p>
@@ -370,7 +395,8 @@ export default async function BlogPostPage({
             <div>
               <p className="font-bold text-ink text-body">{post.author}</p>
               <p className="mt-0.5 text-caption text-subtle-ink">
-                {post.authorRole || "کارشناس ارشد تحلیل سخت‌افزار و عضو هیئت تحریریه مجله تخصصی الکتروما"}
+                {post.authorRole ||
+                  "کارشناس ارشد تحلیل سخت‌افزار و عضو هیئت تحریریه مجله تخصصی الکتروما"}
               </p>
             </div>
           </div>
@@ -378,7 +404,9 @@ export default async function BlogPostPage({
           {/* Recommended Products in Article */}
           {recommendedProducts.length > 0 && (
             <div className="my-10 border-t border-line pt-8">
-              <h3 className="mb-4 text-title font-bold text-ink">کالاهای مرتبط و بررسی‌شده</h3>
+              <h3 className="mb-4 text-title font-bold text-ink">
+                کالاهای مرتبط و بررسی‌شده
+              </h3>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {recommendedProducts.map((prod) => (
                   <ProductCard key={prod.id} product={prod} />
@@ -389,7 +417,9 @@ export default async function BlogPostPage({
 
           {/* Related Articles */}
           <div className="border-t border-line pt-8">
-            <h3 className="mb-4 text-title font-bold text-ink">سایر مقالات پیشنهادی</h3>
+            <h3 className="mb-4 text-title font-bold text-ink">
+              سایر مقالات پیشنهادی
+            </h3>
             <div className="grid gap-4 sm:grid-cols-2">
               {relatedPosts.map((related) => (
                 <div
@@ -397,9 +427,14 @@ export default async function BlogPostPage({
                   className="flex flex-col justify-between rounded-xl border border-line bg-surface p-4 shadow-soft transition-all hover:border-primary/40"
                 >
                   <div>
-                    <span className="text-caption font-medium text-brand">{related.category}</span>
+                    <span className="text-caption font-medium text-brand">
+                      {related.category}
+                    </span>
                     <h4 className="mt-2 line-clamp-2 text-body-sm font-bold text-ink">
-                      <Link href={`/blog/${related.slug}`} className="hover:text-brand-active">
+                      <Link
+                        href={`/blog/${related.slug}`}
+                        className="hover:text-brand-active"
+                      >
                         {related.title}
                       </Link>
                     </h4>

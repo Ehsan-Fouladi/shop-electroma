@@ -15,7 +15,10 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { addressSchema, type AddressFormValues } from "@/lib/validations/customer";
+import {
+  addressSchema,
+  type AddressFormValues,
+} from "@/lib/validations/customer";
 import type { CustomerAddress } from "@/types/customer";
 
 const fieldLabels: Record<keyof AddressFormValues, string> = {
@@ -92,7 +95,10 @@ export function AddressForm({
               <FormItem>
                 <FormLabel>{fieldLabels.recipient}</FormLabel>
                 <FormControl>
-                  <Input placeholder="نام و نام خانوادگی تحویل‌گیرنده" {...field} />
+                  <Input
+                    placeholder="نام و نام خانوادگی تحویل‌گیرنده"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -233,7 +239,11 @@ export function AddressForm({
               انصراف
             </Button>
           ) : null}
-          <Button type="submit" disabled={form.formState.isSubmitting} className="gap-2">
+          <Button
+            type="submit"
+            disabled={form.formState.isSubmitting}
+            className="gap-2"
+          >
             {form.formState.isSubmitting ? (
               <>
                 <Loader2 className="size-4 animate-spin" aria-hidden />

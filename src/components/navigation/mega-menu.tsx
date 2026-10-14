@@ -4,7 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { cn } from "@/lib/utils/cn";
 import type { NavItem } from "@/types";
 
@@ -17,7 +21,13 @@ interface MegaMenuProps {
 }
 
 /** Hover/focus mega menu panel for desktop navigation. */
-export function MegaMenu({ item, open, onOpen, onScheduleClose, onClose }: MegaMenuProps) {
+export function MegaMenu({
+  item,
+  open,
+  onOpen,
+  onScheduleClose,
+  onClose,
+}: MegaMenuProps) {
   const hasColumns = Boolean(item.columns?.length);
   const artwork =
     item.href === "/category/laptops"
@@ -38,21 +48,23 @@ export function MegaMenu({ item, open, onOpen, onScheduleClose, onClose }: MegaM
   }
 
   return (
-    <Popover
-      open={open}
-      onOpenChange={(next) => (next ? onOpen() : onClose())}
-    >
+    <Popover open={open} onOpenChange={(next) => (next ? onOpen() : onClose())}>
       <PopoverTrigger
         onMouseEnter={onOpen}
         onMouseLeave={onScheduleClose}
         className={cn(
           "inline-flex items-center gap-1.5 rounded-sm px-3 py-2.5 text-body-sm font-medium transition-colors",
-          open ? "bg-brand-soft text-brand-active" : "text-ink hover:bg-surface-soft hover:text-brand-active",
+          open
+            ? "bg-brand-soft text-brand-active"
+            : "text-ink hover:bg-surface-soft hover:text-brand-active",
         )}
       >
         {item.title}
         <ChevronDown
-          className={cn("size-3.5 transition-transform duration-200", open && "rotate-180")}
+          className={cn(
+            "size-3.5 transition-transform duration-200",
+            open && "rotate-180",
+          )}
           aria-hidden
         />
       </PopoverTrigger>
@@ -101,7 +113,9 @@ export function MegaMenu({ item, open, onOpen, onScheduleClose, onClose }: MegaM
 
         <div className="mt-4 flex items-center justify-between gap-3 rounded-md bg-brand-soft px-4 py-3">
           <div>
-            <p className="text-body-sm font-bold text-brand-active">پیشنهادهای ویژه این هفته</p>
+            <p className="text-body-sm font-bold text-brand-active">
+              پیشنهادهای ویژه این هفته
+            </p>
             <p className="text-caption text-body">
               تخفیف‌های محدود روی پرچم‌داران موبایل، لپ‌تاپ و لوازم جانبی
             </p>

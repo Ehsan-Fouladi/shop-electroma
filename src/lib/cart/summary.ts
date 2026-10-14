@@ -17,7 +17,10 @@ export interface CartTotals {
   freeShipping: boolean;
 }
 
-export function getCartEntries(lines: CartLine[], products: Product[]): CartEntry[] {
+export function getCartEntries(
+  lines: CartLine[],
+  products: Product[],
+): CartEntry[] {
   return lines.flatMap((line) => {
     const product = products.find((item) => item.id === line.productId);
     return product ? [{ line, product }] : [];
@@ -26,17 +29,28 @@ export function getCartEntries(lines: CartLine[], products: Product[]): CartEntr
 
 export function getCartTotals(entries: CartEntry[]): CartTotals {
   const subtotal = entries.reduce(
-    (sum, { line, product }) => sum + (product.oldPrice ?? product.price) * line.quantity,
+    (sum, { line, product }) =>
+      sum + (product.oldPrice ?? product.price) * line.quantity,
     0,
   );
   const discount = entries.reduce(
     (sum, { line, product }) =>
-      sum + Math.max(0, (product.oldPrice ?? product.price) - product.price) * line.quantity,
+      sum +
+      Math.max(0, (product.oldPrice ?? product.price) - product.price) *
+        line.quantity,
     0,
   );
   const itemTotal = Math.max(0, subtotal - discount);
   const freeShipping = itemTotal >= siteConfig.freeShippingThreshold;
-  const shipping = entries.length === 0 || freeShipping ? 0 : DELIVERY_OPTIONS[0].fee;
+  const shipping =
+    entries.length === 0 || freeShipping ? 0 : DELIVERY_OPTIONS[0].fee;
 
-  return { subtotal, discount, itemTotal, shipping, total: itemTotal + shipping, freeShipping };
+  return {
+    subtotal,
+    discount,
+    itemTotal,
+    shipping,
+    total: itemTotal + shipping,
+    freeShipping,
+  };
 }

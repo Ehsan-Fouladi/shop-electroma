@@ -22,8 +22,14 @@ export const mainNav: NavItem[] = [
         title: "بر اساس قیمت",
         links: [
           { title: "اقتصادی تا ۱۵ میلیون", href: "/category/mobile-phones" },
-          { title: "میان‌رده ۱۵ تا ۴۰ میلیون", href: "/category/mobile-phones" },
-          { title: "پرچم‌دار بالای ۴۰ میلیون", href: "/category/mobile-phones" },
+          {
+            title: "میان‌رده ۱۵ تا ۴۰ میلیون",
+            href: "/category/mobile-phones",
+          },
+          {
+            title: "پرچم‌دار بالای ۴۰ میلیون",
+            href: "/category/mobile-phones",
+          },
         ],
       },
       {

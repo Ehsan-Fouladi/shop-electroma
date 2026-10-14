@@ -34,7 +34,9 @@ export function CheckoutStepper({
   className,
 }: CheckoutStepperProps) {
   const currentStepItem = steps.find((s) => s.id === currentStep) || steps[0];
-  const progressPercent = Math.round(((currentStep - 1) / (steps.length - 1)) * 100);
+  const progressPercent = Math.round(
+    ((currentStep - 1) / (steps.length - 1)) * 100,
+  );
 
   return (
     <nav
@@ -49,7 +51,9 @@ export function CheckoutStepper({
           const isCompleted = currentStep > s.id;
           const isCurrent = currentStep === s.id;
           const isUpcoming = currentStep < s.id;
-          const isClickable = canNavigateToStep ? canNavigateToStep(s.id) : isCompleted;
+          const isClickable = canNavigateToStep
+            ? canNavigateToStep(s.id)
+            : isCompleted;
           const isLast = index === steps.length - 1;
 
           return (
@@ -94,7 +98,9 @@ export function CheckoutStepper({
                     {isCompleted ? (
                       <Check className="size-4.5 stroke-[2.5]" aria-hidden />
                     ) : (
-                      <span className="tabular" dir="rtl">{toPersianDigits(s.id)}</span>
+                      <span className="tabular" dir="rtl">
+                        {toPersianDigits(s.id)}
+                      </span>
                     )}
                   </span>
 
@@ -115,7 +121,11 @@ export function CheckoutStepper({
                     </span>
 
                     <span className="hidden text-caption text-subtle-ink md:inline">
-                      {isCurrent ? "در حال تکمیل" : isCompleted ? "تأییدشده" : s.description}
+                      {isCurrent
+                        ? "در حال تکمیل"
+                        : isCompleted
+                          ? "تأییدشده"
+                          : s.description}
                     </span>
                   </div>
                 </button>
@@ -143,7 +153,8 @@ export function CheckoutStepper({
       {/* Mobile progress summary bar */}
       <div className="mt-3 flex items-center justify-between border-t border-line-subtle pt-2.5 sm:hidden text-caption">
         <span className="font-medium text-ink">
-          مرحله {toPersianDigits(currentStep)} از {toPersianDigits(steps.length)}: {currentStepItem.title}
+          مرحله {toPersianDigits(currentStep)} از{" "}
+          {toPersianDigits(steps.length)}: {currentStepItem.title}
         </span>
         <span className="font-medium text-brand-active tabular">
           {toPersianDigits(progressPercent)}٪ پیشرفت

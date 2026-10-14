@@ -4,7 +4,13 @@ import { siteConfig } from "@/lib/constants/site";
 import { cn } from "@/lib/utils/cn";
 
 /** Brand mark + wordmark. The mark is drawn inline so no asset is required. */
-export function SiteLogo({ className, onDark = false }: { className?: string; onDark?: boolean }) {
+export function SiteLogo({
+  className,
+  onDark = false,
+}: {
+  className?: string;
+  onDark?: boolean;
+}) {
   return (
     <Link
       href="/"
@@ -12,7 +18,12 @@ export function SiteLogo({ className, onDark = false }: { className?: string; on
       aria-label={`${siteConfig.name} — صفحه اصلی`}
     >
       <span className="grid size-10 place-items-center rounded-md bg-gradient-to-br from-primary to-brand-active shadow-soft">
-        <svg viewBox="0 0 24 24" className="size-6 text-white" aria-hidden fill="none">
+        <svg
+          viewBox="0 0 24 24"
+          className="size-6 text-white"
+          aria-hidden
+          fill="none"
+        >
           <path
             d="M13.2 2.5 5.5 13.2h5.1l-1 8.3 7.9-10.9h-5.2l1-8.1Z"
             fill="currentColor"

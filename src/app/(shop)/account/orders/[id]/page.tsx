@@ -12,7 +12,11 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-import { AccountBackLink, AccountPageHeading, AccountPanel } from "@/components/account/account-page-heading";
+import {
+  AccountBackLink,
+  AccountPageHeading,
+  AccountPanel,
+} from "@/components/account/account-page-heading";
 import { StatusBadge } from "@/components/account/status-badge";
 import { ProductMedia } from "@/components/product/product-media";
 import { Button } from "@/components/ui/button";
@@ -38,7 +42,9 @@ export default function OrderDetailPage() {
       <div className="flex flex-col items-center gap-4 rounded-xl border border-line bg-surface p-8 text-center shadow-soft">
         <AlertCircle className="size-10 text-subtle-ink" aria-hidden />
         <div>
-          <h1 className="text-title font-bold text-ink">سفارش مورد نظر یافت نشد</h1>
+          <h1 className="text-title font-bold text-ink">
+            سفارش مورد نظر یافت نشد
+          </h1>
           <p className="mt-1 text-body-sm text-subtle-ink">
             ممکن است شماره سفارش اشتباه باشد یا از فهرست حذف شده باشد.
           </p>
@@ -61,7 +67,12 @@ export default function OrderDetailPage() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <AccountBackLink href="/account/orders" label="بازگشت به سفارش‌ها" />
         <div className="flex items-center gap-2">
-          <Button type="button" variant="outline" size="sm" onClick={() => window.print()}>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={() => window.print()}
+          >
             <Download aria-hidden />
             دریافت فاکتور (نمایشی)
           </Button>
@@ -79,7 +90,10 @@ export default function OrderDetailPage() {
       <AccountPageHeading
         title={
           <span>
-            جزئیات سفارش <span dir="ltr" className="inline-block whitespace-nowrap">{order.id}</span>
+            جزئیات سفارش{" "}
+            <span dir="ltr" className="inline-block whitespace-nowrap">
+              {order.id}
+            </span>
           </span>
         }
         breadcrumbTitle={`جزئیات سفارش ${order.id}`}
@@ -98,7 +112,12 @@ export default function OrderDetailPage() {
               <StatusBadge status={order.status} />
             </div>
             <p className="mt-0.5 text-caption text-subtle-ink">
-              کد پیگیری پستی / تحویل: {order.trackingCode ? <span dir="ltr">{order.trackingCode}</span> : "در انتظار صدور"}
+              کد پیگیری پستی / تحویل:{" "}
+              {order.trackingCode ? (
+                <span dir="ltr">{order.trackingCode}</span>
+              ) : (
+                "در انتظار صدور"
+              )}
             </p>
           </div>
         </div>
@@ -106,7 +125,9 @@ export default function OrderDetailPage() {
         <div className="flex items-center gap-2">
           {order.status === "delivered" && (
             <Button asChild variant="outline" size="sm">
-              <Link href={`/account/returns/new?orderId=${encodeURIComponent(order.id)}`}>
+              <Link
+                href={`/account/returns/new?orderId=${encodeURIComponent(order.id)}`}
+              >
                 <RotateCcw aria-hidden />
                 درخواست مرجوعی کالا
               </Link>
@@ -144,10 +165,14 @@ export default function OrderDetailPage() {
                         {item.title}
                       </Link>
                     ) : (
-                      <p className="line-clamp-1 text-body-sm font-medium text-ink">{item.title}</p>
+                      <p className="line-clamp-1 text-body-sm font-medium text-ink">
+                        {item.title}
+                      </p>
                     )}
                     {item.variant && (
-                      <p className="mt-0.5 text-caption text-subtle-ink">مدل: {item.variant}</p>
+                      <p className="mt-0.5 text-caption text-subtle-ink">
+                        مدل: {item.variant}
+                      </p>
                     )}
                     <p className="mt-1 text-caption text-subtle-ink">
                       قیمت واحد: {formatPrice(item.unitPrice)} تومان
@@ -178,8 +203,12 @@ export default function OrderDetailPage() {
             <p className="text-caption text-subtle-ink">
               استان: {order.address.province} • شهر: {order.address.city}
             </p>
-            <p className="text-caption text-subtle-ink">کد پستی: {order.address.postalCode}</p>
-            <p className="text-caption text-subtle-ink">تلفن تماس: {order.address.phone}</p>
+            <p className="text-caption text-subtle-ink">
+              کد پستی: {order.address.postalCode}
+            </p>
+            <p className="text-caption text-subtle-ink">
+              تلفن تماس: {order.address.phone}
+            </p>
           </div>
         </AccountPanel>
 
@@ -187,24 +216,31 @@ export default function OrderDetailPage() {
           <dl className="flex flex-col gap-2.5 text-body-sm">
             <div className="flex justify-between text-subtle-ink">
               <dt>مبلغ کالاها</dt>
-              <dd className="font-medium text-ink">{formatPrice(order.subtotal)} تومان</dd>
+              <dd className="font-medium text-ink">
+                {formatPrice(order.subtotal)} تومان
+              </dd>
             </div>
             <div className="flex justify-between text-subtle-ink">
               <dt>تخفیف کل</dt>
               <dd className="font-medium text-success">
-                {order.discount ? `− ${formatPrice(order.discount)}` : "۰"} تومان
+                {order.discount ? `− ${formatPrice(order.discount)}` : "۰"}{" "}
+                تومان
               </dd>
             </div>
             <div className="flex justify-between text-subtle-ink">
               <dt>هزینه ارسال ({order.shippingMethod})</dt>
               <dd className="font-medium text-ink">
-                {order.shipping === 0 ? "رایگان" : `${formatPrice(order.shipping)} تومان`}
+                {order.shipping === 0
+                  ? "رایگان"
+                  : `${formatPrice(order.shipping)} تومان`}
               </dd>
             </div>
             <div className="border-t border-line-subtle pt-2.5">
               <div className="flex justify-between font-bold text-ink">
                 <dt>مبلغ پرداخت‌شده</dt>
-                <dd className="text-title-sm text-brand-active">{formatPrice(order.total)} تومان</dd>
+                <dd className="text-title-sm text-brand-active">
+                  {formatPrice(order.total)} تومان
+                </dd>
               </div>
             </div>
             <div className="flex justify-between text-caption text-subtle-ink pt-1">

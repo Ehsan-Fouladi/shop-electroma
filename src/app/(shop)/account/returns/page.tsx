@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { Plus, RotateCcw } from "lucide-react";
 
-import { AccountPageHeading, AccountPanel } from "@/components/account/account-page-heading";
+import {
+  AccountPageHeading,
+  AccountPanel,
+} from "@/components/account/account-page-heading";
 import { StatusBadge } from "@/components/account/status-badge";
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
@@ -35,9 +38,12 @@ export default function AccountReturnsPage() {
             <RotateCcw className="size-8" aria-hidden />
           </span>
           <div>
-            <h2 className="text-title font-bold text-ink">هیچ درخواست مرجوعی فعالی ندارید</h2>
+            <h2 className="text-title font-bold text-ink">
+              هیچ درخواست مرجوعی فعالی ندارید
+            </h2>
             <p className="mt-1 text-body-sm text-subtle-ink">
-              کالاهای تحویل‌شده تا ۷ روز پس از دریافت با توجه به شرایط ضمانت قابل مرجوعی هستند.
+              کالاهای تحویل‌شده تا ۷ روز پس از دریافت با توجه به شرایط ضمانت
+              قابل مرجوعی هستند.
             </p>
           </div>
           <Button asChild variant="outline">
@@ -59,8 +65,8 @@ export default function AccountReturnsPage() {
                       <StatusBadge status={req.status} />
                     </div>
                     <p className="mt-1 text-caption text-subtle-ink">
-                      مربوط به سفارش: <span dir="ltr">{req.orderId}</span> • تاریخ ثبت:{" "}
-                      {formatPersianDate(req.requestedAt)}
+                      مربوط به سفارش: <span dir="ltr">{req.orderId}</span> •
+                      تاریخ ثبت: {formatPersianDate(req.requestedAt)}
                     </p>
                   </div>
                 </div>
@@ -69,7 +75,9 @@ export default function AccountReturnsPage() {
                   <p className="text-body-sm font-bold text-ink">
                     کالا: {prod ? prod.title : req.productId}
                   </p>
-                  <p className="text-caption text-subtle-ink">دلیل مرجوعی: {req.reason}</p>
+                  <p className="text-caption text-subtle-ink">
+                    دلیل مرجوعی: {req.reason}
+                  </p>
                   {req.description && (
                     <p className="rounded-md bg-surface-soft p-3 text-caption text-body">
                       توضیحات: {req.description}

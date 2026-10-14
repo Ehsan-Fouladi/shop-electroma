@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
-import { AccountPageHeading, AccountPanel } from "@/components/account/account-page-heading";
+import {
+  AccountPageHeading,
+  AccountPanel,
+} from "@/components/account/account-page-heading";
 import { customerReviews } from "@/data/customer";
 import { products } from "@/data/products";
 import { toPersianDigits } from "@/lib/formatters/number";
@@ -13,7 +16,9 @@ import { useEffect, useState } from "react";
 const ITEMS_PER_PAGE = 3;
 
 export default function AccountReviewsPage() {
-  const [activeTab, setActiveTab] = useState<"published" | "pending">("published");
+  const [activeTab, setActiveTab] = useState<"published" | "pending">(
+    "published",
+  );
   const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -71,7 +76,9 @@ export default function AccountReviewsPage() {
             <Star className="size-8" aria-hidden />
           </span>
           <div>
-            <h2 className="text-title font-bold text-ink">موردی برای نمایش وجود ندارد</h2>
+            <h2 className="text-title font-bold text-ink">
+              موردی برای نمایش وجود ندارد
+            </h2>
             <p className="mt-1 text-body-sm text-subtle-ink">
               نظرات شما پس از تأیید کارشناسان در این بخش نمایش داده می‌شوند.
             </p>
@@ -103,7 +110,9 @@ export default function AccountReviewsPage() {
                           key={i}
                           className={cn(
                             "size-4",
-                            i < rev.rating ? "fill-warning text-warning" : "text-line-strong",
+                            i < rev.rating
+                              ? "fill-warning text-warning"
+                              : "text-line-strong",
                           )}
                         />
                       ))}
@@ -112,7 +121,9 @@ export default function AccountReviewsPage() {
                 </div>
 
                 <div className="mt-3 flex flex-col gap-2">
-                  <p className="text-body-sm text-body leading-relaxed">{rev.title}</p>
+                  <p className="text-body-sm text-body leading-relaxed">
+                    {rev.title}
+                  </p>
                 </div>
               </AccountPanel>
             );
@@ -142,27 +153,29 @@ export default function AccountReviewsPage() {
               </button>
 
               <ul className="flex items-center gap-1.5">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pNum) => {
-                  const isCurrent = pNum === currentPage;
-                  return (
-                    <li key={pNum}>
-                      <button
-                        type="button"
-                        onClick={() => setPage(pNum)}
-                        aria-label={`صفحه ${toPersianDigits(pNum)}`}
-                        aria-current={isCurrent ? "page" : undefined}
-                        className={cn(
-                          "grid size-10 place-items-center rounded-md border text-body-sm tabular transition-colors outline-none focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
-                          isCurrent
-                            ? "border-primary bg-primary font-bold text-primary-foreground shadow-soft"
-                            : "border-line bg-surface text-body hover:bg-surface-soft",
-                        )}
-                      >
-                        {toPersianDigits(pNum)}
-                      </button>
-                    </li>
-                  );
-                })}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (pNum) => {
+                    const isCurrent = pNum === currentPage;
+                    return (
+                      <li key={pNum}>
+                        <button
+                          type="button"
+                          onClick={() => setPage(pNum)}
+                          aria-label={`صفحه ${toPersianDigits(pNum)}`}
+                          aria-current={isCurrent ? "page" : undefined}
+                          className={cn(
+                            "grid size-10 place-items-center rounded-md border text-body-sm tabular transition-colors outline-none focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
+                            isCurrent
+                              ? "border-primary bg-primary font-bold text-primary-foreground shadow-soft"
+                              : "border-line bg-surface text-body hover:bg-surface-soft",
+                          )}
+                        >
+                          {toPersianDigits(pNum)}
+                        </button>
+                      </li>
+                    );
+                  },
+                )}
               </ul>
 
               <button

@@ -1,7 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, PackageCheck, Search, Truck } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  PackageCheck,
+  Search,
+  Truck,
+} from "lucide-react";
 
 import { AccountPageHeading } from "@/components/account/account-page-heading";
 import { StatusBadge } from "@/components/account/status-badge";
@@ -45,10 +51,16 @@ export default function AccountOrdersPage() {
     return matchesTab && matchesSearch;
   });
 
-  const totalPages = Math.max(1, Math.ceil(filteredOrders.length / ITEMS_PER_PAGE));
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredOrders.length / ITEMS_PER_PAGE),
+  );
   const currentPage = Math.min(page, totalPages);
   const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
-  const paginatedOrders = filteredOrders.slice(startIdx, startIdx + ITEMS_PER_PAGE);
+  const paginatedOrders = filteredOrders.slice(
+    startIdx,
+    startIdx + ITEMS_PER_PAGE,
+  );
 
   const isFirst = currentPage === 1;
   const isLast = currentPage === totalPages;
@@ -85,7 +97,9 @@ export default function AccountOrdersPage() {
                 <span
                   className={cn(
                     "rounded-full px-1.5 text-caption tabular",
-                    isSelected ? "bg-white/25 text-white" : "bg-surface-muted text-subtle-ink",
+                    isSelected
+                      ? "bg-white/25 text-white"
+                      : "bg-surface-muted text-subtle-ink",
                   )}
                 >
                   {toPersianDigits(count)}
@@ -103,7 +117,10 @@ export default function AccountOrdersPage() {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="h-10 w-full rounded-md border border-line bg-surface pe-9 ps-3 text-body-sm text-foreground placeholder:text-disabled-ink focus-visible:outline-2 focus-visible:outline-primary/35"
           />
-          <Search className="pointer-events-none absolute end-3 top-2.5 size-4 text-subtle-ink" aria-hidden />
+          <Search
+            className="pointer-events-none absolute end-3 top-2.5 size-4 text-subtle-ink"
+            aria-hidden
+          />
         </div>
       </div>
 
@@ -114,9 +131,12 @@ export default function AccountOrdersPage() {
             <PackageCheck className="size-8" aria-hidden />
           </span>
           <div>
-            <h2 className="text-title font-bold text-ink">سفارشی با این مشخصات یافت نشد</h2>
+            <h2 className="text-title font-bold text-ink">
+              سفارشی با این مشخصات یافت نشد
+            </h2>
             <p className="mt-1 text-body-sm text-subtle-ink">
-              می‌توانید فیلتر انتخابی را تغییر داده یا از فروشگاه سفارش ثبت کنید.
+              می‌توانید فیلتر انتخابی را تغییر داده یا از فروشگاه سفارش ثبت
+              کنید.
             </p>
           </div>
           <Button asChild variant="outline">
@@ -149,7 +169,9 @@ export default function AccountOrdersPage() {
                   {/* Total & Action buttons */}
                   <div className="flex flex-col gap-3 border-t border-line-subtle pt-3 sm:items-start sm:justify-between sm:border-0 sm:pt-0">
                     <div className="flex items-center justify-between sm:flex-col sm:items-start sm:text-end">
-                      <span className="text-caption text-subtle-ink">مبلغ پرداختی:</span>
+                      <span className="text-caption text-subtle-ink">
+                        مبلغ پرداختی:
+                      </span>
                       <p className="text-title-sm font-bold text-brand-active">
                         {formatPrice(order.total)} تومان
                       </p>
@@ -165,14 +187,18 @@ export default function AccountOrdersPage() {
                         </Button>
                       )}
                       <Button asChild variant="outline" size="sm">
-                        <Link href={`/account/orders/${order.id}`}>مشاهده جزئیات</Link>
+                        <Link href={`/account/orders/${order.id}`}>
+                          مشاهده جزئیات
+                        </Link>
                       </Button>
                     </div>
                   </div>
                   {/* Products thumbnails */}
                   <div className="flex flex-wrap gap-2.5">
                     {order.items.map((item, idx) => {
-                      const prod = products.find((p) => p.id === item.productId);
+                      const prod = products.find(
+                        (p) => p.id === item.productId,
+                      );
                       return (
                         <div
                           key={idx}
@@ -188,7 +214,8 @@ export default function AccountOrdersPage() {
                               {item.title}
                             </p>
                             <p className="text-caption text-subtle-ink">
-                              {toPersianDigits(item.quantity)} عدد • {formatPrice(item.unitPrice)} تومان
+                              {toPersianDigits(item.quantity)} عدد •{" "}
+                              {formatPrice(item.unitPrice)} تومان
                             </p>
                           </div>
                         </div>
@@ -224,27 +251,29 @@ export default function AccountOrdersPage() {
               </button>
 
               <ul className="flex items-center gap-1.5">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pNum) => {
-                  const isCurrent = pNum === currentPage;
-                  return (
-                    <li key={pNum}>
-                      <button
-                        type="button"
-                        onClick={() => setPage(pNum)}
-                        aria-label={`صفحه ${toPersianDigits(pNum)}`}
-                        aria-current={isCurrent ? "page" : undefined}
-                        className={cn(
-                          "grid size-10 place-items-center rounded-md border text-body-sm tabular transition-colors outline-none focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
-                          isCurrent
-                            ? "border-primary bg-primary font-bold text-primary-foreground shadow-soft"
-                            : "border-line bg-surface text-body hover:bg-surface-soft",
-                        )}
-                      >
-                        {toPersianDigits(pNum)}
-                      </button>
-                    </li>
-                  );
-                })}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (pNum) => {
+                    const isCurrent = pNum === currentPage;
+                    return (
+                      <li key={pNum}>
+                        <button
+                          type="button"
+                          onClick={() => setPage(pNum)}
+                          aria-label={`صفحه ${toPersianDigits(pNum)}`}
+                          aria-current={isCurrent ? "page" : undefined}
+                          className={cn(
+                            "grid size-10 place-items-center rounded-md border text-body-sm tabular transition-colors outline-none focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
+                            isCurrent
+                              ? "border-primary bg-primary font-bold text-primary-foreground shadow-soft"
+                              : "border-line bg-surface text-body hover:bg-surface-soft",
+                          )}
+                        >
+                          {toPersianDigits(pNum)}
+                        </button>
+                      </li>
+                    );
+                  },
+                )}
               </ul>
 
               <button

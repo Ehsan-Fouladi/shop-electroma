@@ -1,6 +1,9 @@
 import { cn } from "@/lib/utils/cn";
 
-export function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
+export function Textarea({
+  className,
+  ...props
+}: React.ComponentProps<"textarea">) {
   return (
     <textarea
       data-slot="textarea"

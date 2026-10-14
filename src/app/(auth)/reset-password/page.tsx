@@ -66,7 +66,9 @@ function ResetPasswordContent() {
             <CheckCircle2 className="size-7" aria-hidden />
           </span>
           <div>
-            <h2 className="text-title font-bold text-ink">رمز عبور با موفقیت تغییر کرد</h2>
+            <h2 className="text-title font-bold text-ink">
+              رمز عبور با موفقیت تغییر کرد
+            </h2>
             <p className="mt-1 text-body-sm text-subtle-ink">
               اکنون می‌توانید با رمز جدید وارد حساب کاربری خود شوید.
             </p>
@@ -77,7 +79,11 @@ function ResetPasswordContent() {
         </div>
       ) : (
         <Form {...form}>
-          <form noValidate onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+          <form
+            noValidate
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex flex-col gap-4"
+          >
             <FormField
               control={form.control}
               name="password"
@@ -99,9 +105,15 @@ function ResetPasswordContent() {
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute inset-y-0 left-0 flex items-center px-3 text-subtle-ink hover:text-ink focus-visible:outline-primary"
-                      aria-label={showPassword ? "پنهان کردن رمز عبور" : "نمایش رمز عبور"}
+                      aria-label={
+                        showPassword ? "پنهان کردن رمز عبور" : "نمایش رمز عبور"
+                      }
                     >
-                      {showPassword ? <EyeOff className="size-4.5" /> : <Eye className="size-4.5" />}
+                      {showPassword ? (
+                        <EyeOff className="size-4.5" />
+                      ) : (
+                        <Eye className="size-4.5" />
+                      )}
                     </button>
                   </div>
                   <FormMessage />
@@ -128,13 +140,21 @@ function ResetPasswordContent() {
                     </FormControl>
                     <button
                       type="button"
-                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      onClick={() =>
+                        setShowConfirmPassword(!showConfirmPassword)
+                      }
                       className="absolute inset-y-0 left-0 flex items-center px-3 text-subtle-ink hover:text-ink focus-visible:outline-primary"
                       aria-label={
-                        showConfirmPassword ? "پنهان کردن تکرار رمز عبور" : "نمایش تکرار رمز عبور"
+                        showConfirmPassword
+                          ? "پنهان کردن تکرار رمز عبور"
+                          : "نمایش تکرار رمز عبور"
                       }
                     >
-                      {showConfirmPassword ? <EyeOff className="size-4.5" /> : <Eye className="size-4.5" />}
+                      {showConfirmPassword ? (
+                        <EyeOff className="size-4.5" />
+                      ) : (
+                        <Eye className="size-4.5" />
+                      )}
                     </button>
                   </div>
                   <FormMessage />

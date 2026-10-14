@@ -18,7 +18,11 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Popover, PopoverAnchor, PopoverContent } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverAnchor,
+  PopoverContent,
+} from "@/components/ui/popover";
 import { featuredBrands, getBrand } from "@/data/brands";
 import { categories, getCategory } from "@/data/categories";
 import { popularSearches, recentSearches } from "@/data/navigation";
@@ -27,7 +31,16 @@ import { normalizeText } from "@/lib/catalog/results";
 import { formatPrice, toPersianDigits } from "@/lib/formatters/number";
 import { cn } from "@/lib/utils/cn";
 import type { Category, Product } from "@/types";
-import { FormEvent, KeyboardEvent, MouseEvent, useEffect, useId, useMemo, useRef, useState } from "react";
+import {
+  FormEvent,
+  KeyboardEvent,
+  MouseEvent,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 interface SearchFieldProps {
   className?: string;
@@ -58,13 +71,21 @@ function expandSearchTerms(query: string): string[] {
   if (norm.includes("ایفون") || norm.includes("آیفون")) {
     terms.add("iphone");
   }
-  if (norm.includes("مک بوک") || norm.includes("مک‌بوک") || norm.includes("مکبوک")) {
+  if (
+    norm.includes("مک بوک") ||
+    norm.includes("مک‌بوک") ||
+    norm.includes("مکبوک")
+  ) {
     terms.add("macbook");
   }
   if (norm.includes("ایپد") || norm.includes("آیپد")) {
     terms.add("ipad");
   }
-  if (norm.includes("ایرپاد") || norm.includes("ایرباد") || norm.includes("بادز")) {
+  if (
+    norm.includes("ایرپاد") ||
+    norm.includes("ایرباد") ||
+    norm.includes("بادز")
+  ) {
     terms.add("airpods");
     terms.add("buds");
   }
@@ -150,7 +171,9 @@ export function SearchField({
       .filter((cat) => {
         const title = normalizeText(cat.title);
         const slug = cat.slug.replace(/-/g, " ");
-        return expandedTerms.some((term) => title.includes(term) || slug.includes(term));
+        return expandedTerms.some(
+          (term) => title.includes(term) || slug.includes(term),
+        );
       })
       .slice(0, 3);
   }, [expandedTerms]);
@@ -161,7 +184,9 @@ export function SearchField({
       .filter((brand) => {
         const title = normalizeText(brand.title);
         const latin = normalizeText(brand.latin);
-        return expandedTerms.some((term) => title.includes(term) || latin.includes(term));
+        return expandedTerms.some(
+          (term) => title.includes(term) || latin.includes(term),
+        );
       })
       .slice(0, 2);
   }, [expandedTerms]);
@@ -178,12 +203,14 @@ export function SearchField({
       recentSearches.forEach((term) =>
         items.push({ type: "recent", label: term, query: term }),
       );
-      popularSearches.slice(0, 4).forEach((term) =>
-        items.push({ type: "popular", label: term, query: term }),
-      );
-      categories.slice(0, 5).forEach((cat) =>
-        items.push({ type: "category-chip", category: cat }),
-      );
+      popularSearches
+        .slice(0, 4)
+        .forEach((term) =>
+          items.push({ type: "popular", label: term, query: term }),
+        );
+      categories
+        .slice(0, 5)
+        .forEach((cat) => items.push({ type: "category-chip", category: cat }));
       items.push({ type: "deals", label: "مشاهده تخفیف‌ها", href: "/deals" });
       return items;
     }
@@ -196,9 +223,7 @@ export function SearchField({
       matchingCategories.forEach((cat) =>
         items.push({ type: "category", category: cat }),
       );
-      matchingBrands.forEach((brand) =>
-        items.push({ type: "brand", brand }),
-      );
+      matchingBrands.forEach((brand) => items.push({ type: "brand", brand }));
       items.push({ type: "view-all", query });
       return items;
     }
@@ -290,7 +315,9 @@ export function SearchField({
         return;
       }
       if (selectableItems.length === 0) return;
-      setActiveIndex((prev) => (prev + 1 >= selectableItems.length ? 0 : prev + 1));
+      setActiveIndex((prev) =>
+        prev + 1 >= selectableItems.length ? 0 : prev + 1,
+      );
       return;
     }
 
@@ -302,7 +329,9 @@ export function SearchField({
         return;
       }
       if (selectableItems.length === 0) return;
-      setActiveIndex((prev) => (prev <= 0 ? selectableItems.length - 1 : prev - 1));
+      setActiveIndex((prev) =>
+        prev <= 0 ? selectableItems.length - 1 : prev - 1,
+      );
       return;
     }
 
@@ -319,13 +348,14 @@ export function SearchField({
   let itemCounter = 0;
 
   return (
-    <div ref={containerRef} className={cn("relative w-full", className)} role="search">
+    <div
+      ref={containerRef}
+      className={cn("relative w-full", className)}
+      role="search"
+    >
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverAnchor asChild>
-          <form
-            onSubmit={handleSubmit}
-            className="relative w-full"
-          >
+          <form onSubmit={handleSubmit} className="relative w-full">
             {/* Start Search Icon */}
             <Search
               className={cn(
@@ -363,7 +393,9 @@ export function SearchField({
               aria-autocomplete="list"
               aria-controls={open ? listboxId : undefined}
               aria-activedescendant={
-                open && activeIndex >= 0 ? `${listboxId}-item-${activeIndex}` : undefined
+                open && activeIndex >= 0
+                  ? `${listboxId}-item-${activeIndex}`
+                  : undefined
               }
               autoComplete="off"
               className={cn(
@@ -468,7 +500,10 @@ export function SearchField({
                                   : "text-ink hover:bg-surface-soft",
                               )}
                             >
-                              <Clock3 className="size-3.5 text-subtle-ink shrink-0" aria-hidden />
+                              <Clock3
+                                className="size-3.5 text-subtle-ink shrink-0"
+                                aria-hidden
+                              />
                               <span>{term}</span>
                             </button>
                           </li>
@@ -509,7 +544,10 @@ export function SearchField({
                                   : "text-ink hover:bg-surface-soft",
                               )}
                             >
-                              <TrendingUp className="size-3.5 text-subtle-ink shrink-0" aria-hidden />
+                              <TrendingUp
+                                className="size-3.5 text-subtle-ink shrink-0"
+                                aria-hidden
+                              />
                               <span>{term}</span>
                             </button>
                           </li>
@@ -568,7 +606,8 @@ export function SearchField({
                   نتیجه‌ای برای «{query}» پیدا نشد
                 </p>
                 <p className="max-w-xs text-caption text-subtle-ink">
-                  املای عبارت را بررسی کنید یا یکی از عبارت‌های محبوب زیر را انتخاب کنید:
+                  املای عبارت را بررسی کنید یا یکی از عبارت‌های محبوب زیر را
+                  انتخاب کنید:
                 </p>
                 <div className="mt-2 flex flex-wrap justify-center gap-1.5">
                   {popularSearches.slice(0, 4).map((term) => {
@@ -712,7 +751,10 @@ export function SearchField({
                               )}
                             >
                               <span className="flex items-center gap-2">
-                                <FolderOpen className="size-4 text-brand shrink-0" aria-hidden />
+                                <FolderOpen
+                                  className="size-4 text-brand shrink-0"
+                                  aria-hidden
+                                />
                                 <span>دسته: {category.title}</span>
                               </span>
                               <span className="tabular text-caption text-disabled-ink">
@@ -749,7 +791,10 @@ export function SearchField({
                               )}
                             >
                               <span className="flex items-center gap-2">
-                                <Sparkles className="size-4 text-brand shrink-0" aria-hidden />
+                                <Sparkles
+                                  className="size-4 text-brand shrink-0"
+                                  aria-hidden
+                                />
                                 <span>
                                   برند: {brand.title} ({brand.latin})
                                 </span>
@@ -812,7 +857,9 @@ export function SearchField({
               تخفیف‌های ویژه روز
             </span>
             {(() => {
-              const dealsIndex = selectableItems.findIndex((it) => it.type === "deals");
+              const dealsIndex = selectableItems.findIndex(
+                (it) => it.type === "deals",
+              );
               const isSelected = dealsIndex >= 0 && activeIndex === dealsIndex;
               return (
                 <Link

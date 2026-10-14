@@ -14,7 +14,10 @@ interface RailBounds {
  */
 export function useRailScroller<T extends HTMLElement>() {
   const ref = useRef<T>(null);
-  const [bounds, setBounds] = useState<RailBounds>({ atStart: true, atEnd: false });
+  const [bounds, setBounds] = useState<RailBounds>({
+    atStart: true,
+    atEnd: false,
+  });
 
   const measure = useCallback(() => {
     const el = ref.current;
@@ -51,7 +54,8 @@ export function useRailScroller<T extends HTMLElement>() {
 
     const card = el.firstElementChild as HTMLElement | null;
     const gap = Number.parseFloat(getComputedStyle(el).columnGap || "16") || 16;
-    const distance = ((card?.offsetWidth ?? el.clientWidth * 0.8) + gap) * cards;
+    const distance =
+      ((card?.offsetWidth ?? el.clientWidth * 0.8) + gap) * cards;
     const isRtl = getComputedStyle(el).direction === "rtl";
 
     // In RTL the next cards live to the left, i.e. at a more negative scrollLeft.

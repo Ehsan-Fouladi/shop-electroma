@@ -42,7 +42,10 @@ function CommandInput({
   ...props
 }: React.ComponentProps<typeof CommandPrimitive.Input>) {
   return (
-    <div className="flex items-center border-b border-line px-3" cmdk-input-wrapper="">
+    <div
+      className="flex items-center border-b border-line px-3"
+      cmdk-input-wrapper=""
+    >
       <Search className="me-2 size-4 shrink-0 opacity-50" aria-hidden />
       <CommandPrimitive.Input
         data-slot="command-input"
@@ -63,7 +66,10 @@ function CommandList({
   return (
     <CommandPrimitive.List
       data-slot="command-list"
-      className={cn("max-h-[320px] overflow-y-auto overflow-x-hidden", className)}
+      className={cn(
+        "max-h-[320px] overflow-y-auto overflow-x-hidden",
+        className,
+      )}
       {...props}
     />
   );
@@ -145,7 +151,10 @@ function CommandShortcut({
   return (
     <span
       data-slot="command-shortcut"
-      className={cn("ms-auto text-caption tracking-widest text-disabled-ink", className)}
+      className={cn(
+        "ms-auto text-caption tracking-widest text-disabled-ink",
+        className,
+      )}
       {...props}
     />
   );

@@ -17,7 +17,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { registerSchema, type RegisterFormValues } from "@/lib/validations/customer";
+import {
+  registerSchema,
+  type RegisterFormValues,
+} from "@/lib/validations/customer";
 import { useCustomerStore } from "@/store/customer-store";
 import { useState } from "react";
 
@@ -61,12 +64,17 @@ export default function RegisterPage() {
       <div className="mb-6 flex flex-col gap-2">
         <h1 className="text-heading font-bold text-ink">ثبت‌نام در الکتروما</h1>
         <p className="text-body-sm text-subtle-ink">
-          حساب کاربری بسازید تا خرید، پیگیری سفارش و مدیریت نشانی‌ها برایتان آسان‌تر شود.
+          حساب کاربری بسازید تا خرید، پیگیری سفارش و مدیریت نشانی‌ها برایتان
+          آسان‌تر شود.
         </p>
       </div>
 
       <Form {...form}>
-        <form noValidate onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        <form
+          noValidate
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex flex-col gap-4"
+        >
           <FormField
             control={form.control}
             name="name"
@@ -74,7 +82,11 @@ export default function RegisterPage() {
               <FormItem>
                 <FormLabel>نام و نام خانوادگی</FormLabel>
                 <FormControl>
-                  <Input placeholder="مثلاً: سارا احمدی" autoComplete="name" {...field} />
+                  <Input
+                    placeholder="مثلاً: سارا احمدی"
+                    autoComplete="name"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -142,9 +154,15 @@ export default function RegisterPage() {
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
                     className="absolute inset-y-0 left-0 flex items-center px-3 text-subtle-ink hover:text-ink focus-visible:outline-primary"
-                    aria-label={showPassword ? "پنهان کردن رمز عبور" : "نمایش رمز عبور"}
+                    aria-label={
+                      showPassword ? "پنهان کردن رمز عبور" : "نمایش رمز عبور"
+                    }
                   >
-                    {showPassword ? <EyeOff className="size-4.5" /> : <Eye className="size-4.5" />}
+                    {showPassword ? (
+                      <EyeOff className="size-4.5" />
+                    ) : (
+                      <Eye className="size-4.5" />
+                    )}
                   </button>
                 </div>
                 <FormMessage />
@@ -174,10 +192,16 @@ export default function RegisterPage() {
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                     className="absolute inset-y-0 left-0 flex items-center px-3 text-subtle-ink hover:text-ink focus-visible:outline-primary"
                     aria-label={
-                      showConfirmPassword ? "پنهان کردن تکرار رمز عبور" : "نمایش تکرار رمز عبور"
+                      showConfirmPassword
+                        ? "پنهان کردن تکرار رمز عبور"
+                        : "نمایش تکرار رمز عبور"
                     }
                   >
-                    {showConfirmPassword ? <EyeOff className="size-4.5" /> : <Eye className="size-4.5" />}
+                    {showConfirmPassword ? (
+                      <EyeOff className="size-4.5" />
+                    ) : (
+                      <Eye className="size-4.5" />
+                    )}
                   </button>
                 </div>
                 <FormMessage />
@@ -202,13 +226,19 @@ export default function RegisterPage() {
                       className="mt-0.5 size-4 rounded border-line text-primary focus:ring-primary"
                     />
                   </FormControl>
-                  <label htmlFor={field.name} className="cursor-pointer text-label text-body">
+                  <label
+                    htmlFor={field.name}
+                    className="cursor-pointer text-label text-body"
+                  >
                     با ثبت‌نام،{" "}
                     <Link href="/terms" className="text-brand hover:underline">
                       قوانین و مقررات
                     </Link>{" "}
                     و{" "}
-                    <Link href="/privacy" className="text-brand hover:underline">
+                    <Link
+                      href="/privacy"
+                      className="text-brand hover:underline"
+                    >
                       حریم خصوصی
                     </Link>{" "}
                     الکتروما را می‌پذیرم.
@@ -251,7 +281,8 @@ export default function RegisterPage() {
         <div className="flex items-center gap-2 rounded-md bg-brand-soft/60 p-3 text-start text-caption text-brand-active">
           <ShieldAlert className="size-4 shrink-0" aria-hidden />
           <span>
-            ثبت‌نام در این مرحله فرم آزمایشی فرانت‌اند است و حسابی روی سرور واقعی ایجاد نمی‌کند.
+            ثبت‌نام در این مرحله فرم آزمایشی فرانت‌اند است و حسابی روی سرور
+            واقعی ایجاد نمی‌کند.
           </span>
         </div>
       </div>

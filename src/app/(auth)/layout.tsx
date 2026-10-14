@@ -35,7 +35,8 @@ export default function AuthLayout({
 
       <footer className="text-center text-caption text-subtle-ink">
         <p>
-          تمام حقوق محفوظ است © ۱۴۰۵ الکتروما — محیط نمایشی فروشگاه (بدون سرور احراز هویت)
+          تمام حقوق محفوظ است © ۱۴۰۵ الکتروما — محیط نمایشی فروشگاه (بدون سرور
+          احراز هویت)
         </p>
       </footer>
     </div>

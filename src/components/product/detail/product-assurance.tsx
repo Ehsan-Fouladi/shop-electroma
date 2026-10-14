@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { BadgeCheck, RefreshCcw, ShieldCheck, Store, Truck } from "lucide-react";
+import {
+  BadgeCheck,
+  RefreshCcw,
+  ShieldCheck,
+  Store,
+  Truck,
+} from "lucide-react";
 
 import { valueProps } from "@/data/home";
 import { formatNumber } from "@/lib/formatters/number";
