@@ -307,7 +307,10 @@ export function HeroCarousel() {
                       aria-label={`نمایش اسلاید ${toPersianDigits(slideIndex + 1)}: ${slide.title}`}
                       aria-current={slideIndex === index}
                       className={cn(
-                        "h-2 rounded-full transition-all duration-300",
+                        // "h-2 rounded-full transition-all duration-300",
+                        "relative h-2 rounded-full transition-all duration-300",
+                        "before:absolute before:inset-[-10px] before:content-['']",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
                         slideIndex === index
                           ? "w-7 bg-primary"
                           : "w-2 bg-ink/20 hover:bg-ink/35",

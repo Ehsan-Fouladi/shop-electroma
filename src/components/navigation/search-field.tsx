@@ -319,11 +319,10 @@ export function SearchField({
   let itemCounter = 0;
 
   return (
-    <div ref={containerRef} className={cn("relative w-full", className)}>
+    <div ref={containerRef} className={cn("relative w-full", className)} role="search">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverAnchor asChild>
           <form
-            role="search"
             onSubmit={handleSubmit}
             className="relative w-full"
           >
@@ -358,6 +357,8 @@ export function SearchField({
               onKeyDown={handleKeyDown}
               placeholder="جستجوی محصول، برند یا دسته‌بندی…"
               aria-label="جستجو در فروشگاه"
+              role="combobox"
+              aria-haspopup="listbox"
               aria-expanded={open}
               aria-autocomplete="list"
               aria-controls={open ? listboxId : undefined}

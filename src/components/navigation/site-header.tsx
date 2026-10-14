@@ -99,6 +99,7 @@ export function SiteHeader() {
               </Link>
               <Link
                 href={demoContact ? "/account" : "/login"}
+                aria-label={demoContact ? "حساب کاربری" : "ورود / ثبت‌نام"}
                 className="inline-flex h-11 min-w-11 items-center justify-center gap-2 rounded-md px-2.5 py-2 text-body-sm font-medium text-ink transition-colors hover:bg-surface-soft hover:text-brand-active sm:h-auto sm:min-w-0"
               >
                 <UserRound className="size-5" aria-hidden />
