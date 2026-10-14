@@ -50,8 +50,8 @@ export function DealCard({ product }: { product: Product }) {
           />
         </div>
         <div className="flex items-center justify-between gap-2 text-caption">
-          <span className="text-sale">{toPersianDigits(percent)}٪ فروش رفته</span>
-          <span className="text-subtle-ink">
+          <span className="font-bold text-sale">{toPersianDigits(percent)}٪ فروش رفته</span>
+          <span className="font-bold text-subtle-ink">
             {toPersianDigits(product.stock)} عدد باقی مانده
           </span>
         </div>

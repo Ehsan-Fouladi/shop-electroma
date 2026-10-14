@@ -2,7 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, Pause, Play, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 
 import { Container } from "@/components/layout/container";
 import { SearchField } from "@/components/navigation/search-field";
@@ -152,7 +159,8 @@ export function HeroCarousel() {
     };
 
     document.addEventListener("visibilitychange", onVisibilityChange);
-    return () => document.removeEventListener("visibilitychange", onVisibilityChange);
+    return () =>
+      document.removeEventListener("visibilitychange", onVisibilityChange);
   }, [startAutoplay]);
 
   // Manual navigation with recovery timeout
@@ -181,8 +189,10 @@ export function HeroCarousel() {
   useEffect(() => {
     return () => {
       if (timerRef.current) window.clearInterval(timerRef.current);
-      if (recoveryTimeoutRef.current) window.clearTimeout(recoveryTimeoutRef.current);
-      if (programmaticTimeoutRef.current) window.clearTimeout(programmaticTimeoutRef.current);
+      if (recoveryTimeoutRef.current)
+        window.clearTimeout(recoveryTimeoutRef.current);
+      if (programmaticTimeoutRef.current)
+        window.clearTimeout(programmaticTimeoutRef.current);
     };
   }, []);
 
@@ -192,7 +202,12 @@ export function HeroCarousel() {
       aria-label="پیشنهادهای اصلی الکتروما"
       className="border-b border-line"
     >
-      <div className={cn("relative overflow-hidden transition-colors duration-700", themeClasses[heroSlides[index].theme])}>
+      <div
+        className={cn(
+          "relative overflow-hidden transition-colors duration-700",
+          themeClasses[heroSlides[index].theme],
+        )}
+      >
         <div
           aria-hidden
           className="pointer-events-none absolute -top-24 end-[-6rem] size-[26rem] rounded-full bg-primary/10 blur-3xl"
@@ -248,8 +263,15 @@ export function HeroCarousel() {
                         </Link>
                       </Button>
                       {slide.secondaryCta ? (
-                        <Button asChild size="lg" variant="outline" className="bg-surface/70">
-                          <Link href={slide.secondaryCta.href}>{slide.secondaryCta.label}</Link>
+                        <Button
+                          asChild
+                          size="lg"
+                          variant="outline"
+                          className="bg-surface/70"
+                        >
+                          <Link href={slide.secondaryCta.href}>
+                            {slide.secondaryCta.label}
+                          </Link>
                         </Button>
                       ) : null}
                     </div>
@@ -257,10 +279,20 @@ export function HeroCarousel() {
                     {slide.stats ? (
                       <dl className="mt-1 flex flex-wrap items-center gap-x-5 gap-y-2">
                         {slide.stats.map((stat) => (
-                          <div key={stat.label} className="flex items-center gap-2">
-                            <ShieldCheck className="size-4 text-brand" aria-hidden />
-                            <dt className="text-label text-subtle-ink">{stat.label}</dt>
-                            <dd className="text-body-sm font-bold text-ink">{stat.value}</dd>
+                          <div
+                            key={stat.label}
+                            className="flex items-center gap-2"
+                          >
+                            <ShieldCheck
+                              className="size-4 text-brand"
+                              aria-hidden
+                            />
+                            <dt className="text-label text-subtle-ink">
+                              {stat.label}
+                            </dt>
+                            <dd className="text-body-sm font-bold text-ink">
+                              {stat.value}
+                            </dd>
                           </div>
                         ))}
                       </dl>
@@ -298,7 +330,10 @@ export function HeroCarousel() {
           {/* Controls: Pagination, Counter, Interactive Play/Pause, Next/Prev */}
           <div className="flex items-center justify-between gap-4 pb-5 sm:pb-6">
             <div className="flex items-center gap-3">
-              <ul className="flex items-center gap-1.5" aria-label="انتخاب اسلاید">
+              <ul
+                className="flex items-center gap-0"
+                aria-label="انتخاب اسلاید"
+              >
                 {heroSlides.map((slide, slideIndex) => (
                   <li key={slide.id}>
                     <button
@@ -306,16 +341,17 @@ export function HeroCarousel() {
                       onClick={() => goTo(slideIndex)}
                       aria-label={`نمایش اسلاید ${toPersianDigits(slideIndex + 1)}: ${slide.title}`}
                       aria-current={slideIndex === index}
-                      className={cn(
-                        // "h-2 rounded-full transition-all duration-300",
-                        "relative h-2 rounded-full transition-all duration-300",
-                        "before:absolute before:inset-[-10px] before:content-['']",
-                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
-                        slideIndex === index
-                          ? "w-7 bg-primary"
-                          : "w-2 bg-ink/20 hover:bg-ink/35",
-                      )}
-                    />
+                      className="group flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    >
+                      <span
+                        className={cn(
+                          "block h-2 rounded-full transition-all duration-300",
+                          slideIndex === index
+                            ? "w-7 bg-primary"
+                            : "w-2 bg-ink/20 group-hover:bg-ink/40",
+                        )}
+                      />
+                    </button>
                   </li>
                 ))}
               </ul>

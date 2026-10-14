@@ -68,7 +68,7 @@ export function ProductCard({ product, className, priority = false }: ProductCar
 
         <div className="flex items-center gap-1.5">
           <Rating value={product.rating} />
-          <span className="hidden text-caption text-disabled-ink @[205px]:inline">
+          <span className="hidden text-caption font-bold text-disabled-ink @[205px]:inline">
             ({toPersianDigits(product.reviewCount.toLocaleString("en-US"))} نظر)
           </span>
         </div>
@@ -90,7 +90,7 @@ export function ProductCard({ product, className, priority = false }: ProductCar
         <div className="flex flex-col gap-2 @[215px]:flex-row @[215px]:items-center @[215px]:justify-between">
           <span
             className={cn(
-              "flex items-center gap-1 text-caption",
+              "flex items-center gap-1 text-caption font-bold",
               lowStock ? "text-warning" : "text-success",
             )}
           >
