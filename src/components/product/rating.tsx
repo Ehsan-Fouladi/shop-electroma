@@ -15,12 +15,12 @@ export function Rating({ value, reviewCount, size = "sm", className }: RatingPro
     <div className={cn("flex items-center gap-1.5", className)}>
       <span
         className={cn(
-          "flex items-center gap-1 font-medium text-warning",
+          "flex items-center gap-1 font-medium text-[#92400e]",
           size === "sm" ? "text-label" : "text-body-sm",
         )}
       >
         <Star
-          className={cn("fill-warning text-warning", size === "sm" ? "size-3.5" : "size-4")}
+          className={cn("fill-[#92400e] text-[#92400e]", size === "sm" ? "size-3.5" : "size-4")}
           aria-hidden
         />
         {toPersianDigits(value.toFixed(1))}

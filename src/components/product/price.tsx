@@ -23,7 +23,7 @@ export function Price({ price, oldPrice, size = "default", valueClassName, class
     <div className={cn("flex flex-col items-start gap-1", className)}>
       {off ? (
         <div className="flex items-center gap-2">
-          <Badge variant="sale-soft" className="tabular">
+          <Badge className="tabular bg-sale text-white">
             {formatPercent(off)}
           </Badge>
           <span className="tabular text-label text-disabled-ink line-through">
