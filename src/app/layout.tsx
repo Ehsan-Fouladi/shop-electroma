@@ -123,14 +123,7 @@ export default function RootLayout({
       <body className="min-h-dvh antialiased">
         <Direction.Provider dir="rtl">
           {children}
-          <Toaster
-            position="top-right"
-            dir="rtl"
-            theme="light"
-            richColors
-            closeButton
-            mobileOffset={{ bottom: 88 }}
-          />
+          <Toaster position="top-center" richColors closeButton />
         </Direction.Provider>
       </body>
     </html>
